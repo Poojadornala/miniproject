@@ -1,0 +1,21 @@
+/* ----- style.css ----- */
+*  {
+    margin: 0;
+    padding: 0;
+}
+body {
+  background-color: rgb(100, 48, 212);
+  background-image: url("shrikrishna.jpg");
+  background-size: contain;
+}
+svg path {
+   fill: rgb(235, 161, 13);
+   stroke:rgb(33, 31, 31);
+   stroke-width: .25;
+}
+svg path:hover {
+   fill: rgb(193, 114, 36);
+   transition: 0.6s;
+   cursor:pointer;
+   scale: calc(1.01);
+}
