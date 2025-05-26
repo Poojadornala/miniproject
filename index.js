@@ -14,9 +14,28 @@ app.get("/",(req,res)=>{
         message: "Welcome to the server!"
     });
 });
-app.post("/register",(req,res)=>{
+app.post("/register",async(req,res)=>{
     //console.log(req.body);
     const {Email, Password} = req.body;
-    console.log(`Email: ${Email}, Password: ${Password}`);
-    res.status(200).json({message:"User registered"});
+    try{
+        const hashedPassword = await bcrypt.hash(Password, 10);
+        console.log('user data',
+            {Email, Password: hashedPassword});
+        res.status(200).send({
+            message: "User registered successfully",})
+        }catch(error){
+            console.error("Error hashing password:", error);
+            res.status(500).send({
+                message: "Error registering user"
+            });
+        }
+    });
+app.post("/login",async(req,res)=>{
+    console.log("user logged in",req.body)
+    const {email, password} = req.body;
+    let hashedPassword = "Sample"; 
+    let response=await bcrypt.compare(password, "hashedPassword");
+    console.log("is same?",response);
+    res.send(200).send('matched');
+
 })
