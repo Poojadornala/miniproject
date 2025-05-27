@@ -7,7 +7,7 @@ app.listen(3000,()=>{
     console.log("Server is running on port 3000");
 })
 app.use(cors());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const connection=mysql.createConnection({
     host:"localhost",
@@ -22,6 +22,8 @@ connection.connect((err)=>{
         console.log("Connected to the database");
     }
 });
+
+
 app.get("/",async (req,res)=>{
     console.log(req);
     res.status(200).json({
@@ -29,8 +31,9 @@ app.get("/",async (req,res)=>{
     });
 });
 app.post("/register", async (req, res) => {
-    const { email, password } = req.body;
-    console.log(res.status);
+   const { email, password } = req.body ;
+
+    
     if(!email||!password){
         return res.status(400).json({ message: "Email and Password are required" });
     }
@@ -59,7 +62,8 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
     console.log("User logged in:", req.body);
-    const { email, password } = req.body;
+    const { email, password } = req.body || {};
+
 
     connection.query(
         `SELECT HashedPassword FROM Users WHERE EmailId = ?`,
