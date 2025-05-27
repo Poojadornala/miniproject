@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Language Translate Test</title>
+</head>
+<body>
+
+<h2 align="center">🌐 Translate This Page</h2>
+<p align="center">Try switching to Hindi, Telugu, or Tamil!</p>
+
+<!-- Google Translate Dropdown Container -->
+<div id="google_translate_element" style="text-align: center; margin-top: 30px;"></div>
+
+<!-- Google Translate Scripts -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,te,ta,kn,ml',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+</body>
+</html>
