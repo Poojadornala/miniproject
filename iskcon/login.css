@@ -1,0 +1,16 @@
+body{
+    background-color: #cdcad1;
+    
+}
+#loginbutton{
+    background-color: rgb(75, 74, 74);
+    color: white;
+    width:100%;
+}
+.card{
+    box-shadow: 0px,0px,4px,rgba(0,0,0,0.2);
+    border:1px,solid rgb(60, 46, 105);
+}
+a{
+    text-decoration: none;;
+}
