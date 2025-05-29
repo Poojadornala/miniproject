@@ -46,5 +46,41 @@ body{
     margin-bottom: 5px;
 
 }
+.header-bar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+}
 
-   
+.title {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #161616;
+}
+
+.home-button {
+  position: absolute;
+  right: 40px;
+  text-decoration: none;
+  color: rgb(43, 41, 41);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.home-button:before{
+    content: '';
+    position: absolute;
+    background:#1c1c1c;
+    width:0;
+    height :3px;
+    bottom:0;
+    left:0;
+    transition:0.3s ease ;
+}
+.home-button:hover:before{
+    width:100%;
+}
