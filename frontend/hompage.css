@@ -245,3 +245,49 @@ section{
          transition: 0.3s ease;
     }
 }
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #888; /* Softer grey */
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+ 
+   /* Darker background */
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#dropdown-menu.show {
+  display: block;
+}
+
+#logout {
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364); /* Deep space blues */
+  color: #ffffff;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2); /* subtle neon glow */
+  transition: all 0.3s ease;
+  margin-top: 15px;
+ 
+}
+
+#logout:hover {
+  background: linear-gradient(145deg, #112d3a, #274a5d); /* slightly brighter on hover */
+  box-shadow: 0 4px 18px rgba(0, 255, 255, 0.3);
+}

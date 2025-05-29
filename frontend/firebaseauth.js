@@ -3,7 +3,7 @@
  import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
  import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"
  
- const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCdjF5lNTTUuhexPNsdFFvMMhppEhI_sBw",
   authDomain: "krishna-temples.firebaseapp.com",
   projectId: "krishna-temples",
@@ -11,6 +11,7 @@
   messagingSenderId: "305414827686",
   appId: "1:305414827686:web:96b6f3573ab90022514e67"
 };
+
  // Initialize Firebase
  const app = initializeApp(firebaseConfig);
 
@@ -76,7 +77,7 @@
         showMessage('login is successful', 'signInMessage');
         const user=userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href='homepage.html';
+        window.location.href='homepage2.html';
     })
     .catch((error)=>{
         const errorCode=error.code;

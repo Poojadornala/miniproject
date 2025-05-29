@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krishna Temples</title>
   <link rel="stylesheet" href="hompage.css">
+  <script type="module" src="homepage.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <header>
   <a href="#" class="brand">Krishna</a>
-  <div claa="menu-btn"></div>
+  <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
     <a href="homepage2.html">Home</a>
@@ -18,8 +19,16 @@
     <a href="contact.html">Contact</a>
     <a href="about.html">About us</a>
     <a href="krishnastory.html">Bhagavad Gita</a>
+    
       </div>
     </div>
+     <div class="profile-menu">
+  <div id="user-profile-icon" class="profile-icon"></div>
+
+  <div class="dropdown" id="dropdown-menu">
+    <button id="logout">Log out</button>
+  </div>
+</div>
 </header>
 <section class="home">
   <video class="video-slide active" src="bg-video.mp4" autoplay muted loop></video>
@@ -91,7 +100,8 @@
     });
   })
 </script>
-  
+ 
+
   
 </body>
 </html>
