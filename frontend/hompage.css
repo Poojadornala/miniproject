@@ -264,11 +264,77 @@ section{
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd;
+    
 }
 
 .profile-name {
     font-size: 16px;
     font-weight: bold;
     color: #333;
+}
+  
+  /* Hide the top frame bar */
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+
+  /* Push body up to fill space */
+  body {
+    top: 0px !important;
+  }
+
+  /* Hide full-page overlay */
+  .goog-te-gadget-icon {
+    display: none !important;
+  }
+
+  /* Hide powered-by text */
+  .goog-logo-link {
+    display: none !important;
+  }
+.goog-logo-link, .goog-te-gadget span {
+  display: none !important;
+}
+
+  .goog-te-gadget {
+    font-size: 0 !important;
+  }
+
+body > .skiptranslate {
+  display: none !important;
+}
+
+
+body {
+  top: 0px !important;
+}
+
+/* Container styling */
+#google_translate_element {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+/* Dropdown styling */
+#google_translate_element select {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#google_translate_element select:hover {
+  background-color: rgb(0, 0, 0);
+  color: #fffcfc;
 }

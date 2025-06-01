@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="hompage.css">
   <script type="module" src="homepage.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="scripts.js" defer></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    #google_translate_element {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -27,6 +37,10 @@
 
 
 </header>
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="scripts.js"></script> 
+
 <section class="home">
   <video class="video-slide active" src="bg-video.mp4" autoplay muted loop></video>
     <video class="video-slide" src="bg-video2.mp4" autoplay muted loop></video>
@@ -61,7 +75,7 @@
     
   </div>
   <div class="slider-navigation">
-    <div class="nav-btn"></div>
+    <div class="nav-btn active"></div>
     <div class="nav-btn"></div>
     <div class="nav-btn"></div>
     <div class="nav-btn"></div>
@@ -98,7 +112,69 @@
   })
    
 </script>
- 
+
+ <!-- Chatbot UI -->
+<div id="chatbot-icon" style="position: fixed; bottom: 20px; right: 20px; background: #6b4fbb; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000;">
+  💬
+</div>
+
+<div id="chatbot-window" style="position: fixed; bottom: 80px; right: 20px; width: 300px; max-height: 400px; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 1000;">
+  <div style="background: #6b4fbb; color: white; padding: 10px; border-radius: 10px 10px 0 0;">Ask KrishnaBot</div>
+  <div id="chatlog" style="padding: 10px; overflow-y: auto; flex-grow: 1; max-height: 300px;"></div>
+  <div style="display: flex; border-top: 1px solid #ccc;">
+    <input id="chat-input" type="text" placeholder="Ask about this site..." style="flex: 1; border: none; padding: 10px;">
+    <button onclick="sendChat()" style="background: #6b4fbb; color: white; border: none; padding: 10px;">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatbotIcon = document.getElementById("chatbot-icon");
+  const chatbotWindow = document.getElementById("chatbot-window");
+  const chatlog = document.getElementById("chatlog");
+
+  chatbotIcon.addEventListener("click", () => {
+    chatbotWindow.style.display = chatbotWindow.style.display === "flex" ? "none" : "flex";
+  });
+
+  function sendChat() {
+    const input = document.getElementById("chat-input");
+    const userMsg = input.value.trim();
+    if (!userMsg) return;
+
+    appendChat("You", userMsg);
+    input.value = "";
+
+    const response = getBotResponse(userMsg.toLowerCase());
+    setTimeout(() => appendChat("KrishnaBot", response), 600);
+  }
+
+  function appendChat(sender, message) {
+    const msgDiv = document.createElement("div");
+    msgDiv.style.margin = "5px 0";
+    msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatlog.appendChild(msgDiv);
+    chatlog.scrollTop = chatlog.scrollHeight;
+  }
+
+  function getBotResponse(message) {
+    if (message.includes("sloka") || message.includes("slokas"))
+      return "You can explore slokas on the Slokas page!";
+    if (message.includes("contact"))
+      return "You can reach us through the Contact page.";
+    if (message.includes("gita") || message.includes("bhagavad"))
+      return "Read the Bhagavad Gita section to learn more about Krishna's teachings.";
+    if (message.includes("iskcon"))
+      return "ISKCON temples are highlighted in the Explore section.";
+    if (message.includes("temples") || message.includes("home"))
+      return "Visit our homepage to explore ancient and ISKCON Krishna temples.";
+    if (message.includes("logout"))
+      return "Use the Log out link on the navigation bar.";
+
+    return "Sorry, I can only help with questions related to this site!";
+  }
+</script>
+
+
 
   
 </body>

@@ -57,9 +57,3 @@ logoutButton.addEventListener('click', () => {
   });
 });
 
-// Close dropdown if clicked outside
-window.addEventListener('click', function(e) {
-  if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
-    dropdownMenu.style.display = 'none';
-  }
-});
