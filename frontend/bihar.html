@@ -1,104 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIHAR</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Information about Sri Sri Radha Banke Bihari Ji Mandir (ISKCON Patna), including history, location, and significance." />
+  <title>BIHAR</title>
+ <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="scripts.js" defer></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <style>
+    /* Ensure the map has a visible height */
+    #map {
+      height: 400px;
+      width: 100%;
+      margin: 20px 0;
+    }
+    /* Centering some text/buttons */
+    .center {
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 10px 0;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
     <h4 align="center">BIHAR</h4>
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#Image">Image</a></li>
-            <li><a href="#History">History</a></li>
-            
-            <li><a href="#Significance">Significance</a></li>
-            <li><a href="#location">Location</a></li>
-            <li><a href="#accommodation">Accommodation</a></li>
-            <li><a href="#website">Website</a></li>
-          
-          
-            <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
-        </ul>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#image">Image</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#significance">Significance</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#accommodation">Accommodation</a></li>
+        <li><a href="#website">Website</a></li>
+        <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
+      </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="scripts.js"></script> 
-    <div class="container">
-        <h1 align="center">Sri Sri Radha Banke Bihari Ji Mandir</h1>
-        <section id="about">
-        <p>The proper name of ISKCON Temple in Patna is Sri Sri Radha Banke Bihari Ji Mandir. The temple is located in Buddha Marg in the Patna in the Indian state of Patna. The entire ISKCON temple in the world is dedicated to Radha and Krishna and is basically a Hindu Temple. It is presenting undergoing constructed and not yet completed. But this important temple is coming up and soon devotees from across Bihar, Patna and the neighbouring cities would pay visit to this temple to offer prayer to the divine Krishna and Radha</p>
-</section>
-        <center>
-            <h2>Temple</h2>
-            <section id="Image">
-        <img src  ="bihar.jpg" >
-         </section></center>
-         
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-           
-            International Society for Krishna Consciousness abbreviated as ISKCON is a Hare Krishna movement which was formed 13th July, 1966 in New York City. The founder of ISKCON was Bhaktivedanta Swami. This movement was started by the Gaudiya Vaishnava sect of Hinduism. The Vaishnava sects of Hinduism are the ones who follow Lord Vishnu and Gaudiya being the place of origin Gauda in the Indian state of West Bengal. It originated more than 500 years ago. The organisation was formed to spread the teachings in Bhagawat Gita which is said to have been recited by Lord Krishna. The basic teachings of the ISKCON are Bhakti Yoga who principles are to dedicate ones thoughts and actions to the Supreme Lord Krishna. They consider Lord Krishna as the Supreme God who is an incarnation of Lord Vishnu in Hinduism. Radha, representing as Lord Krishna's Divine partner. In order to lay a deep root of the teaching of Lord Krishna a total of 550 centres were built around the world. The Sri Sri Banke Bihari Ji Temple in Patna being one of them.
-        </p>
-        </section>
-        <h2 align="center"> Architectural Significance</h2>
-        <section id="Significance">
-        <p>
-            The construction of the ISKCON temple in Patna is in the form of the common type of Hindu Temples. It is built will an estimated budget of 51 crores. It will expand over an area of 2 acres and will be the largest building in Patna so far and will also be the biggest Radha Krishna temple in the whole of Bihar and Jharkhand state. The sanctum sanctorum of the temple will comprise idols of their primary deities Sri Sri Gaur Nitai, Sri Sri Radha Banke Bihari Ji and Sri Sri Ram Durbar in three different halls. The idols will be 3 feet tall placed on 24 carats gold plated thrones. The hall of Temple will be big enough to accommodate a large number of devotees. It will have a veranda around the main hall of the temple where worshipping the lord can be done through Pradakshana.There is will be a total of 84 pillars built as a part of the temple. It will comprises of a number of spires with a single biggest one accompanied by smaller spires on the roof. It is said that the temple in Patna will have a book distribution centre and a Gurukula where the glory of ancient Bihar will be taught. The temple will be having a medical complex and restaurants which will serve only vegetarian food. The temple will hold a peaceful and serene environment with no temple bells as seen in any other Hindu temples. It radiates a clam environment.</p></section>
+  </header>
 
-        <h2>Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>patna</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Bihar</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
-        </section>
+  <main class="container">
+    <h1 align="center">Sri Sri Radha Banke Bihari Ji Mandir</h1>
 
-      
-        <h2 class="center">Official Website</h2>
-        <section id="website">
-        <p class="center">offical website <br><a class="button" href=https://iskconpatna.com/">click here to open official website</a></p>
-</section>
-        <h2 class="center">Accommodation</h2>
-        <section id="accommodation">
-        <p class="center">Here are the hotels available near shri shri banke bihari ji temple patna.<br> <a class="button" href="https://www.tripadvisor.com/Hotels-g297592-Patna_Patna_District_Bihar-Hotels.html">Book a room</a></p>
-</section>
-      
-</section>
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam">
-        <h3 class="center">Chapter 9, Verse 26</h3>
-        <p class="center">पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति | |<br>तदहं भक्त्युपहृतमश्नामि प्रयतात्मन: || 26||<br>patraṁ puṣhpaṁ phalaṁ toyaṁ yo me bhaktyā prayachchhati<br>tadahaṁ bhaktyupahṛitam aśhnāmi prayatātmanaḥ</p>
-        <center>
+    <section id="about">
+      <p>
+        The proper name of ISKCON Temple in Patna is Sri Sri Radha Banke Bihari Ji Mandir. The temple is located in Buddha Marg in Patna in the Indian state of Bihar. The entire ISKCON temple network is dedicated to Radha and Krishna and is a Hindu temple. It is currently under construction but is expected to become an important spiritual center for devotees from across Bihar and beyond.
+      </p>
+    </section>
 
-        <audio controls>
-            
-            <source src="chapter9verse26.mp3">
-            Your browser does not support the audio element.
-        
-        </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">If one offers to Me with devotion a leaf, a flower, a fruit, or even water, I delightfully partake of that item offered with love by My devotee in pure consciousness.</p>
-</section>
-<p class="center"><a class="button" href=krishna1.html>GO HOME</a></p><br>
-    </div>
-    
+    <section id="image">
+      <center>
+        <h2>Temple</h2>
+        <img src="bihar.jpg" alt="ISKCON Temple Patna Image" />
+      </center>
+    </section>
 
+    <section id="history">
+      <h2 align="center">History</h2>
+      <p>
+        The International Society for Krishna Consciousness (ISKCON), also known as the Hare Krishna movement, was founded on July 13, 1966, in New York City by A.C. Bhaktivedanta Swami Prabhupada. It is rooted in the Gaudiya Vaishnavism tradition of Hinduism. The movement spreads the teachings of the Bhagavad Gita, emphasizing Bhakti Yoga—devotion to Lord Krishna, who is considered the Supreme Personality of Godhead. There are over 550 ISKCON centers worldwide, including the Sri Sri Radha Banke Bihari Ji Temple in Patna.
+      </p>
+    </section>
+
+    <section id="significance">
+      <h2 align="center">Architectural Significance</h2>
+      <p>
+        The ISKCON temple in Patna is being built in the traditional Hindu temple style with a budget of ₹51 crores, spanning over 2 acres. It is set to be the largest building in Patna and the biggest Radha Krishna temple in Bihar and Jharkhand. The sanctum will house deities of Sri Sri Gaur Nitai, Sri Sri Radha Banke Bihari Ji, and Sri Sri Ram Durbar in three separate halls. Idols will be 3 feet tall on 24-carat gold-plated thrones. The temple will have 84 pillars, several spires, a Gurukula, a book distribution center, a vegetarian restaurant, and a peaceful, bell-free environment.
+      </p>
+    </section>
+
+    <section id="location">
+      <h2>Location</h2>
+      <table>
+        <tr>
+          <th>Location</th>
+          <td>Patna</td>
+        </tr>
+        <tr>
+          <th>State</th>
+          <td>Bihar</td>
+        </tr>
+        <tr>
+          <th>Country</th>
+          <td>India</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="website">
+      <h2 class="center">Official Website</h2>
+      <p class="center">
+        Official website <br />
+        <a class="button" href="https://iskconpatna.com/" target="_blank" rel="noopener noreferrer">Click here to open official website</a>
+      </p>
+    </section>
+
+    <section id="accommodation">
+      <h2 class="center">Accommodation</h2>
+      <p class="center">
+        Here are the hotels available near Sri Sri Radha Banke Bihari Ji Temple, Patna.<br />
+        <a class="button" href="https://www.tripadvisor.com/Hotels-g297592-Patna_Patna_District_Bihar-Hotels.html" target="_blank" rel="noopener noreferrer">Book a room</a>
+      </p>
+    </section>
+
+    <section id="slokam">
+      <h2 class="center">Bhagavad Gita Slokam</h2>
+      <h3 class="center">Chapter 9, Verse 26</h3>
+      <p class="center" style="line-height: 1.6;">
+        पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति |<br />
+        तदहं भक्त्युपहृतमश्नामि प्रयतात्मन: || 26 ||<br />
+        <em>patraṁ puṣhpaṁ phalaṁ toyaṁ yo me bhaktyā prayachchhati<br />
+        tadahaṁ bhaktyupahṛitam aśhnāmi prayatātmanaḥ</em>
+      </p>
+      <audio controls>
+        <source src="chapter9verse26.mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <h2 class="center">Translation</h2>
+      <p class="center">
+        If one offers to Me with devotion a leaf, a flower, a fruit, or even water, I delightfully partake of that item offered with love by My devotee in pure consciousness.
+      </p>
+    </section>
+
+    <h2 align="center">Route to ISKCON Patna Temple</h2>
+    <div id="map"></div>
+
+    <p class="center"><a class="button" href="krishna1.html">GO HOME</a></p>
+  </main>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    // Coordinates for ISKCON Patna Temple
+    const templeCoords = [25.6127, 85.1411];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: () => null,
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false
+        }).addTo(map);
+
+        control.on('routesfound', function (e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
 </body>
 </html>

@@ -1,114 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kerala</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guruvayur Temple - Kerala</title>
+   <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="style.css" />
+  <script src="scripts.js" defer></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <style>
+    /* Ensure the map has a visible height */
+    #map {
+      height: 400px;
+      width: 100%;
+      margin: 20px 0;
+    }
+    /* Centering some text/buttons */
+    .center {
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 10px 0;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">
-        KERALA
-    </h4>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#Image">Image</a></li>
-            
-            <li><a href="#History">History</a></li>
-            <li><a href="#location">Location</a></li>
-            <li><a href="#accommodation">Accommodation</a></li>
-            <li><a href="#website">Official website</a></li>
-            <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
-        </ul>
-    </nav>
-    <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="scripts.js"></script> 
-    <div class="container">
-        <h1 align="center">Guruvayur</h1>
-        <section id="about">
-        <p>The Guruvayur Temple is a Hindu temple dedicated to Guruvayurappan, a form of Vishnu, but popularly known as Krishna, located in the town of Guruvayur in Kerala, India. It is one of the most important places of worship for Hindus in Kerala and Tamil Nadu and is often referred to as Bhuloka Vaikuntha (Vaikuntha in the earthly realm).The temple is Classified one among the 108 Abhimana Kshethram of Vaishnavate tradition.</p>
-        <h1 align="center">Temple</h1>
-        <section id="Image">
-        <center>
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\kerala.jpg" >
-         </center>
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            In the 14th century, the Tamil literature "Kokasandesam" refers to a place named "Kuruvayur" and in the 16th century (fifty years after Narayaniyam was composed) there are also multiple references to Kuruvayur[by what?]. In Old Tamil, "kuruvai" means "sea", hence the village on the Malabar Coast may be called Kuruvayur.[9]
 
-            The earliest temple records date back to the 17th century. The earliest mention of the many important Vishnu temples of Kerala are found in the songs of Alvars, the Tamil poet-saints, whose time-line is not exactly fixed.[10] However, by the end of 16th century, Guruvayur had become the most popular pilgrimage centre in Kerala.</p>
-        <h2 align="center">Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>Guruvayur</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Kerala</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-            <tr>
-                <th>Deity</th>
-                <td>Guruvayurappan(Vishnu with four arms in his form of krishna)</td>
-            </tr>
-            <tr>
-                <th>Festivals</th>
-                <td>Janmashtami, kumbham utsavam, Guruvayur Ekadasi</td>
-            </tr>
-        </table>
+  <h4 align="center">KERALA</h4>
 
-        
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#Image">Image</a></li>
+      <li><a href="#History">History</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#accommodation">Accommodation</a></li>
+      <li><a href="#website">Official Website</a></li>
+      <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
+    </ul>
+  </nav>
 
-        
-        <h2 align="center">Accommadation</h2>
-        <section id="accommodation"></section>
-        <p class="center"><a class="button" href=https://www.booking.com>click here to book a room</a></p><br>
-        <p></p>
-        <h2 align="center">Official website</h2>
-        <section id="website">
-        <p class="center"><a class="button" href=https://guruvayurdevaswom.nic.in/Home>click here to open official website</a></p><br>
-        <p></p>
-        </section>
-        
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam"></section>
-        <h3 class="center">Chapter 10, Verse 23</h3>
-        <p class="center">रुद्राणां शङ्करश्चास्मि वित्तेशो यक्षरक्षसाम् | |<br>वसूनां पावकश्चास्मि मेरु: शिखरिणामहम् || 23||
+  <div id="google_translate_element"></div>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            <br><br>rudrāṇāṁ śhaṅkaraśh chāsmi vitteśho yakṣha-rakṣhasām<br>vasūnāṁ pāvakaśh chāsmi meruḥ śhikhariṇām aham
+  <div class="container">
 
-        </p>
-        <center>
+    <section id="about">
+      <h1 align="center">Guruvayur Temple</h1>
+      <p>The Guruvayur Temple is dedicated to Guruvayurappan, a form of Vishnu (Krishna). It is located in Guruvayur, Kerala, and is considered one of the most sacred pilgrimage centers in South India.</p>
+    </section>
 
+    <section id="Image" align="center">
+      <h2>Temple Image</h2>
+      <img src="kerala.jpg" alt="Guruvayur Temple" width="600" />
+    </section>
+
+    <section id="History">
+      <h2 align="center">History</h2>
+      <p>Historical references to Guruvayur date back to the 14th century. The temple is also mentioned in Tamil literature and gained popularity by the 16th century as a major pilgrimage destination.</p>
+    </section>
+
+    <section id="location">
+      <h2 align="center">Location</h2>
+      <table>
+        <tr><th>Location</th><td>Guruvayur</td></tr>
+        <tr><th>State</th><td>Kerala</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Guruvayurappan (Vishnu)</td></tr>
+        <tr><th>Festivals</th><td>Janmashtami, Kumbham Utsavam, Ekadasi</td></tr>
+      </table>
+    </section>
+
+    <section id="accommodation">
+      <h2 align="center">Accommodation</h2>
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank">Click here to book a room</a></p>
+    </section>
+
+    <section id="website">
+      <h2 align="center">Official Website</h2>
+      <p class="center"><a class="button" href="https://guruvayurdevaswom.nic.in/Home" target="_blank">Click here to open the official website</a></p>
+    </section>
+
+    <section id="slokam">
+      <h2 align="center">Bhagavad Gita Slokam</h2>
+      <h3 align="center">Chapter 10, Verse 23</h3>
+      <p align="center">
+        रुद्राणां शङ्करश्चास्मि वित्तेशो यक्षरक्षसाम् ||<br>
+        वसूनां पावकश्चास्मि मेरुः शिखरिणामहम् || 23||
+      </p>
+      <p align="center">
+        rudrāṇāṁ śhaṅkaraśh chāsmi vitteśho yakṣha-rakṣhasām<br>
+        vasūnāṁ pāvakaśh chāsmi meruḥ śhikhariṇām aham
+      </p>
+      <center>
         <audio controls>
-            
-            <source src="chapter10verse23.mp3">
-            Your browser does not support the audio element.
-        
+          <source src="chapter10verse23.mp3">
+          Your browser does not support the audio element.
         </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center"> Amongst the rudras know Me to be Shankar; amongst the semi-celestial beings and demons I am Kuber. I am Agni amongst the vasus and Meru amongst the mountains.</p>
+      </center>
+      <h3 class="center">Translation</h3>
+      <p class="center">Among the Rudras I am Shankar, among Yakshas and Rakshasas I am Kubera. Among the Vasus I am Agni, and among mountains I am Meru.</p>
+    </section>
 
-        <div class="info">
-            <h2>Extra Information</h2>
-            <p>
-                Step into a realm of spirituality and serenity at the guruvayur temple, where every visit is a journey of enlightenment and bliss.</p>
-        </div>
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
-    </div>
+    <h2 align="center">Route to Guruvayur Temple</h2>
+    <div id="map"></div>
+
+    <p class="center"><a class="button" href="krishna1.html">GO HOME</a></p>
+
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [10.5941, 76.0410]; // Guruvayur Temple
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Guruvayur Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function () { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const routes = e.routes;
+          const summary = routes[0].summary;
+
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
 
 </body>
 </html>

@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tamilnadu</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+     <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="style.css" />
+  <script src="scripts.js" defer></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
- 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <style>
+    /* Ensure the map has a visible height */
+    #map {
+      height: 400px;
+      width: 100%;
+      margin: 20px 0;
+    }
+    /* Centering some text/buttons */
+    .center {
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 10px 0;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
     <h4 align="center">TAMIL NADU</h4>
@@ -96,7 +123,64 @@ According to historian K.V. Soundararajan, the Rangantha temples in South India 
                 Step into a realm of spirituality and serenity at the rajagopala swamy temple, where every visit is a journey of enlightenment and bliss.</p>
         </div>
     </div>
-    <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
-    
+    <h2 align="center">Route to ISKCON Patna Temple</h2>
+    <div id="map"></div>
+
+    <p class="center"><a class="button" href="krishna1.html">GO HOME</a></p>
+  </main>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    // Coordinates for ISKCON Patna Temple
+    const templeCoords = [25.6127, 85.1411];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: () => null,
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false
+        }).addTo(map);
+
+        control.on('routesfound', function (e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
 </body>
 </html>

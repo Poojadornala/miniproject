@@ -1,101 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASSAM</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASSAM</title>
+
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="scripts.js" defer></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 </head>
+
 <body>
-    <h4 align="center">BIHAR</h4>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#image">Image</a></li>
-            <li><a href="#History">History</a></li>
-            <li><a href="#festivals">Festivals</a></li>
-            <li><a href="#Location">Location</a></li>
-            <li><a href="#accommodation">Accommodation</a></li>
-          
-            <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
-        </ul>
-    </nav>
-    <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="scripts.js"></script> 
-    <div class="container">
-        <h1 align="center">HARE KRISHNA TEMPLE</h1>
-        <section id="about">
-        <p>The Hare Krishna Temple in North Guwahati,assam is a branch of the International Society for Krishna Consciousness (ISKCON), which is a worldwide organization dedicated to the practice and promotion of the Hare Krishna movement, also known as the Gaudiya Vaishnavism tradition.</p>
-        </section>
-        <h1 align="center">Temple</h1>
-        <section id="image">
-        <center>
-        <img src  ="assam.jpg" >
-        </center>
-         </section>
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            The temple in North Guwahati was established to provide a place for devotees to gather, worship, and practice their faith. The temple hosts regular bhajans (devotional singing), kirtans (musical chanting), and arati (worship ceremonies) throughout the day.
+  <h4 align="center">ASSAM</h4>
 
-            In addition to the daily worship activities, the temple also offers a variety of services and programs, such as spiritual guidance, counseling, and educational workshops on Vedic philosophy and culture. The temple also provides prasad (sanctified food) to visitors and hosts festivals and celebrations throughout the year, including Janmashtami, Radha Ashtami, and Holi.Overall, the Hare Krishna Temple in North Guwahati serves as a spiritual center for devotees and seekers alike, offering opportunities for worship, learning, and community building in the context of the Hare Krishna tradition.</p> 
- </section>
- <h2 align="center">Location</h2>
- <section id="Location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>guwahati</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>assam</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
-        </section>
-        
-    
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#image">Image</a></li>
+      <li><a href="#History">History</a></li>
+      <li><a href="#festivals">Festivals</a></li>
+      <li><a href="#Location">Location</a></li>
+      <li><a href="#accommodation">Accommodation</a></li>
+      <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
+    </ul>
+  </nav>
 
-        
-        
-        
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam">
-        <h3 class="center">Chapter 10, Verse 8</h3>
-        <p class="center">अहं सर्वस्य प्रभवो मत्त: सर्वं प्रवर्तते |<br>इति मत्वा भजन्ते मां बुधा भावसमन्विता: || 8||<br><br>ahaṁ sarvasya prabhavo mattaḥ sarvaṁ pravartate<br>iti matvā bhajante māṁ budhā bhāva-samanvitāḥ
+  <div id="google_translate_element"></div>
 
-        </p>
-        <center>
+  <div class="container">
+    <h1 align="center">HARE KRISHNA TEMPLE</h1>
 
+    <section id="about">
+      <p>The Hare Krishna Temple in North Guwahati, Assam is a branch of the International Society for Krishna Consciousness (ISKCON), dedicated to the practice and promotion of the Hare Krishna movement, also known as the Gaudiya Vaishnavism tradition.</p>
+    </section>
+
+    <h2 align="center">Temple</h2>
+    <section id="image">
+      <center>
+        <img src="assam.jpg" alt="Hare Krishna Temple" />
+      </center>
+    </section>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>The temple in North Guwahati was established to provide a place for devotees to gather, worship, and practice their faith. It hosts regular bhajans, kirtans, arati ceremonies, and also provides prasad to visitors. Festivals such as Janmashtami and Holi are celebrated with great devotion.</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="Location">
+      <table>
+        <tr>
+          <th>Location</th>
+          <td>Guwahati</td>
+        </tr>
+        <tr>
+          <th>State</th>
+          <td>Assam</td>
+        </tr>
+        <tr>
+          <th>Country</th>
+          <td>India</td>
+        </tr>
+      </table>
+    </section>
+
+    <h2 class="center">Bhagavad Gita Slokam</h2>
+    <section id="slokam">
+      <h3 class="center">Chapter 10, Verse 8</h3>
+      <p class="center">
+        अहं सर्वस्य प्रभवो मत्त: सर्वं प्रवर्तते |<br>
+        इति मत्वा भजन्ते मां बुधा भावसमन्विता: || 8 ||<br><br>
+        ahaṁ sarvasya prabhavo mattaḥ sarvaṁ pravartate<br>
+        iti matvā bhajante māṁ budhā bhāva-samanvitāḥ
+      </p>
+      <center>
         <audio controls>
-            
-            <source src="chapter10verse8.mp3">
-            Your browser does not support the audio element.
-        
+          <source src="chapter10verse8.mp3" />
+          Your browser does not support the audio element.
         </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">  I am the origin of all creation. Everything proceeds from Me. The wise who know this perfectly worship Me with great faith and devotion.</p>
-        </section>
-        <div class="info">
-            <section id="more info">
-            <h2>Extra Information</h2>
-            <p>
-                Step into a realm of spirituality and serenity at the Hare krishna Temple, where every visit is a journey of enlightenment and bliss.</p>
-        </section></div>
-        <p class="center"><a class="button" href=krishna1.html>GO HOME</a></p><br>
+      </center>
+      <h3 class="center">Translation</h3>
+      <p class="center">I am the origin of all creation. Everything proceeds from Me. The wise who know this perfectly worship Me with great faith and devotion.</p>
+    </section>
+
+    <div class="info">
+      <section id="more info">
+        <h2>Extra Information</h2>
+        <p>Step into a realm of spirituality and serenity at the Hare Krishna Temple, where every visit is a journey of enlightenment and bliss.</p>
+      </section>
     </div>
 
+    <h2 align="center">Route to Panduranga Swamy Temple</h2>
+    <div id="map" style="height: 400px;"></div>
 
+    <p class="center"><a class="button" href="krishna1.html">GO HOME</a></p>
+  </div>
+
+  <!-- Leaflet & Routing -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [16.1785, 81.1301]; // Panduranga Swamy Temple
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: () => null,
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false
+        }).addTo(map);
+
+        control.on('routesfound', function (e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+        });
+
+      }, () => {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
 </body>
 </html>

@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jk</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+     <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="style.css" />
+  <script src="scripts.js" defer></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <style>
+    /* Ensure the map has a visible height */
+    #map {
+      height: 400px;
+      width: 100%;
+      margin: 20px 0;
+    }
+    /* Centering some text/buttons */
+    .center {
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 10px 0;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
     <h4 align="center">JAMMU AND KASHMIR</h4>
@@ -90,9 +118,69 @@
         <p class="center">Whatever you see as beautiful, glorious, or powerful, know it to spring from but a spark of My splendor.
 
         </p>
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
-</section>
-        
- 
+      <h2 align="center">Route to Panduranga Swamy Temple</h2>
+    <div id="map"></div>
+
+    <p class="center"><a class="button" href="krishna1.html">GO HOME</a></p>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [16.1785, 81.1301];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+      const control = L.Routing.control({
+  waypoints: [
+    L.latLng(userCoords),
+    L.latLng(templeCoords)
+  ],
+  routeWhileDragging: false,
+  createMarker: function() { return null; }, // prevent extra markers
+  show: false,
+  addWaypoints: false,
+  draggableWaypoints: false,
+  fitSelectedRoutes: true,
+  showAlternatives: false
+}).addTo(map);
+
+control.on('routesfound', function(e) {
+  const routes = e.routes;
+  const summary = routes[0].summary;
+
+  const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+  const timeInMin = Math.round(summary.totalTime / 60);
+
+  L.popup()
+    .setLatLng(templeCoords)
+    .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+    .openOn(map);
+});
+
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+
 </body>
 </html>
