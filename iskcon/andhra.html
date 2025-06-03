@@ -3,228 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANDHRA PRADESH</title>
-    <style>
-       body {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            background-image: url("radhe.jpg");
-        
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1, h2, h3,  h5, h6 {
-            color: #161616;
-            font-family: inherit;
-            font-weight: bold;
-            line-height: 1.2;
-            margin: 10px 0;
-        }
-        h1 {
-            font-size: 36px;
-            background-color: #063b89;           
-;
-            color: #ffffff;
-        }
-        h2 {
-            font-size: 30px;
-            background-color: #063b89;
-            color: #ffffff;
-        }
-        h4{
-            font-size:30px;
-           
-            color:#030303;
-        }
-        
-       
-        section {
-            padding: 20px 0;
-        }
-        h1, h2, h3,  h5, h6 {
-            color: #ffffff;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        p1{
-            font-style:italic;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .center {
-            text-align: center;
-        }
-        .button {
-            display: inline-block;
-            background-color: #776275;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #ff0b0b;
-        }
-        .info {
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-        p{
-            text-align:justify;
-        }
-        ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #063b89;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-  color: rgb(239, 232, 232);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: #c934c9;
-  }
-    </style>
+    <title>Document</title>
+     <link rel="stylesheet" href="styling.css" />
+     <script src="script.js"></script>
+     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+h1,h2,h3,h4,h5,h6{
+    color: #161616;
+    
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 10px 0;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: rgb(180, 142, 142);
+}
+.container {
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    justify-content: center; /* Centers the boxes */
+    align-items: flex-start; /* Aligns them at the top */
+    gap: 20px; /* Adds space between boxes */
+}
+
+.container p{
+   
+    margin-bottom: 25px;
+}
+.maincontent{
+    display: flex;
+    flex-direction: column;
+    
+    margin:20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(174, 114, 114, 0.5);
+    background-color: rgb(174, 157, 157);
+    border-radius: 5px;
+    }
+.maincontent p{
+    margin-bottom: 5px;
+
+}
+img{
+    display: block;
+  margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-bottom:29px;
+    width:100%;
+    cursor:pointer;
+    
+}
+div{
+    display: flex;
+    flex-direction: row;
+}
+.header-bar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #161616;
+  
+}
+
+.home-button {
+  position: absolute;
+  right: 40px;
+  text-decoration: none;
+  color: rgb(43, 41, 41);
+  font-weight: 500;
+  font-size: 1.1rem;
+  left:20px;
+}
+.home-button:before{
+    content: '';
+    position: absolute;
+    background:#1c1c1c;
+    width:0;
+    height :3px;
+    bottom:0;
+    left:0;
+    transition:0.3s ease ;
+}
+.home-button:hover:before{
+    width:7%;
+}
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+
+  /* Push body up to fill space */
+  body {
+    top: 0px !important;
+  }
+
+  /* Hide full-page overlay */
+  .goog-te-gadget-icon {
+    display: none !important;
+  }
+
+  /* Hide powered-by text */
+  .goog-logo-link {
+    display: none !important;
+  }
+.goog-logo-link, .goog-te-gadget span {
+  display: none !important;
+}
+
+  .goog-te-gadget {
+    font-size: 0 !important;
+  }
+
+body > .skiptranslate {
+  display: none !important;
+}
+
+
+body {
+  top: 0px !important;
+}
+
+/* Container styling */
+#google_translate_element {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+/* Dropdown styling */
+#google_translate_element select {
+  background-color: transparent;
+  color: rgb(27, 25, 25);
+  border: 2px solid white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#google_translate_element select:hover {
+  background-color: rgb(0, 0, 0);
+  color: #fffcfc;
+}
+</style>
 <body>
-    <h4 align="center">ANDHRA PRADESH</h4>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#Image">Image</a></li>
-            <li><a href="#History">History</a></li>
-            <li><a href="#festivals">Festivals</a></li>
-            <li><a href="#location">Location</a></li>
-            <li><a href="#accommodation">Accommodation</a></li>
-          
-            <li><a href="#slokam">Bhagavad Gita Slokam</a></li>
-        </ul>
-    </nav>
+    <div id="google_translate_element"></div>
+    <h1 style="text-align: center;background-color: #915f5f;">ISKCON TEMPLES IN ANDHRA ARE</h1>
+    <div class ="container">
+<div class="maincontent">
+    <h4>Gita Ch 01 – Arjuna Vishada Yoga</h4>
+    <a href="andhra1.html"><img src="https://wallpapercave.com/wp/wp2768332.jpg" style="height:400px;"></a>
+    <p>Arjuna the great warrior is overpowered by grief and delusion born out of a sense of attachment to his kith and kin. In his delusory state, he makes several fallacious arguments to support his decision not to fight. This sets the stage for the Lord’s teaching which comprises the rest of the Gita.Below are the main themes of Chapter 1:</p>
     
-    <div class="container">
-        <section id="about">
-        <h1 align="center">Radha Govinda Mandir- Tirupati</h1>
-        <p> Panduranga Swamy Temple Is A Famous Temple In Chilakalapudi, Machilipatnam, Krishna District In The State Of Andhra Pradesh. This Temple Was Constructed In 1929 By Sri Bhakta Narasimham. It Has A Spiritual Significance Among The People Of Machilipatnam. The Deity And The Garbhagriha Of The Temple Are Very Similar To Pandaripur Temple. An Idol Of Sri Abhayanjaneya Swami (An Incarnation Of Lord Hanuman) Is Installed In Front Of The Lord. Every Year During The Kartika Month There Will Be A Festival Celebrated At This Temple.
-            </p>
-        </section>
-        <h1 align="center">Temple</h1>
-        <center>
-            <section id="temple">
-        <img src  ="andhra1.jpg" style="width:500px; height: auto;" >
-         </section></center>
-         
-
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            This Temple Was Constructed In 1929 By Sri Bhakta Narasimham and dedicated to Lord Panduranga Vithal. Saint Narasimham received blessings from Sadguru Mahipathi Maharaj in Pandaripuram. It is the second most famous temple among the Panduranga temples in India.
-
-            The idol is around 3 feet in height The idol is decorated with Vasteras and the ornaments and the precious diamond crown. There is a banyan tree just beside the temple. It is believed that saints have performed penance under this tree for around 350 years. Devotees and visitors take the Pradakshina of the Vruksh to seek blessings from the Lord.
-            
-            Thousands of devotees take a holy dip in the Manginapudi seashore – Samudra Snan during Karthika Purnima. There are 12 holy wells near the seashore, devotees also take a bath in this 12 wells. It is believed that this 12 wells represent the 12 holy rivers of India. There is another temple of Radha, Rukmini, and Satyabhama. Sahasralinga Kailasa mandapam – 1000 shiva lingams is the key attraction of the temple. There are many idols like Veerabhadra Swamy, Yamadharma raja, Markhandeya, Lord Vigneswara are placed here.
-            
-            There are 108 other shrines near the Hanumanji temple, Sri Rukmini Devi, Satyabhama Devi, and other gods and also the devotees like Bhakta Tukaram. There is 108 small shrine within in Panduranga Swamy temple.
-            </p>
-        </section>
-        <h2 align="center">Festivals</h2>
-        <section id="festivals">
-
-        <p> Karthika Masam, Gowri Pooja</p>
-           
-        </section>
-        <h2 align="center">Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>chilakalapudi ,Machilipatnam</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Andhra pradesh</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-            <tr>
-                <th>Deity</th>
-                <td>Panduranga swamy</td>
-            </tr>
-           
-        </table>
-        </section>
-<h2 align="center">Accommadation</h2>
-        <section id="accommodation">
-        <p class="center"><a class="button" href=https://www.booking.com>click here to book a room</a></p><br>
-        </section>
-<h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam">
-        <h2 class="center">Chapter 9, Verse 24</h2>
-        <p class="center">अहं हि सर्वयज्ञानां भोक्ता च प्रभुरेव च || | |<br>न तु मामभिजानन्ति तत्त्वेनातश्च्यवन्ति ते || 24||
-            
-        <p1> <br><br>ahaṁ hi sarva-yajñānāṁ bhoktā cha prabhureva cha<br>na tu mām abhijānanti tattvenātaśh chyavanti te</p1>
-            
-        </p>
-       
-
-        <audio controls>
-            
-            
-            <source src="chapter9verse24.mp3">
-            Your browser does not support the audio element.
-        
-        </audio>
-        
-        <h2 class="center">Translation</h3>
-        <p class="center"> I am the enjoyer and the only Lord of all sacrifices. But those who fail to realize My divine nature must be reborn.</p>
-       </section>
-       <p class="center"><a class="button" href=krishna1.html>GO HOME</a></p><br>
+</div>
+<div class="maincontent">
+    <h4>Gita Ch 01 – Arjuna Vishada Yoga</h4>
+    <img src="https://wallpapercave.com/wp/wp2768332.jpg" style="height:400px;">
+    <p>Arjuna the great warrior is overpowered by grief and delusion born out of a sense of attachment to his kith and kin. In his delusory state, he makes several fallacious arguments to support his decision not to fight. This sets the stage for the Lord’s teaching which comprises the rest of the Gita.Below are the main themes of Chapter 1:</p>
     </div>
-    
-        
-    </script>
+</div>
+ <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    // Coordinates for ISKCON Patna Temple
+    const templeCoords = [ 22.4668, 87.9057];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Madangopal Jiu Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: () => null,
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false
+        }).addTo(map);
+
+        control.on('routesfound', function (e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+</body>
+</html>
+
 </body>
 </html>
