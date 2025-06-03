@@ -6,4 +6,8 @@ window.googleTranslateElementInit = function () {
   }, 'google_translate_element');
 };
 
- 
+ window.addEventListener('load', function () {
+  if (typeof google !== 'undefined' && google.translate) {
+    window.googleTranslateElementInit();
+  }
+});

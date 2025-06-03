@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
+<script src="scripts.js" defer></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></head>
   <style>
     #map {
       height: 400px;
@@ -71,7 +73,9 @@
     </ul>
   </nav>
 
-  <div id="google_translate_element"></div>
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
+
+  <div class="container">
 
   <div class="container">
 
@@ -135,7 +139,7 @@
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.1785, 81.1301];
+    const templeCoords = [16.196, 81.1587];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -157,7 +161,7 @@
             L.latLng(templeCoords)
           ],
           routeWhileDragging: false,
-          createMarker: function() { return null; }, // prevent extra markers
+          createMarker: function() { return null; },
           show: false,
           addWaypoints: false,
           draggableWaypoints: false,
@@ -165,11 +169,8 @@
           showAlternatives: false,
         }).addTo(map);
 
-        // After route found, style the route line to blue
         control.on('routesfound', function(e) {
-          const routes = e.routes;
-          const summary = routes[0].summary;
-
+          const summary = e.routes[0].summary;
           const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
           const timeInMin = Math.round(summary.totalTime / 60);
 
@@ -178,8 +179,7 @@
             .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
             .openOn(map);
 
-          // Change the color of the first route line to blue
-          if (control._routes && control._routes[0] && control._routes[0].line) {
+          if (control._routes?.[0]?.line) {
             control._routes[0].line.setStyle({
               color: 'blue',
               weight: 5,
@@ -195,6 +195,5 @@
       alert("Geolocation is not supported by your browser.");
     }
   </script>
-
 </body>
 </html>

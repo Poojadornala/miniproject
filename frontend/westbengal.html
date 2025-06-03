@@ -50,7 +50,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h2 align="center">Madangopal Jiu Temple</h2>
@@ -59,8 +58,8 @@
         <center>
             <h2> Temple</h3>
             <section id="Image"></section>
-            <p align="center">গোপালের মন্দির</p>
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\madanagopalji wb.jpg" >
+
+        <img src  ="madanagopalji wb.jpg" >
          </center>
         <h2 align="center">History</h2>
             <section id="History"></section>
@@ -125,7 +124,7 @@
 
   <script>
     // Coordinates for ISKCON Patna Temple
-    const templeCoords = [25.6127, 85.1411];
+    const templeCoords = [ 22.4668, 87.9057];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -133,7 +132,7 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Madangopal Jiu Temple').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

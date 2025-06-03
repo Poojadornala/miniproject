@@ -51,7 +51,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Radha Madhana Mohan Temple</h1>
@@ -141,7 +140,7 @@ The priests conduct six aartis every day to the deities. Janmashtami is one of t
 
   <script>
     // Coordinates for ISKCON Patna Temple
-    const templeCoords = [25.6127, 85.1411];
+    const templeCoords = [23.1828, 75.7773];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -149,7 +148,7 @@ The priests conduct six aartis every day to the deities. Janmashtami is one of t
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Radha Madhana Mohan Temple').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

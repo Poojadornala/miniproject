@@ -50,7 +50,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h2>RADHA KRISHNA TEMPLE, MUSSOORIE</h2>
@@ -60,7 +59,7 @@
             <h2> Temple</h3>
             <section id="Image"></section>
             
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\uk.jpg" >
+        <img src  ="uk.jpg" >
          </center>
        
         <h2 align="center">Location</h2>
@@ -113,7 +112,7 @@
 
   <script>
     // Coordinates for ISKCON Patna Temple
-    const templeCoords = [25.6127, 85.1411];
+    const templeCoords = [ 30.4599, 78.0664];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -121,7 +120,7 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('RADHA KRISHNA TEMPLE, MUSSOORIE').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

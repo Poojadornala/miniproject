@@ -6,11 +6,14 @@
     <title>gujarat</title>
      <!-- Styles & Scripts -->
     <link rel="stylesheet" href="style.css" />
-  <script src="scripts.js" defer></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-
+<script src="scripts.js" defer></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></head>
   <style>
     /* Ensure the map has a visible height */
     #map {
@@ -54,7 +57,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Dwarakadhish Temple</h1>
@@ -65,7 +67,7 @@
         <h1 align="center">Temple</h1>
         <center>
 
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\gujarat.jpeg" >
+        <img src  ="gujarat.jpeg" >
          </center>
         <h2 align="center">History</h2>
         <section id="History">
@@ -148,7 +150,7 @@ in the fifteenth century the Raja of Dwarka was a Vadhel named Bhim who also rul
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.1785, 81.1301];
+    const templeCoords = [22.2376, 68.9673];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -156,7 +158,7 @@ in the fifteenth century the Raja of Dwarka was a Vadhel named Bhim who also rul
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Dwarakadhish Temple').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

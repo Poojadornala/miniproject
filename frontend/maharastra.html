@@ -51,7 +51,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Krishnabai Temple</h1>
@@ -60,7 +59,7 @@
         <h1 align="center">Temple</h1>
         <section id="Image">
         <center>
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\maharastra.jpg" >
+        <img src  ="maharastra.jpg" >
          </center>
         <h2 align="center">History</h2>
         <section id="History">
@@ -139,7 +138,7 @@
 
   <script>
     // Coordinates for ISKCON Patna Temple
-    const templeCoords = [25.6127, 85.1411];
+    const templeCoords = [17.9642, 73.6653];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -147,7 +146,7 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Krishnabai Temple').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

@@ -53,7 +53,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Radha Krishan Mandir In Jammu-and-Kashmir</h1>
@@ -62,7 +61,7 @@
         <center>
             
             <section id="Image">
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\jk.webp" alt="Udupi Sri Krishna Matha Temple">
+        <img src  ="jk.webp" alt="Radha Krishan Mandir In Jammu-and-Kashmir">
          </section></center>
          
         <h2 align="center">History</h2>
@@ -130,7 +129,7 @@
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.1785, 81.1301];
+    const templeCoords = [32.7250,  74.8600];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -138,7 +137,7 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Radha Krishan Mandir In Jammu-and-Kashmir').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

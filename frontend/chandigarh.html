@@ -6,11 +6,13 @@
     <title>VRINDAVAN CHANDRODAYA TEMPLE</title>
     <!-- Styles & Scripts -->
    <link rel="stylesheet" href="style.css" />
-  <script src="scripts.js" defer></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-
+<script src="scripts.js" defer></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></head>
   <style>
     /* Ensure the map has a visible height */
     #map {
@@ -54,7 +56,7 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Radha Krishna Temple</h1>
@@ -135,7 +137,7 @@ Lush green gardens and lush greenery surround the temple. The temple also has a 
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.1785, 81.1301]; // Panduranga Swamy Temple
+    const templeCoords = [30.7308463,  76.7861666]; // Panduranga Swamy Temple
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -143,7 +145,7 @@ Lush green gardens and lush greenery surround the temple. The temple also has a 
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Radha Krishna Temple').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

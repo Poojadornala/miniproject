@@ -54,7 +54,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Govind Dev Ji Temple</h1>
@@ -65,7 +64,7 @@
         <h1 align="center">Temple</h1>
         <center>
 
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\rajasthan.jpeg" >
+        <img src  ="rajasthan.jpeg" >
          </center>
         <h2 align="center">History</h2>
         <section id="History">
@@ -178,7 +177,7 @@ In this temple, "Aartis" and "Bhog" are offered seven times a day when the deity
 
   <script>
     // Coordinates for ISKCON Patna Temple
-    const templeCoords = [25.6127, 85.1411];
+    const templeCoords = [26.928791, 75.824006];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -186,7 +185,7 @@ In this temple, "Aartis" and "Bhog" are offered seven times a day when the deity
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('ISKCON Patna Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Govind Dev Ji Temple').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

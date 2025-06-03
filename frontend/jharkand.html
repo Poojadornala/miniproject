@@ -54,7 +54,6 @@
         </ul>
     </nav>
     <div id="google_translate_element"></div>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="scripts.js"></script> 
     <div class="container">
         <h1 align="center">Jagannath Temple, Ranchi</h1>
@@ -65,7 +64,7 @@
         <h1 align="center">Temple</h1>
         <center>
 
-        <img src  ="C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\ranchi.jpg" >
+        <img src  ="ranchi.jpg" >
          </center>
         <h2 align="center">History</h2>
         <section id="History">
@@ -157,7 +156,7 @@ The temple collapsed on 6 August 1990 and was reconstructed on 8 February 1992
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.1785, 81.1301];
+    const templeCoords = [23.31680674804377, 85.28156152452263];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -165,7 +164,7 @@ The temple collapsed on 6 August 1990 and was reconstructed on 8 February 1992
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Jagannath Temple, Ranchi').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

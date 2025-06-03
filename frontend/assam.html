@@ -7,11 +7,14 @@
 
   <!-- Styles & Scripts -->
   <link rel="stylesheet" href="style.css" />
-  <script src="scripts.js" defer></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-</head>
+<script src="scripts.js" defer></script>
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <body>
   <h4 align="center">ASSAM</h4>
@@ -104,7 +107,7 @@
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.1785, 81.1301]; // Panduranga Swamy Temple
+    const templeCoords = [26.1767513, 91.7592237]; // Panduranga Swamy Temple
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -112,7 +115,7 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('HARE KRISHNA TEMPLE').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
