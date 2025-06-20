@@ -1,43 +1,45 @@
 
        body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            background-image: url("Radhe Radhe .jpg");
+    line-height: 1.6;
+    color: #e0e0e0; /* Light gray for readability */
+
+    padding-top: 80px; /* Adjust based on header height */
+
+    padding: 20px;
+    background-color: #0a1931; /* Dark blue for a consistent theme */
+   background-size: cover;
+    background-position: center;
+   
+    background-attachment: fixed;
+           background-image: url("Radhe.jpg"), url("radhe2.jpg");
+            background-position: center,center;
+           background-attachment: scroll, scroll;
+           
         
         }
+        body.html{
+            max-width: 100%;
+            overflow-x: hidden;
+        }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+             max-width: 900px;
+    margin: 20px auto;
+    background-color: rgba(43, 40, 52, 0.8); /* Slight transparency for depth */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Softer shadows for elegance */
+    border-radius: 10px;
+    .container {
+    max-width: 100vw; /* Ensures it stays within the screen */
+}
+
         }
         h1, h2, h3,  h5, h6 {
-            color: #161616;
-            font-family: inherit;
-            font-weight: bold;
-            line-height: 1.2;
-            margin: 10px 0;
-        }
-        h1 {
-            font-size: 36px;
-            background-color: #063b89;           
-;
-            color: #ffffff;
-        }
-        h2 {
-            font-size: 30px;
-            background-color: #063b89;
-            color: #ffffff;
-        }
-        h4{
-            font-size:30px;
-           
-            color:#030303;
+             color: #cbd3f0; /* Soft silver-white */
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 15px 0;
+ background-color:  rgba(10, 25, 49, 0.9);
         }
         
        
@@ -59,16 +61,17 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            border: 1px solid #ddd;
+            border: 1px solid #4e4949;
             margin-bottom: 20px;
+
         }
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #918a8a;
             padding: 8px;
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: rgba(135, 123, 173, 0.8); 
         }
         .center {
             text-align: center;
@@ -86,7 +89,8 @@
             transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #ff0b0b;
+            background-color: #fff;
+            color:#776275;
         }
         .info {
             background-color: #f2f2f2;
@@ -118,8 +122,60 @@
   }
   
   li a:hover {
-    background-color: #c934c9;
+    background-color: #1a1425;
   }
+   header {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    transition: 0.5s ease;
+    position: relative; /* Ensures it stays in normal document flow */
+    margin-top: 20px; /* Moves the header down */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(10, 25, 49, 0.9);
+    padding: 15px 50px;
+}
+
+
+/* Ensure navigation stays aligned properly */
+header .navigation {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+header .navigation .navigation-items {
+    display: flex;
+    gap: 70px; /* Adds spacing between items */
+}
+
+header .navigation .navigation-items a {
+    position: relative; /* Ensure the underline applies only to individual links */
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+header .navigation .navigation-items a:before {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before {
+    width: 100%;
+}
+
  /* Hide the top frame bar */
   .goog-te-banner-frame.skiptranslate {
     display: none !important;
@@ -167,7 +223,7 @@ body {
 /* Dropdown styling */
 #google_translate_element select {
   background-color: transparent;
-  color: rgb(27, 25, 25);
+  color: rgb(244, 232, 232);
   border: 2px solid white;
   padding: 6px 10px;
   border-radius: 6px;

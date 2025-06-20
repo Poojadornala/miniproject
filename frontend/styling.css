@@ -54,7 +54,7 @@ img{
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     margin-bottom:29px;
     width:100%;
-    border:3px solid rgb(24, 33, 71);
+    
     
 }
 .header-bar {
@@ -64,7 +64,6 @@ img{
   align-items: center;
   justify-content: center;
   padding: 20px 40px;
-  color: black;
 }
 
 .title {
@@ -77,33 +76,27 @@ img{
 }
 
 .home-button {
-    position: absolute;
-    left: 20px; /* Keeps it on the left */
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.4s ease-in-out; /* Smooth transition */
-    color: black;
+  position: absolute;
+  right: 40px;
+  text-decoration: none;
+  color: rgb(43, 41, 41);
+  font-weight: 500;
+  font-size: 1.1rem;
+  left:20px;
 }
-
-.home-button:before {
+.home-button:before{
     content: '';
     position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background: #151515;
-    transition: width 0.4s ease-in-out; /* Smooth underline effect */
-    visibility: hidden;
+    background:#1c1c1c;
+    width:0;
+    height :3px;
+    bottom:0;
+    left:0;
+    transition:0.3s ease ;
 }
-
-.home-button:hover:before {
-    visibility: visible;
-    width: 100%;
+.home-button:hover:before{
+    width:7%;
 }
-
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
   }
@@ -151,7 +144,7 @@ body {
 #google_translate_element select {
   background-color: transparent;
   color: rgb(27, 25, 25);
-  border: 2px solid rgb(16, 16, 16);
+  border: 2px solid white;
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 14px;
