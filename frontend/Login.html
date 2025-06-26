@@ -61,49 +61,88 @@
     <p class="link">Don't have an account? <a href="signup.html">Sign Up</a></p>
   </form>
 
-  <script type="module">
-    import { auth, googleProvider, githubProvider } from './firebase.js';
-    import { signInWithEmailAndPassword, signInWithPopup } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js';
+  <!-- your existing login code remains the same above -->
+<!-- Replace only the script block below -->
+<script type="module">
+  import { auth, googleProvider, githubProvider } from './firebase.js';
+  import {
+    signInWithEmailAndPassword,
+    signInWithPopup
+  } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js';
 
-    const form = document.getElementById('login-form');
-    const errorMsg = document.getElementById('error-msg');
+  const form = document.getElementById('login-form');
+  const errorMsg = document.getElementById('error-msg');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      errorMsg.textContent = '';
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorMsg.textContent = '';
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
 
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = 'homepage2.html';
-      } catch (error) {
-        errorMsg.textContent = error.message;
-      }
-    });
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      const token = await result.user.getIdToken();
 
-    document.getElementById('google-login').addEventListener('click', async (e) => {
-      e.preventDefault();
-      errorMsg.textContent = '';
-      try {
-        const result = await signInWithPopup(auth, googleProvider);
-        window.location.href = 'homepage2.html';
-      } catch (error) {
-        errorMsg.textContent = error.message;
-      }
-    });
+      // Example review submission
+      await submitReview(token, "Guruvayur", "Amazing temple!");
 
-    document.getElementById('github-login').addEventListener('click', async (e) => {
-      e.preventDefault();
-      errorMsg.textContent = '';
-      try {
-        const result = await signInWithPopup(auth, githubProvider);
-        window.location.href = 'homepage2.html';
-      } catch (error) {
-        errorMsg.textContent = error.message;
-      }
-    });
-  </script>
+      window.location.href = 'homepage2.html';
+    } catch (error) {
+      errorMsg.textContent = error.message;
+    }
+  });
+
+  document.getElementById('google-login').addEventListener('click', async (e) => {
+    e.preventDefault();
+    errorMsg.textContent = '';
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const token = await result.user.getIdToken();
+
+      // Example review submission
+      await submitReview(token, "Guruvayur", "Amazing temple via Google!");
+
+      window.location.href = 'homepage2.html';
+    } catch (error) {
+      errorMsg.textContent = error.message;
+    }
+  });
+
+  // Optional: GitHub login if you enable it
+  document.getElementById('github-login')?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    errorMsg.textContent = '';
+    try {
+      const result = await signInWithPopup(auth, githubProvider);
+      const token = await result.user.getIdToken();
+
+      // Example review submission
+      await submitReview(token, "Guruvayur", "GitHub login review!");
+
+      window.location.href = 'homepage2.html';
+    } catch (error) {
+      errorMsg.textContent = error.message;
+    }
+  });
+
+  // 💡 Reusable review submission function
+  async function submitReview(token, temple, review) {
+    try {
+      const res = await fetch('http://localhost:3000/api/reviews', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ temple, review })
+      });
+      if (!res.ok) throw new Error("Review submission failed");
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+</script>
+
 
 </body>
 </html>

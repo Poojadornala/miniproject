@@ -18,7 +18,7 @@
     
 }
 h1,h2,h3,h4,h5,h6{
-    color: #161616;
+    color: #c6c4c4;
     
     font-weight: bold;
     line-height: 1.2;
@@ -26,31 +26,70 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body{
-    background-color: rgb(180, 142, 142);
-}
+body {
+    background-image: url("pic.jpg");
+    background-color: #1c1c1c;
+    background-size: 98vw; /* Ensures the image covers the entire viewport */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    overflow: hidden; /* Stops scrolling */}
 .container {
     display: flex;
-    flex-direction: row; /* Change from column to row */
+    flex-direction: row; /* Keeps them side by side */
     justify-content: center; /* Centers the boxes */
     align-items: flex-start; /* Aligns them at the top */
     gap: 20px; /* Adds space between boxes */
 }
 
+.maincontent {
+    flex: 1; /* Ensures both divs take equal space */
+    max-width: 450px; /* Adjust width as needed */
+    color: rgb(241, 236, 236);
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(156, 26, 26, 0.5);
+    background-color: white; /* Changed from pink to white */
+    border-radius: 5px;
+    text-align: center;
+}
+
+
 .container p{
    
     margin-bottom: 25px;
 }
-.maincontent{
+.container {
     display: flex;
-    flex-direction: column;
-    
-    margin:20px;
+    flex-direction: row; /* Keeps the divs side by side */
+    justify-content: center; /* Centers the boxes */
+    align-items: stretch; /* Ensures equal height for all child divs */
+    gap: 20px; /* Adds space between boxes */
+    opacity: 0.9;
+}
+
+.maincontent {
+    flex: 1; /* Ensures both divs take equal space */
+    color: rgb(255, 247, 247);
+    margin: 20px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(174, 114, 114, 0.5);
-    background-color: rgb(174, 157, 157);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adjusted shadow for elegance */
+    background-color: rgba(63, 62, 62, 0.9); /* Changed background to white */
     border-radius: 5px;
-    }
+    display: flex;
+    flex-direction: column; /* Ensures content stacks vertically */
+    justify-content: space-between; /* Distributes content evenly */
+    text-align: center;
+    
+}
+
+.maincontent img {
+    max-height: 300px; /* Restricts image height */
+    object-fit: cover; /* Ensures the image scales properly */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .maincontent p{
     margin-bottom: 5px;
 
@@ -83,7 +122,7 @@ div{
   font-size: 2.5rem;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  color: #161616;
+  color: #e5dfdf;
   
 }
 
@@ -91,7 +130,7 @@ div{
   position: absolute;
   right: 40px;
   text-decoration: none;
-  color: rgb(43, 41, 41);
+  color: rgb(201, 201, 201);
   font-weight: 500;
   font-size: 1.1rem;
   left:20px;
@@ -155,8 +194,8 @@ body {
 /* Dropdown styling */
 #google_translate_element select {
   background-color: transparent;
-  color: rgb(27, 25, 25);
-  border: 2px solid white;
+  color: rgb(203, 199, 199);
+  border: 2px solid rgb(36, 35, 35);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 14px;
@@ -178,7 +217,7 @@ body {
     <div id="google_translate_element"></div>
     <header>
       <div class="header-bar">
-    <h1 style="text-align: center;background-color: #915f5f;">ISKCON TEMPLES IN ANDHRA</h1>
+    <h1 style="text-align: center;">ISKCON TEMPLES IN ANDHRA</h1>
     <a href="../frontend/homepage2.html" class="home-button">Go Home</a></div></header>
     <div class ="container">
 <div class="maincontent">
@@ -246,5 +285,84 @@ body {
       alert("Geolocation is not supported by your browser.");
     }
   </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "Guruvayur";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

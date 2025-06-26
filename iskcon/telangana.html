@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>telangana</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANDHRA PRADESH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">TELANGANA</h4>
-    <header>
+
+  <h4 align="center">ANDHRA PRADESH</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -21,91 +75,214 @@
     </div>
     </div>
     </header>
-    
-    <div class="container">
-        <h1 align="center">Radha Madanmohan Mandir- Abids,Hyderabad</h1>
-        <section id="about">
-        <p> The Madana Gopala Swamy temple (Jatprole or Jataprolu) is located at Kollapur, in the district of Mahabubnagar, in the state of Telangana, in South India. It was originally built in a successful manner in the 16th century A.D, at Manchalakatta on the left bank of river Krishna. Under the Srisailam project reservoir, due to the submergence, this particular temple was successfully shifted from Manchalakatta and transplanted at Kollapur. It is just few kilometer away from the heart of the Mahabubnagar town, 110 kms from Kurnool and 180 km from Hyderabad. It is one of the frequently visited and most sought after Hindu temple in this region.</p>
-        </section>
-        <h1 align="center">Temple</h1>
-        <center>
-            <section id="temple">
-        <img src  ="telangana1.jpg" style="width:500px; height: auto;">
-        </section></center>
-        <h2 align="center">Madana Gopala Swamy Temple Religious Significance</h2>
-        <section id="significance">
-        <p>
-            The Madana Gopala Swamy temple largely attracts a good number of Hindu adherent devotees and pilgrims who seek the gods' blessings for their professional and personal life. It is strongly believed that the primary deity of this shrine fulfills the different types of wishes of the adherent devotees and local people immediately. The primary idol of Madana Gopala Swamy in the sanctum sanctorum is perfectly installed even after re-installation. There are many small temples within the shrine complex that are dedicated to other major and minor Gods and Goddesses. This temple is open widely for locals and Hindu devotees from early morning 5.00 a.m and then for till noon. Later, the shrine is open in the early evening hours to early night hours. At this shrine, the Suprabhatam is religiously recited at all auspicious days. Daily different types of Archanas are performed on daily, festive days and auspicious days. The temple is administered with good number of well-qualified and vast experienced priests who are well-versed in Vedic rules and regulations.</p>
-        </section>
-        <h2 align="center">Festivals</h2>
-        <section id="festivals">
-        <p>
-            The annual temple festival is grandly celebrated with the presence of local people and devotees in large number as per the Hindu tradition and custom at Madana Gopala Swamy temple. This particular celebration is perfectly conducted as per Vedic rules and regulations. According to the Hindu adherent devotees and pilgrims, having the special darshan of the decorations of temple's deity is a unique occasion of spiritual significance with a lot of perfection. In this temple tickets counter issues token for the darshana but the Archanas and Poojas are conducted free of charge for the devotees and pilgrims. The temple committee makes all kind arrangements and facilities for accommodating visitors and tourist coming from far off places to this shrine. This particular shrine largely attracts a lot of locals and adherent devotees from all over the district and rest of the state of Telangana and Andhra Pradesh, mainly on Sundays and Tuesdays. A good rush is witnessed at this temple during the weekends and public holidays.
-        </p>
-        </section>
-        <h2 align="center">Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>mahabubnagar</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Telanagana</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-            <tr>
-                <th>Deity</th>
-                <td>Madhava perumal, Radha and rukmini</td>
-            </tr>
-           
-        </table>
-        </section>
 
-        
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
-        
-        <h2 align="center">Accommodation</h2>
-        <section id="accommodation">
-        <p class="center"><a class="button" href=https://www.booking.com>click here to book a room</a></p><br>
-        <p></p>
-        </section>
-        <h2 align="center">More Information</h2>
-        <section id="more info">
-        <p class="center"><a class="button" href=https://www.trawell.in/telangana/mahabubnagar/jatprole-jetaprolu>click here to explore</a></p><br>
-        <p></p>
-        </section>
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam">
-        <h2 class="center">Chapter 9, Verse 16,17</h2>
-        <p class="center">अहं क्रतुरहं यज्ञ: स्वधाहमहमौषधम् | | |<br>मन्त्रोऽहमहमेवाज्यमहमग्निरहं हुतम् || 16||
-            <p class="center">पिताहमस्य जगतो माता धाता पितामह: || | |<br>वेद्यं पवित्रमोङ्कार ऋक्साम यजुरेव च || 17||
+  <div class="container">
 
-        <p1> <br><br>ahaṁ kratur ahaṁ yajñaḥ svadhāham aham auṣhadham<br>mantro ’ham aham evājyam aham agnir ahaṁ hutam
-            <br><br>pitāham asya jagato mātā dhātā pitāmahaḥ<br>vedyaṁ pavitram oṁkāra ṛik sāma yajur eva cha</p1>
-
-        </p>
-        <center>
-
-        <audio controls>
-            
-            <source src="chapter9verse1617.mp3">
-            Your browser does not support the audio element.
-        
-        </audio>
-        </center>
-        <h2 align="center">Translation</h3>
-        <p class="center"> It is I who am the Vedic ritual, I am the sacrifice, and I am the oblation offered to the ancestors. I am the medicinal herb, and I am the Vedic mantra. I am the clarified butter, I am the fire and the act of offering. Of this universe, I am the Father; I am also the Mother, the Sustainer, and the Grandsire. I am the purifier, the goal of knowledge, the sacred syllable Om. I am the Ṛig Veda, Sāma Veda, and the Yajur Veda.</p>
-</section>
-<p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
-    </div>
-    
  
+
+    <section id="about">
+      <h1 align="center">Panduranga Swamy Temple – Machilipatnam</h1>
+      <p> Panduranga Swamy Temple is a famous temple in Chilakalapudi, Machilipatnam, Krishna District, Andhra Pradesh. It was built in 1929 by Sri Bhakta Narasimham. The temple has spiritual significance for the locals and closely resembles the Pandharpur temple in Maharashtra.</p>
+    </section>
+
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"><img src="andhra.jpg" alt="Panduranga Temple" /></section></center>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>This temple was constructed in 1929 by Sri Bhakta Narasimham and dedicated to Lord Panduranga Vithal. It is considered the second most famous Panduranga temple in India. Devotees take a holy dip at Manginapudi seashore during Kartika Purnima. The temple also features a Sahasralinga mandapam and over 100 other shrines.</p>
+    </section>
+
+    <h2 align="center">Festivals</h2>
+    <section id="festivals">
+      <p>Karthika Masam, Gowri Pooja</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Chilakalapudi, Machilipatnam</td></tr>
+        <tr><th>State</th><td>Andhra Pradesh</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Panduranga Swamy</td></tr>
+      </table>
+    </section>
+
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
+
+    <h2 class="center">Bhagavad Gita Slokam</h2>
+    <section id="slokam">
+      <h2 class="center">Chapter 9, Verse 24</h2>
+      <p class="center">अहं हि सर्वयज्ञानां भोक्ता च प्रभुरेव च ||<br>न तु मामभिजानन्ति तत्त्वेनातश्च्यवन्ति ते || 24||</p>
+      <p class="center"><br>ahaṁ hi sarva-yajñānāṁ bhoktā cha prabhureva cha<br>na tu mām abhijānanti tattvenātaś chyavanti te</p>
+      <center>
+        <audio controls>
+          <source src="chapter9verse24.mp3" />
+          Your browser does not support the audio element.
+        </audio>
+      </center>
+      <h3 class="center">Translation</h3>
+      <p class="center">I am the enjoyer and the only Lord of all sacrifices. But those who fail to realize My divine nature must be reborn.</p>
+    </section>
+
+    <h2 align="center">Route to Panduranga Swamy Temple</h2>
+    <div id="map"></div>
+
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
+</section>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [16.196, 81.1587];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "panduranga swamy";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

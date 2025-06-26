@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIHAR</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANDHRA PRADESH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">BIHAR</h4>
-    <header>
+
+  <h4 align="center">ANDHRA PRADESH</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -21,78 +75,214 @@
     </div>
     </div>
     </header>
-    
-    <div class="container">
-        <h1 align="center">Sri Radha Banke Bihari Ji Temple- Buddha Marg,Patna</h1>
-        <section id="about">
-        <p>The proper name of ISKCON Temple in Patna is Sri Sri Radha Banke Bihari Ji Mandir. The temple is located in Buddha Marg in the Patna in the Indian state of Patna. The entire ISKCON temple in the world is dedicated to Radha and Krishna and is basically a Hindu Temple. It is presenting undergoing constructed and not yet completed. But this important temple is coming up and soon devotees from across Bihar, Patna and the neighbouring cities would pay visit to this temple to offer prayer to the divine Krishna and Radha</p>
-</section>
-        <center>
-            <h2>Temple</h2>
-            <section id="temple">
-        <img src  ="bihar1.jpg" style="width:500px; height:auto;" >
-         </section></center>
-         
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-           
-            International Society for Krishna Consciousness abbreviated as ISKCON is a Hare Krishna movement which was formed 13th July, 1966 in New York City. The founder of ISKCON was Bhaktivedanta Swami. This movement was started by the Gaudiya Vaishnava sect of Hinduism. The Vaishnava sects of Hinduism are the ones who follow Lord Vishnu and Gaudiya being the place of origin Gauda in the Indian state of West Bengal. It originated more than 500 years ago. The organisation was formed to spread the teachings in Bhagawat Gita which is said to have been recited by Lord Krishna. The basic teachings of the ISKCON are Bhakti Yoga who principles are to dedicate ones thoughts and actions to the Supreme Lord Krishna. They consider Lord Krishna as the Supreme God who is an incarnation of Lord Vishnu in Hinduism. Radha, representing as Lord Krishna's Divine partner. In order to lay a deep root of the teaching of Lord Krishna a total of 550 centres were built around the world. The Sri Sri Banke Bihari Ji Temple in Patna being one of them.
-        </p>
-        </section>
-        <h2 align="center"> Architectural Significance</h2>
-        <section id="Significance">
-        <p>
-            The construction of the ISKCON temple in Patna is in the form of the common type of Hindu Temples. It is built will an estimated budget of 51 crores. It will expand over an area of 2 acres and will be the largest building in Patna so far and will also be the biggest Radha Krishna temple in the whole of Bihar and Jharkhand state. The sanctum sanctorum of the temple will comprise idols of their primary deities Sri Sri Gaur Nitai, Sri Sri Radha Banke Bihari Ji and Sri Sri Ram Durbar in three different halls. The idols will be 3 feet tall placed on 24 carats gold plated thrones. The hall of Temple will be big enough to accommodate a large number of devotees. It will have a veranda around the main hall of the temple where worshipping the lord can be done through Pradakshana.There is will be a total of 84 pillars built as a part of the temple. It will comprises of a number of spires with a single biggest one accompanied by smaller spires on the roof. It is said that the temple in Patna will have a book distribution centre and a Gurukula where the glory of ancient Bihar will be taught. The temple will be having a medical complex and restaurants which will serve only vegetarian food. The temple will hold a peaceful and serene environment with no temple bells as seen in any other Hindu temples. It radiates a clam environment.</p></section>
 
-        <h2>Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>patna</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Bihar</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
-        </section>
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
-      
-        <h2 class="center">Official Website</h2>
-        <section id="website">
-        <p class="center">offical website <br><a class="button" href=https://iskconpatna.com/">click here to open official website</a></p>
-</section>
-        <h2 class="center">Accommodation</h2>
-        <section id="accommodation">
-        <p class="center">Here are the hotels available near shri shri banke bihari ji temple patna.<br> <a class="button" href="https://www.tripadvisor.com/Hotels-g297592-Patna_Patna_District_Bihar-Hotels.html">Book a room</a></p>
-</section>
-      
-</section>
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam">
-        <h3 class="center">Chapter 9, Verse 26</h3>
-        <p class="center">पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति | |<br>तदहं भक्त्युपहृतमश्नामि प्रयतात्मन: || 26||<br>patraṁ puṣhpaṁ phalaṁ toyaṁ yo me bhaktyā prayachchhati<br>tadahaṁ bhaktyupahṛitam aśhnāmi prayatātmanaḥ</p>
-        <center>
+  <div class="container">
 
+ 
+
+    <section id="about">
+      <h1 align="center">Panduranga Swamy Temple – Machilipatnam</h1>
+      <p> Panduranga Swamy Temple is a famous temple in Chilakalapudi, Machilipatnam, Krishna District, Andhra Pradesh. It was built in 1929 by Sri Bhakta Narasimham. The temple has spiritual significance for the locals and closely resembles the Pandharpur temple in Maharashtra.</p>
+    </section>
+
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"><img src="andhra.jpg" alt="Panduranga Temple" /></section></center>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>This temple was constructed in 1929 by Sri Bhakta Narasimham and dedicated to Lord Panduranga Vithal. It is considered the second most famous Panduranga temple in India. Devotees take a holy dip at Manginapudi seashore during Kartika Purnima. The temple also features a Sahasralinga mandapam and over 100 other shrines.</p>
+    </section>
+
+    <h2 align="center">Festivals</h2>
+    <section id="festivals">
+      <p>Karthika Masam, Gowri Pooja</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Chilakalapudi, Machilipatnam</td></tr>
+        <tr><th>State</th><td>Andhra Pradesh</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Panduranga Swamy</td></tr>
+      </table>
+    </section>
+
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
+
+    <h2 class="center">Bhagavad Gita Slokam</h2>
+    <section id="slokam">
+      <h2 class="center">Chapter 9, Verse 24</h2>
+      <p class="center">अहं हि सर्वयज्ञानां भोक्ता च प्रभुरेव च ||<br>न तु मामभिजानन्ति तत्त्वेनातश्च्यवन्ति ते || 24||</p>
+      <p class="center"><br>ahaṁ hi sarva-yajñānāṁ bhoktā cha prabhureva cha<br>na tu mām abhijānanti tattvenātaś chyavanti te</p>
+      <center>
         <audio controls>
-            
-            <source src="chapter9verse26.mp3">
-            Your browser does not support the audio element.
-        
+          <source src="chapter9verse24.mp3" />
+          Your browser does not support the audio element.
         </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">If one offers to Me with devotion a leaf, a flower, a fruit, or even water, I delightfully partake of that item offered with love by My devotee in pure consciousness.</p>
+      </center>
+      <h3 class="center">Translation</h3>
+      <p class="center">I am the enjoyer and the only Lord of all sacrifices. But those who fail to realize My divine nature must be reborn.</p>
+    </section>
+
+    <h2 align="center">Route to Panduranga Swamy Temple</h2>
+    <div id="map"></div>
+
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
 </section>
-<p class="center"><a class="button" href=krishna1.html>GO HOME</a></p><br>
-    </div>
-    
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [16.196, 81.1587];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "panduranga swamy";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
 
 </body>
 </html>

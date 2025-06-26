@@ -28,8 +28,8 @@
       <div class="navigation-items">
     <a href="homepage2.html">Home</a>
     <a href="slokas.html">Slokas</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About us</a>
+    <a href="#">Shopping</a>
+    <a href="chatbot.html">Chatbot</a>
     <a href="krishnastory.html">Bhagavad Gita</a>
     <a href="login.html">Log out</a>
     
@@ -62,20 +62,21 @@
     <a href="../iskcon/krishna1.html" class="btn">Get Started</a>
   </div>
   <div class="content">
-    <h1>temples<br><span>KrishnaTemples</span></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolor, non rerum nesciunt neque quos commodi eaque voluptate doloribus voluptatum animi iste impedit delectus amet, excepturi at consectetur reiciendis quis beatae omnis quod magnam? Nisi eos temporibus error, sunt rem sed illum. Ipsum, accusamus nobis!</p>
-    <a href="homepage2.html" class="btn">Get Started</a>
+    <h1>Overview<br><span>Bagavadgita</span></h1>
+    <p>The Bhagavad Gita (meaning “Song of the Lord”) is one of the most important spiritual texts in Hindu philosophy. It is a part of the Indian epic Mahabharata, and takes the form of a dialogue between Lord Krishna and the warrior Arjuna, taking place on the battlefield of Kurukshetra.</p>
+    <a href="krishnastory.html" class="btn">Get Started</a>
   </div>
   <div class="content">
-    <h1>Welcome<br><span>KrishnaTemples</span></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolor, non rerum nesciunt neque quos commodi eaque voluptate doloribus voluptatum animi iste impedit delectus amet, excepturi at consectetur reiciendis quis beatae omnis quod magnam? Nisi eos temporibus error, sunt rem sed illum. Ipsum, accusamus nobis!</p>
-    <a href="homepage2.html" class="btn">Get Started</a>
+    <h1>About Us<br><span></span></h1>
+    <p>This website is lovingly created by us to share the spiritual wisdom of the Bhagavad Gita. Our goal is to make these timeless slokas easy to access, understand, and appreciate for everyone. We hope it brings peace, insight, and inspiration to your journey.</p>
+    <a href="about.html" class="btn">Get Started</a>
   </div>
   
   <div class="media-icons">
     <a href="https://github.com/Poojadornala/miniproject.git"><i class="fab fa-github"></i></a>
     
   </div>
+  
   <div class="slider-navigation">
     <div class="nav-btn active"></div>
     <div class="nav-btn"></div>
@@ -83,6 +84,49 @@
     <div class="nav-btn"></div>
    
   </div>
+<!-- Floating Chat Icon -->
+<div id="openChatbot" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #3d4b4a;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;">
+  <img src="https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-chatbot-icon-chat-bot-robot-png-image_4841963.png" alt="Chat" width="70" height="50" />
+</div>
+
+<!-- Chatbot Iframe (Initially Hidden) -->
+<div id="chatbotWidget" style="
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 360px;
+  height: 500px;
+  border: none;
+  z-index: 9998;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+">
+  <iframe src="chatbot.html" style="width:100%; height:100%; border:0; border-radius: 16px;"></iframe>
+</div>
+
+<script>
+  const openBtn = document.getElementById("openChatbot");
+  const chatbotWidget = document.getElementById("chatbotWidget");
+
+  openBtn.addEventListener("click", () => {
+    chatbotWidget.style.display = chatbotWidget.style.display === "none" || chatbotWidget.style.display === "" ? "block" : "none";
+  });
+</script>
 
 </section>
 <script type="text/javascript">
@@ -116,9 +160,7 @@
 </script>
 
  <!-- Chatbot UI -->
-<div id="chatbot-icon" style="position: fixed; bottom: 20px; right: 20px; background: #6b4fbb; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000;">
-  💬
-</div>
+
 
 <div id="chatbot-window" style="position: fixed; bottom: 80px; right: 20px; width: 300px; max-height: 400px; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 1000;">
   <div style="background: #6b4fbb; color: white; padding: 10px; border-radius: 10px 10px 0 0;">Ask KrishnaBot</div>

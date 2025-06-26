@@ -196,5 +196,84 @@
       alert("Geolocation is not supported by your browser.");
     }
   </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "Guruvayur";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

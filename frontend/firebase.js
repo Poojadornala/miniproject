@@ -1,10 +1,22 @@
-// firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import {
   getAuth,
   GoogleAuthProvider,
   GithubAuthProvider
 } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  doc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDRtIwRII-aDjleOl6HPq4z7dg4Gn1xOG0",
   authDomain: "project1-57556.firebaseapp.com",
@@ -16,5 +28,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app); // ✅ Add Firestore instance
 export const googleProvider = new GoogleAuthProvider();
 export const githubProvider = new GithubAuthProvider();

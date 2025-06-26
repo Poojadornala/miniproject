@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tamilnadu</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANDHRA PRADESH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">TAMIL NADU</h4>
-   <header>
+
+  <h4 align="center">ANDHRA PRADESH</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -21,76 +75,214 @@
     </div>
     </div>
     </header>
-    
-    <div class="container">
-        <h1 align="center">Radha Krishna Mandir- Akkarai,Chennai</h1>
-        <section id="about"></section>
-        <p>Sri Vidhya Rajagopalaswamy temple is a Vaishnava shrine located in the town of Mannargudi, Tamil Nadu, India.[1] The presiding deity is Rajagopalaswamy, a form of Krishna. The temple is spread over an area of 9.3 ha (23 acres) and is an important Vaishnava shrines in India. The temple is called Dakshina Dvaraka (Southern Dvaraka) along with Guruvayoor by Hindus.[2] It is Considered First among the 108 Abhimana Kshethram of Vaishnavate tradition.</p>
-        <h1 align="center">Temple</h1>
-        <center>
-            <section id="temple">
-        <img src  ="tamilnadu.jpg" style="width:500px; height:auto;">
-         </section></center>
-        <h2 align="center">History</h2>
-        <section id="History"></section>
-        <p>
-            The originally temple was first constructed by Kulothunga Chola I(1070-1125 A.D.) stone inscription found in the site.[6] The place Mannargudi is termed Sri Rajathi Raja Chathurvedhi Mangalam[7] and the town started to grow around the temple. Successive kings of the Chola empire, Rajaraja Chola III, Rajendra Chola III and kings of Thanjavur Nayaks, Achyuta Deva Raya[8] expanded the temple. The temple contains inscriptions of the Hoysala kings and some Vijayanagara grants, and many records of the later Nayaks and Marathas.[9] The Thanjavur Nayaks made the temple as their dynastic and primary shrine and made significant additions.[10] The current temple structure, hall of 1000 pillars, main gopuram (temple gateway tower) and the big compound wall around the temple was built by the king Vijayaraghava Nayak(1532-1575 A.D.).[6] Raghunathabhyudayam, a doctrine by Nayaks explains the donation of an armour studded with precious stones to the main deity by the king.[8] He erected the big tower in the temple so that he can view the Srirangam Ranganathaswamy temple from the top of Mannargudi. The Nayaks were specially interested in music and it was promoted in both the temples. Instruments like Mukhavina, Dande, Kombu, Chandravalaya, Bheri and Nadhasvaram were commonly used in the temple service.[11]
 
-According to historian K.V. Soundararajan, the Rangantha temples in South India built during the 9th and 10th centuries have a systematic arrangement of subsidiary deities as seen in this temple along with the Appakkudathaan Perumal Temple at Koviladi, Sowmya Narayana Perumal temple at Thirukoshtiyur, Veeraraghava Perumal Temple at Thiruvallur and Rangantha temple at Srirangapatna.</p>
-        <h2 align="center">Location</h2>
-        <section id="Location"></section>
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>Mannargudi</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Tamil Nadu</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
-        
+  <div class="container">
 
-        
-        <h2 align="center">Accommadation</h2>
-        <section id="Accommodation"></section>
-        <p class="center"><a class="button" href=https://www.tripadvisor.in/HotelsNear-g5074480-d3705793-Rajagopalaswamy_Temple-Mannargudi_Tiruvarur_District_Tamil_Nadu.html>click here to book a room</a></p><br>
-        <p></p>
-        
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam"></section>
-        <h3 class="center">Chapter 10, Verse 20</h3>
-        <p class="center">अहमात्मा गुडाकेश सर्वभूताशयस्थित: |<br>अहमादिश्च मध्यं च भूतानामन्त एव च || 20||
+ 
 
-            <br><br>aham ātmā guḍākeśha sarva-bhūtāśhaya-sthitaḥ<br>aham ādiśh cha madhyaṁ cha bhūtānām anta eva cha
+    <section id="about">
+      <h1 align="center">Panduranga Swamy Temple – Machilipatnam</h1>
+      <p> Panduranga Swamy Temple is a famous temple in Chilakalapudi, Machilipatnam, Krishna District, Andhra Pradesh. It was built in 1929 by Sri Bhakta Narasimham. The temple has spiritual significance for the locals and closely resembles the Pandharpur temple in Maharashtra.</p>
+    </section>
 
-        </p>
-        <center>
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"><img src="andhra.jpg" alt="Panduranga Temple" /></section></center>
 
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>This temple was constructed in 1929 by Sri Bhakta Narasimham and dedicated to Lord Panduranga Vithal. It is considered the second most famous Panduranga temple in India. Devotees take a holy dip at Manginapudi seashore during Kartika Purnima. The temple also features a Sahasralinga mandapam and over 100 other shrines.</p>
+    </section>
+
+    <h2 align="center">Festivals</h2>
+    <section id="festivals">
+      <p>Karthika Masam, Gowri Pooja</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Chilakalapudi, Machilipatnam</td></tr>
+        <tr><th>State</th><td>Andhra Pradesh</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Panduranga Swamy</td></tr>
+      </table>
+    </section>
+
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
+
+    <h2 class="center">Bhagavad Gita Slokam</h2>
+    <section id="slokam">
+      <h2 class="center">Chapter 9, Verse 24</h2>
+      <p class="center">अहं हि सर्वयज्ञानां भोक्ता च प्रभुरेव च ||<br>न तु मामभिजानन्ति तत्त्वेनातश्च्यवन्ति ते || 24||</p>
+      <p class="center"><br>ahaṁ hi sarva-yajñānāṁ bhoktā cha prabhureva cha<br>na tu mām abhijānanti tattvenātaś chyavanti te</p>
+      <center>
         <audio controls>
-            
-            <source src="chapter10verse20.mp3">
-            Your browser does not support the audio element.
-        
+          <source src="chapter9verse24.mp3" />
+          Your browser does not support the audio element.
         </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">  O Arjun, I am seated in the heart of all living entities. I am the beginning, middle, and end of all beings.</p>
+      </center>
+      <h3 class="center">Translation</h3>
+      <p class="center">I am the enjoyer and the only Lord of all sacrifices. But those who fail to realize My divine nature must be reborn.</p>
+    </section>
 
-        <div class="info">
-            <h2>Extra Information</h2>
-            <p>
-                Step into a realm of spirituality and serenity at the rajagopala swamy temple, where every visit is a journey of enlightenment and bliss.</p>
-        </div>
-    </div>
-    <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
-    
+    <h2 align="center">Route to Panduranga Swamy Temple</h2>
+    <div id="map"></div>
+
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
+</section>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [16.196, 81.1587];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "panduranga swamy";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

@@ -4,36 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="scripts.js" defer></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js" ></script>
+    <script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'en' },
+      'google_translate_element'
+    );
+  }
+</script>
+<script>
+    function removeGoogleHeader() {
+        const iframe = document.querySelector("iframe");
+        if (iframe) {
+            iframe.style.display = "none"; // Hides the Google Translate bar
+            document.body.style.top = "0px"; // Adjust body if it was pushed down
+        }
+    }
+
+    setInterval(removeGoogleHeader, 1000); // Keep checking
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<style>
-       h1,h3 {
-            font-size: 36px;
-            background-color: #ffffff;           
-;
-            color: #000000;
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+        }
+
+        .container-box {
+            background-color: #fff;
+            border: 3px solid #6a0572;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1, h2, h3 {
+            color: #2c003e;
+            margin: 20px 0;
+            text-align: center;
+        }
+
         h2 {
-            font-size: 30px;
-            background-color: #620689;
-            color: #ffffff;
+            background-color: #6a0572;
+            color: #fff;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+
+        p, p1 {
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
+
         .button {
-             display: inline-block;
-             background-color: #776275;
-             color: #fff;
-             padding: 10px 20px;
-             text-align: center;
-             text-decoration: none;
-             font-size: 16px;
-             border-radius: 5px;
-             cursor: pointer;
-             transition: background-color 0.3s;
-         }
-         .button:hover {
-             background-color: #ff0000;}
-</style>
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #9d50bb, #6e48aa);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 20px auto;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #353434;
+            color:white
+        }
+
+        audio {
+            display: block;
+            margin: 25px auto;
+        }
+
+        .info {
+            background: #fff0fb;
+            padding: 25px;
+            border-left: 6px solid #6a0572;
+            border-radius: 12px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        section.sloka {
+            background-color: #fefefe;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            padding: 35px;
+            animation: fadeInUp 1.1s ease-in-out;
+        }
+
+        /* Hide the Google Translate branding */
+        .goog-logo-link, .goog-te-gadget span {
+            display: none !important;
+        }
+
+        #google_translate_element {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+    </style>
 <body>
    <div id="google_translate_element"></div>
 <script src="scripts.js"></script> 
@@ -81,11 +185,7 @@
         <h1 class="center">Translation</h3>
         <p class="center">  O Arjun, I am seated in the heart of all living entities. I am the beginning, middle, and end of all beings.</p>
 
-        <div class="info">
-            <h2>Extra Information</h2>
-            <p>
-                Step into a realm of spirituality and serenity at the rajagopala swamy temple, where every visit is a journey of enlightenment and bliss.</p>
-        </div>
+       
 </div>
 <h2 class="center" >Bhagavad Gita Slokam</h2>
             <section id="slokam"></section>
@@ -105,11 +205,7 @@
         </center>
         <h1 class="center">Translation</h3>
         <p class="center">O Arjun, know that I am the eternal seed of all beings. I am the intellect of the intelligent, and the splendor of the glorious.</p>
-        <div class="info">
-            <h2>Extra Information</h2>
-            <p>
-                Enter the tranquil oasis of the Madan Gopal Jiu Temple in West Bengal, where every step is a pathway to spiritual awakening and serene bliss, inviting visitors on a journey of enlightenment and profound tranquility.</p></div>
-    </div>
+        
     <h2 class="center">Bhagavad Gita Slokam</h2>
     <section id="slokam"></section>
 
@@ -129,11 +225,7 @@
     <h1 class="center">Translation</h3>
     <p class="center"> There is nothing higher than Myself, O Arjun. Everything rests in Me, as beads strung on a thread.</p>
 
-    <div class="info">
-        <h2>Extra Information</h2>
-        <p>
-            Step into a realm of spirituality and serenity at the Vrindavan Chandrodaya Temple, where every visit is a journey of enlightenment and bliss.</p>
-    </div>
+
 </div>
 <h2 class="center" >Bhagavad Gita Slokam</h2>
             <section id="slokam"></section>
@@ -255,11 +347,7 @@
         </center>
         <h1 class="center">Translation</h3>
         <p class="center">  After many births of spiritual practice, one who is endowed with knowledge surrenders unto Me, knowing Me to be all that is. Such a great soul is indeed very rare.</p>
-        <div class="info">
-            <h2>Extra Information</h2>
-            <p>
-                Step into a realm of spirituality and serenity at the shree govindajee Temple, where every visit is a journey of enlightenment and bliss.</p>
-        </div>
+        
         <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
     </div>
     <h2 class="center">Bhagavad Gita Slokam</h2>
@@ -284,11 +372,7 @@
     <h2 class="center">Translation</h3>
     <p class="center">  I am seated in the hearts of all living beings, and from Me come memory, knowledge, as well as forgetfulness. I alone am to be known by all the Vedas, am the author of the Vedant, and the knower of the meaning of the Vedas.</p>
 
-    <div class="info">
-        <h2>Extra Information</h2>
-        <p>
-            Step into a realm of spirituality and serenity at the guruvayur temple, where every visit is a journey of enlightenment and bliss.</p>
-    </div>
+    
     <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
 </div>
 <h2 class="center">Bhagavad Gita Slokam</h2>
@@ -333,11 +417,7 @@
     <h2 class="center">Translation</h3>
     <p class="center"> Amongst the rudras know Me to be Shankar; amongst the semi-celestial beings and demons I am Kuber. I am Agni amongst the vasus and Meru amongst the mountains.</p>
 
-    <div class="info">
-        <h2>Extra Information</h2>
-        <p>
-            Step into a realm of spirituality and serenity at the guruvayur temple, where every visit is a journey of enlightenment and bliss.</p>
-    </div>
+    
     <h2 class="center">Bhagavad Gita Slokam</h2>
         <section id="slokam">
         <h3 class="center">Chapter 13, Verse 14</h3>
@@ -354,14 +434,7 @@
         <h2 class="center">Translation</h3>
         <p class="center">Everywhere are His hands and feet, eyes, heads, and faces. His ears too are in all places, for He pervades everything in the universe.</p>
 </section>
-        <div class="info">
-            <h2>Extra Information</h2>
-            <section id="more info">
-            <p>
-                Udupi Sri Krishna Matha Temple is famous for its unique traditions, including the style of worship and the management by the eight monasteries. It holds a significant place in Hindu religious practices and attracts devotees from all over the world.
-            </p>
-            </section>
-        </div>
+        
         <h2 class="center">Bhagavad Gita Slokam</h2>
         <section id="slokam">
         <h3 class="center">Chapter 10, Verse 41</h3>
@@ -396,17 +469,8 @@
         </center>
         <h2 class="center">Translation</h3>
         <p1 class="center"> The embodied souls in this material world are My eternal fragmental parts. But bound by material nature, they are struggling with the six senses including the mind.</p>
-            <h2 class="center">Translation</h3>
-                <p class="center">What need is there for all this detailed knowledge, O Arjun? Simply know that by one fraction of My being, I pervade and support this entire creation.</p>
-                <div class="info">
-                    <h2>Extra Information</h2>
-                    <section id="more info">
-                    <p>
-                        A journey to the Yulla kunda offers the best trekking experience with an enchanting view of the kinnaur mountains.
-                    </p>
-                    </section>
-                </div>
-                <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
+             
+              
                 <h2 class="center">Bhagavad Gita Slokam</h2>
                 <section id="slokam">
                 <h2 class="center">Chapter 9, Verse 4</h3>
@@ -480,12 +544,7 @@
         <p class="center">  I am the Supreme Goal of all living beings, and I am also their Sustainer, Master, Witness, Abode, Shelter, and Friend. I am the Origin, End, and Resting Place of creation; I am the Repository and Eternal Seed.</p>
 
        
-                <div class="info">
-                    <h2>Extra Information</h2>
-                    <section id="more info"></section>
-                    <p>
-                        There is no other place that has the calmness and the serenity that this majestic temple offers. If you’re looking to visit a temple for spiritual awakening, head over here without a doubt ‘cause you’ll only return with lots of positivity and a clean aura. Also, the vibes here get even more blissful on lord Krishna’s birthday so head over here to spend some blissful moments of serenity, this Janmashtami!</p>
-                </div></p>
+              
         </div>
     </div>      <h2 class="center">Bhagavad Gita Slokam</h2>
     <section id="slokam">
@@ -522,13 +581,9 @@
         <h2 class="center">Translation</h3>
         <p class="center">  I am the origin of all creation. Everything proceeds from Me. The wise who know this perfectly worship Me with great faith and devotion.</p>
         </section>
-        <div class="info">
-            <section id="more info">
-            <h2>Extra Information</h2>
-            <p>
-                Step into a realm of spirituality and serenity at the Hare krishna Temple, where every visit is a journey of enlightenment and bliss.</p>
-        </section></div>
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
+        
+           
+        <p class="center"><a class="button" href=krishna1.html>GO HOME</a></p><br>
     </div>
 
 

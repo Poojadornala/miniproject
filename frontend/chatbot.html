@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krishna Temples Chatbot</title>
+  <!-- 🛕 Keep your existing CSS here (unchanged) -->
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #languageSelect {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid white;
+  margin-top: 10px;
+  font-size: 14px;
+  background: white;
+  color: #3d4b4a;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+#categories {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#categories button {
+  background-color: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: #134e4a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#categories button:hover {
+  background-color: #ccfbf1;
+  transform: translateY(-2px);
+}
+
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #a7f3d0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #99f6e4;
+            box-shadow: 0 10px 25px -5px rgba(82, 132, 127, 0.15), 0 8px 10px -6px rgba(82, 132, 127, 0.1);
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #3d4b4a, #3d4b4a);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(82, 132, 127, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .chat-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .avatar-robot {
+            font-size: 28px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .chat-header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chat-header p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            background: linear-gradient(to bottom, #ffffff, #f0fdfa);
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            line-height: 1.6;
+            font-size: 14px;
+            animation: fadeIn 0.4s ease-out;
+            box-shadow: 0 2px 4px rgba(82, 132, 127, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #3d4b4a, #3d4b4a);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+            border-bottom-right-radius: 6px;
+        }
+
+        .bot-message {
+            background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+            color: #134e4a;
+            align-self: flex-start;
+            border: 1px solid #99f6e4;
+            border-bottom-left-radius: 6px;
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            color: #dc2626;
+            border: 1px solid #fecaca;
+            align-self: center;
+            max-width: 90%;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #f0fdfa, #3d4b4a);
+            border: 1px solid #99f6e4;
+            border-radius: 16px;
+            max-width: 80px;
+            align-self: flex-start;
+            border-bottom-left-radius: 6px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #52847f;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-4px);
+                opacity: 1;
+            }
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            background: linear-gradient(to top, #f0fdfa, #ffffff);
+            border-top: 1px solid #3d4b4a;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid #3d4b4a;
+            border-radius: 24px;
+            font-size: 14px;
+            resize: none;
+            max-height: 100px;
+            min-height: 48px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #52847f;
+            box-shadow: 0 0 0 4px rgba(82, 132, 127, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .send-button {
+            background: linear-gradient(135deg, #52847f, #4a7c59);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(82, 132, 127, 0.3);
+        }
+
+        .send-button:hover {
+            background: linear-gradient(135deg, #4a7c59, #3f6833);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(82, 132, 127, 0.4);
+        }
+
+        .send-button:active {
+            transform: translateY(0);
+        }
+
+        .send-button:disabled {
+            background: linear-gradient(135deg, #d1d5db, #9ca3af);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .send-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f0fdfa;
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #99f6e4, #5eead4);
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #3d4b4a, #3d4b4a);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            
+            .chat-container {
+                height: 100vh;
+                margin: 0;
+                border-radius: 0;
+                border: none;
+                max-width: 100%;
+            }
+            
+            .chat-header {
+                padding: 15px;
+            }
+            
+            .chat-avatar {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .avatar-robot {
+                font-size: 24px;
+            }
+            
+            .chat-header h1 {
+                font-size: 18px;
+            }
+            
+            .chat-messages {
+                padding: 16px;
+                gap: 12px;
+            }
+            
+            .message {
+                max-width: 85%;
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+            
+            .chat-input-container {
+                padding: 15px;
+            }
+            
+            .chat-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 12px 16px;
+            }
+            
+            .send-button {
+                width: 44px;
+                height: 44px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-header {
+                padding: 12px;
+            }
+            
+            .chat-avatar {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .avatar-robot {
+                font-size: 20px;
+            }
+            
+            .chat-header h1 {
+                font-size: 16px;
+            }
+            
+            .chat-messages {
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .message {
+                max-width: 90%;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+            
+            .chat-input-container {
+                padding: 12px;
+            }
+            
+            .send-button {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .send-icon {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-avatar">
+        <span class="avatar-robot">🙏</span>
+      </div>
+      <h1>WELCOME TO KRISHNA TEMPLES</h1>
+      <p>Your Krishna Temple Guide</p>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+
+        <option value="kn">Kannada</option>
+        <option value="ml">Malayalam</option>
+        <option value="ta">Tamil</option>
+      </select>
+     
+    </div>
+
+    <div class="chat-messages" id="chatMessages"></div>
+    <div style="margin-top: 10px;">
+  <label style="font-size: 13px; color: #fff;">
+    🔊 Voice:
+    <input type="checkbox" id="voiceToggle" checked />
+  </label>
+</div>
+
+    <div class="chat-input-container">
+      <div class="chat-input-wrapper">
+        <textarea class="chat-input" id="messageInput" placeholder="Ask me about Krishna temples, rituals, or locations! 🛕" rows="1"></textarea>
+        <button class="send-button" id="sendButton">
+          <svg class="send-icon" viewBox="0 0 24 24">
+            <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   function fillSample(text) {
+  const input = document.getElementById('messageInput');
+  input.value = text;
+  
+  setTimeout(() => {
+    document.getElementById('sendButton').click();
+  }, 500);
+}
+
+
+    function speak(text) {
+  const isVoiceOn = document.getElementById('voiceToggle').checked;
+  if (!isVoiceOn) return;
+
+  const langCode = document.getElementById('languageSelect').value;
+  const voiceLangMap = {
+    en: 'en-IN',
+    te: 'te-IN',
+    hi: 'hi-IN',
+    ta: 'ta-IN',
+    kn: 'kn-IN',
+    ml: 'ml-IN'
+  };
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = voiceLangMap[langCode] || 'en-IN';
+
+  speechSynthesis.speak(utterance);
+}
+
+
+    async function translateText(text, targetLang = 'te') {
+      const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
+      const data = await res.json();
+      return data[0].map(item => item[0]).join('');
+    }
+
+    class KrishnaTempleChatbot {
+      constructor() {
+        this.apiKey = 'AIzaSyAXqaECjT7N8421OrG_IhSoavYow2LrPYU';
+        this.chatMessages = document.getElementById('chatMessages');
+        this.messageInput = document.getElementById('messageInput');
+        this.sendButton = document.getElementById('sendButton');
+        this.languageSelect = document.getElementById('languageSelect');
+
+        this.loadHistory();
+        this.initializeEventListeners();
+      }
+
+      initializeEventListeners() {
+        this.sendButton.addEventListener('click', () => this.sendMessage());
+        this.messageInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.sendMessage();
+          }
+        });
+      }
+
+      async sendMessage() {
+        const message = this.messageInput.value.trim();
+        if (!message) return;
+
+        this.addMessage(message, true);
+        this.saveMessage(message, true);
+        this.messageInput.value = '';
+
+        try {
+          const contextualMessage = `You are a spiritual guide sharing divine knowledge about Krishna, Bhagavad Gita, temples, leelas and ISKCON. Respond in about 50 words.`;
+
+          const fullPrompt = `${contextualMessage}\nUser: ${message}`;
+          const response = await this.callGeminiAPI(fullPrompt);
+          const translated = await translateText(response, this.languageSelect.value);
+
+          this.addMessage(translated);
+          this.saveMessage(translated);
+          speak(translated);
+        } catch (err) {
+          this.addMessage('Something went wrong. Please try again.', false, true);
+        }
+      }
+
+      addMessage(text, isUser = false) {
+        const div = document.createElement('div');
+        div.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        div.textContent = text;
+        this.chatMessages.appendChild(div);
+        this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+      }
+
+      saveMessage(message, isUser = false) {
+        let history = JSON.parse(localStorage.getItem('krishnaChatHistory') || '[]');
+        history.push({ role: isUser ? 'user' : 'bot', content: message });
+        localStorage.setItem('krishnaChatHistory', JSON.stringify(history));
+      }
+
+      loadHistory() {
+        const history = JSON.parse(localStorage.getItem('krishnaChatHistory') || '[]');
+        history.forEach(({ role, content }) => this.addMessage(content, role === 'user'));
+      }
+
+      async callGeminiAPI(message) {
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${this.apiKey}`;
+
+        const requestBody = {
+          contents: [{ parts: [{ text: message }] }],
+          generationConfig: {
+            maxOutputTokens: 100,
+            temperature: 0.7
+          }
+        };
+
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(requestBody)
+        });
+
+        const data = await response.json();
+        return data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response from Krishna Chatbot.';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new KrishnaTempleChatbot();
+    });
+  </script>
+</body>
+</html>

@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jharkand</title>
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANDHRA PRADESH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">JHARKHAND</h4>
-    <header>
+
+  <h4 align="center">ANDHRA PRADESH</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -21,96 +75,214 @@
     </div>
     </div>
     </header>
-    <div class="container">
-        <h1 align="center">Radha Govind Mandir- Ranchi</h1>
-        <section id="about">
-        <p> Jagannath Temple in Ranchi, India is a 17th-century temple dedicated to Lord Jagannath. It was built by king of Barkagarh Jagannathpur Thakur Ani Nath Shahdeo, in 1691. Completed on 25 December 1691, it is located about 10 km from the main town. The temple is on top of a small hillock.</p>
-        </section>
-        <h1 align="center">Temple</h1>
-        <center>
-             <section id="temple">
-        <img src  ="jharkhand1.jpg" style="width:500px; height: auto;">
-         </section></center>
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            Similar to the famous Jagannath Temple in Puri, Odisha, this temple is built in the same architectural style, although smaller, and similar to the Rath Yatra in Puri, an annual fair cum rath yatra is held at this temple in the month of Aashaadha, attracting thousands of tribal and non-tribal devotees[3] not only from Ranchi but also from neighbouring villages and towns and is celebrated with much pomp and vigor.[4][5]
 
-Built on a hilltop, most visitors climb the stairs or take a vehicle. The temple was desecrated and vandalized by the Mughal Emperor Aurangzeb in the year 1691.[6]
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
+  <div class="container">
 
-Jagannath Temple
-The temple collapsed on 6 August 1990 and was reconstructed on 8 February 1992
-        <h2 align="center">Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>Ranchi</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Jharkand</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
-        
-        
-        <h2 align="center">Significance</h2>
-        <section id="significance"></section>
-        <p>The Jagannath Temple Ranchi is almost a replica of the famous Jagannath Temple of Puri, Orissa. However, it is comparatively smaller in size than the Jagannath Temple of Puri.<br>
-            Jagannatha, Balbhadra and Subhadra are worshiped at the temple. All the deities are engraved out of neem wood.<br>
-            The temple is exquisite with intricate carvings. The temple is colourful with unique blend of colours. The interiors of the temple are in the form of a fort.<br>
-            The Jagannath Temple Ranchi has been built in the Kalinga style of architecture. There is a tall sanctum within the temple. The temple also consists of a Jagamohana and Nata Mandir.<br.
-            The temple is especially important for devotees belonging to the Vaishnavism cult. As per Hindu mythology, Lord Jagannath is considered to be the Lord of the Universe. The worship of Lord Jagannath and the foundation of the temple</p>
-        
-            <h2 align="center">Timings</h2>
-            <section id="timings"></section>
- <p>The temple can be visited throughout the year. Tourists are suggested to visit the temple at dawn or dusk, as the surroundings look heavenly during sunrise and sunset. Summer is considered as the best time to visit the temple as the largest festival of the temple, Rath Yatra takes place at this time.<br>
+ 
 
-    The Jagannath Temple of Ranchi is open on all the days.<br>
-    It is open from 5 am to 12 pm and again from 3 pm to 6 pm.<br>
-    The temple is closed at afternoon, from 12.00 pm to 3.00 pm</p>
-         
+    <section id="about">
+      <h1 align="center">Panduranga Swamy Temple – Machilipatnam</h1>
+      <p> Panduranga Swamy Temple is a famous temple in Chilakalapudi, Machilipatnam, Krishna District, Andhra Pradesh. It was built in 1929 by Sri Bhakta Narasimham. The temple has spiritual significance for the locals and closely resembles the Pandharpur temple in Maharashtra.</p>
+    </section>
+
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"><img src="andhra.jpg" alt="Panduranga Temple" /></section></center>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>This temple was constructed in 1929 by Sri Bhakta Narasimham and dedicated to Lord Panduranga Vithal. It is considered the second most famous Panduranga temple in India. Devotees take a holy dip at Manginapudi seashore during Kartika Purnima. The temple also features a Sahasralinga mandapam and over 100 other shrines.</p>
+    </section>
+
     <h2 align="center">Festivals</h2>
-    <section id="festivals"></section>
+    <section id="festivals">
+      <p>Karthika Masam, Gowri Pooja</p>
+    </section>
 
-    <p1>Krishna Janmasthami:</p1> <p>This is another important festival celebrated at the Jagannath temple. Lord Krishna is considered to be another incarnation of Lord Jagannath. The festival takes place during the Hindu month of Shravan, which is generally the month of August. The devotees fast till the worship proceedings complete in the evening.<br></p>
-     <p1>  Rath Yatra</p1>: <p>Rath Yatra, also known as the Car Festival, is the prime festival celebrated at the Jagannath Temple of Ranchi. The celebration takes place during the Hindu month of Asadh, on Ashad Shukla Dwitiya. This is the second day of the fortnight of Ashad, which generally occurs during June or July.<br></p>
-     <p1>   Kalash Sthapna</p1>:<p> Before the main event of Ratha Yatra, events like Kalash Sthapna, Pran Prathistha and Bhandara take place at the temple complex. The eyes of the deities are also painted before Ratha Yatra.<br></p>
-       <p1> Snan Yatra</p1>: <p>This is another auspicious day that is celebrated with great pomp and show at the Jagannath Temple of Ranchi. The event generally occurs on the full moon, known as Purnima during the Hindu month of Jyeshtha, which is May or June. Lots of pilgrims gather at the temple to witness the holy event in which Lord Jagannath, Lord Balaram and Goddess Subhadra are bathed. In this festival each God is bathed with 51 pots (also known as kalash) of water.<br></p>
-        
-        <h2 align="center">Accommadation</h2>
-        <section id="accommodation"></section>
-        <p class="center">for hotel booking<br<a class="button" href="https://www.booking.com/">click here to book a room</a></p><br>.
-        <p></p>
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam"></section>
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Chilakalapudi, Machilipatnam</td></tr>
+        <tr><th>State</th><td>Andhra Pradesh</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Panduranga Swamy</td></tr>
+      </table>
+    </section>
 
-        <h3 class="center">Chapter 5, Verse 29</h3>
-        <p class="center">ममैवांशो जीवलोके जीवभूत: सनातन: | <br>मन:षष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति || 7||<br><br>mamaivānśho jīva-loke jīva-bhūtaḥ sanātanaḥ<br>manaḥ-ṣhaṣhṭhānīndriyāṇi prakṛiti-sthāni karṣhati
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
 
-        </p>
-        <center>
-
+    <h2 class="center">Bhagavad Gita Slokam</h2>
+    <section id="slokam">
+      <h2 class="center">Chapter 9, Verse 24</h2>
+      <p class="center">अहं हि सर्वयज्ञानां भोक्ता च प्रभुरेव च ||<br>न तु मामभिजानन्ति तत्त्वेनातश्च्यवन्ति ते || 24||</p>
+      <p class="center"><br>ahaṁ hi sarva-yajñānāṁ bhoktā cha prabhureva cha<br>na tu mām abhijānanti tattvenātaś chyavanti te</p>
+      <center>
         <audio controls>
-            
-            <source src="chapter15verse7.mp3">
-            Your browser does not support the audio element.
-        
+          <source src="chapter9verse24.mp3" />
+          Your browser does not support the audio element.
         </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p1 class="center"> The embodied souls in this material world are My eternal fragmental parts. But bound by material nature, they are struggling with the six senses including the mind.</p>
+      </center>
+      <h3 class="center">Translation</h3>
+      <p class="center">I am the enjoyer and the only Lord of all sacrifices. But those who fail to realize My divine nature must be reborn.</p>
+    </section>
 
-            <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
+    <h2 align="center">Route to Panduranga Swamy Temple</h2>
+    <div id="map"></div>
 
-    <p class="center">timings of the temple<br><a  href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>go home</a></p><br>
-        
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
+</section>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [16.196, 81.1587];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "panduranga swamy";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

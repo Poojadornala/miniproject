@@ -56,4 +56,21 @@ logoutButton.addEventListener('click', () => {
     console.error("Logout Error:", error);
   });
 });
+function getBotResponse(input) {
+  input = input.toLowerCase(); // Make input case-insensitive
+
+  let response = "Sorry, I can only help with questions related to this site!";
+
+  if (input.includes("hi") || input.includes("hello") || input.includes("hare krishna")) {
+    response = "Hare Krishna! 🙏 How can I help you today?";
+  } else if (input.includes("temple")) {
+    response = "You can explore temples using the interactive map on the homepage.";
+  } else if (input.includes("sloka") || input.includes("gita")) {
+    response = "You can find Bhagavad Gita slokas on each temple's detail page.";
+  } else if (input.includes("direction") || input.includes("gps") || input.includes("navigate")) {
+    response = "Please enable GPS to get real-time directions to nearby Krishna temples.";
+  }
+
+  setTimeout(() => addMessage("bot", response), 500);
+}
 

@@ -150,7 +150,7 @@ body {
 /* Dropdown styling */
 #google_translate_element select {
   background-color: transparent;
-  color: rgb(27, 25, 25);
+  color: rgba(62, 33, 221, 0.804);
   border: 2px solid rgb(16, 16, 16);
   padding: 6px 10px;
   border-radius: 6px;

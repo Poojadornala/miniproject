@@ -162,6 +162,7 @@
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(auth.currentUser, { displayName: name });
+        console.log("User created:", userCredential.user);
 
         successMsg.textContent = "Account created successfully! Please login.";
 
