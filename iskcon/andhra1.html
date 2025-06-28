@@ -75,38 +75,40 @@
     </div>
     </div>
     </header>
-
  <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
   <div class="container">
 
- 
+  <div class="container">
 
     <section id="about">
-      <h1 align="center">Panduranga Swamy Temple – Machilipatnam</h1>
-      <p> Panduranga Swamy Temple is a famous temple in Chilakalapudi, Machilipatnam, Krishna District, Andhra Pradesh. It was built in 1929 by Sri Bhakta Narasimham. The temple has spiritual significance for the locals and closely resembles the Pandharpur temple in Maharashtra.</p>
+      <h1 align="center">Radha Govinda Mandir- Tirupati</h1>
+      <p> Sri Sri Radha Govinda Mandir in Tirupati, run by ISKCON, is a serene temple dedicated to Radha and Krishna. Located near the Tirumala foothills, it features beautiful deities, spiritual discourses, and daily prasadam. The temple also hosts vibrant festivals like Janmashtami and attracts devotees from across the country.</p>
     </section>
 
     <h1 align="center">Temple</h1>
-    <center><section id="Image"><img src="andhra.jpg" alt="Panduranga Temple" /></section></center>
+    <center><section id="Image"><img src="https://centers.iskcondesiretree.com/wp-content/uploads/2011/06/Iskcon-Tirupati-Sri-Sri-Radha-Govinda.jpg" alt="Panduranga Temple" /></section></center>
 
     <h2 align="center">History</h2>
     <section id="History">
-      <p>This temple was constructed in 1929 by Sri Bhakta Narasimham and dedicated to Lord Panduranga Vithal. It is considered the second most famous Panduranga temple in India. Devotees take a holy dip at Manginapudi seashore during Kartika Purnima. The temple also features a Sahasralinga mandapam and over 100 other shrines.</p>
+      <p>The Sri Sri Radha Govinda Mandir in Tirupati was established by ISKCON (International Society for Krishna Consciousness) in the 1980s to promote Krishna consciousness and serve pilgrims visiting Tirumala. It was inaugurated by His Holiness Bhakti Swarupa Damodara Swami and is known for its beautiful South Indian temple architecture. The temple has since become a spiritual center for worship, cultural events, and Vedic education. It also supports cow protection and prasadam distribution.</p>
     </section>
 
     <h2 align="center">Festivals</h2>
     <section id="festivals">
-      <p>Karthika Masam, Gowri Pooja</p>
+      <p> Chandan Yatra</p>
+      <p> Jhulan Yatra</p>
+      <p> Sri Krishna Janmashtami</p>
+      <p> Akshaya Tritya</p>
     </section>
 
     <h2 align="center">Location</h2>
     <section id="location">
-      <table>
-        <tr><th>Location</th><td>Chilakalapudi, Machilipatnam</td></tr>
+      <table>git
+        <tr><th>Location</th><td>Vinayaka Nagar, Tirupati </td></tr>
         <tr><th>State</th><td>Andhra Pradesh</td></tr>
         <tr><th>Country</th><td>India</td></tr>
-        <tr><th>Deity</th><td>Panduranga Swamy</td></tr>
+        <tr><th>Deity</th><td>Radha Krishna</td></tr>
       </table>
     </section>
 
@@ -149,7 +151,7 @@
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [16.196, 81.1587];
+   const templeCoords = [16.196, 81.1587];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -157,7 +159,7 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Iskcon').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -218,7 +220,7 @@ import {
   doc
 } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
-const templeId = "panduranga swamy";
+const templeId = "andhra1"; // Unique ID for this temple
 const reviewList = document.getElementById('review-list');
 const reviewInput = document.getElementById('review-text');
 const submitBtn = document.getElementById('submit-review');

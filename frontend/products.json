@@ -1,0 +1,26 @@
+[
+    {
+          "id": 1,
+        "name": "Bhagavad Gita Book",
+        "price": 450,
+        "image": "image/image1.jpg"
+    },
+    {
+        "id": 2,
+        "name":" krishna Idol",
+        "price": 250,
+        "image": "image/2.jpg"
+    },
+    {
+        "id": 3,
+        "name":" Mahabharath Book",
+        "price": 290,
+        "image": "image/3.jpg"
+    },
+    {
+        "id": 4,
+        "name":" Idol",
+        "price": 200,
+        "image": "image/4.jpg"
+    }
+]

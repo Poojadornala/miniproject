@@ -1,145 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js" ></script>
-    <script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      { pageLanguage: 'en' },
-      'google_translate_element'
-    );
-  }
-</script>
-<script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Slokas</title>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
+
+  <script>
     function removeGoogleHeader() {
-        const iframe = document.querySelector("iframe");
-        if (iframe) {
-            iframe.style.display = "none"; // Hides the Google Translate bar
-            document.body.style.top = "0px"; // Adjust body if it was pushed down
-        }
+      const frame = document.querySelector('iframe.goog-te-banner-frame');
+      if (frame) frame.style.display = "none";
+      const skipTranslate = document.querySelector('.skiptranslate');
+      if (skipTranslate) skipTranslate.style.display = "none";
+      document.body.style.top = "0px";
+    }
+    setInterval(removeGoogleHeader, 1000);
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .goog-te-gadget-icon, .goog-logo-link, .goog-te-gadget span {
+      display: none !important;
     }
 
-    setInterval(removeGoogleHeader, 1000); // Keep checking
-</script>
+    .goog-te-gadget {
+      font-size: 0 !important;
+    }
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    body > .skiptranslate {
+      display: none !important;
+    }
+
+    body {
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      top: 0px !important;
+    }
+
+    #google_translate_element {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+
+    #google_translate_element select {
+      background-color: transparent;
+      color: #f4e8e8;
+      border: 2px solid white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: "Poppins", sans-serif;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #google_translate_element select:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .container-box {
+      background-color: #fff;
+      border: 3px solid #170572;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h1, h2, h3 {
+      color: #2c003e;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    h2 {
+      background-color: #1d0797;
+      color: #fff;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 20px 0;
+      text-align: center;
+      color: #333;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: linear-gradient(to right, #2405a0, #6e48aa);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      margin: 20px auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: #353434;
+    }
+
+    audio {
+      display: block;
+      margin: 25px auto;
+    }
+
+    section.slokam {
+      background-color: #fefefe;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      margin: 30px 0;
+      padding: 35px;
+      animation: fadeInUp 1.1s ease-in-out;
+    }
+  </style>
 </head>
-  <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 30px;
-        }
-
-        .container-box {
-            background-color: #fff;
-            border: 3px solid #6a0572;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px;
-            animation: fadeInUp 1s ease-in-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        h1, h2, h3 {
-            color: #2c003e;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        h2 {
-            background-color: #6a0572;
-            color: #fff;
-            padding: 12px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        p, p1 {
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 20px 0;
-            text-align: center;
-            color: #333;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(to right, #9d50bb, #6e48aa);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            margin: 20px auto;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-
-        .button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            background: #353434;
-            color:white
-        }
-
-        audio {
-            display: block;
-            margin: 25px auto;
-        }
-
-        .info {
-            background: #fff0fb;
-            padding: 25px;
-            border-left: 6px solid #6a0572;
-            border-radius: 12px;
-            margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            animation: fadeInUp 1.2s ease-in-out;
-        }
-
-        section.sloka {
-            background-color: #fefefe;
-            border: 2px solid #ccc;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 30px 0;
-            padding: 35px;
-            animation: fadeInUp 1.1s ease-in-out;
-        }
-
-        /* Hide the Google Translate branding */
-        .goog-logo-link, .goog-te-gadget span {
-            display: none !important;
-        }
-
-        #google_translate_element {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-    </style>
 <body>
-   <div id="google_translate_element"></div>
+
 <script src="scripts.js"></script> 
     <p class="center"><a class="button" href=homepage2.html>GO HOME</a></p><br>
     <h1 align="center">SLOKAS ON KRISHNA'S SIGNIFICANCE IS EVERYTHING</h1>
@@ -326,7 +331,7 @@
         </center>
         <h1 class="center">Translation</h3>
         <p class="center">  I am transcendental to the perishable world of matter, and even to the imperishable soul; hence I am celebrated, both in the Vedas and the Smṛitis, as the Supreme Divine Personality.</p>
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
+        
        
     </div>
     </div>
@@ -348,7 +353,6 @@
         <h1 class="center">Translation</h3>
         <p class="center">  After many births of spiritual practice, one who is endowed with knowledge surrenders unto Me, knowing Me to be all that is. Such a great soul is indeed very rare.</p>
         
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
     </div>
     <h2 class="center">Bhagavad Gita Slokam</h2>
     <section id="slokam"></section>
@@ -373,7 +377,6 @@
     <p class="center">  I am seated in the hearts of all living beings, and from Me come memory, knowledge, as well as forgetfulness. I alone am to be known by all the Vedas, am the author of the Vedant, and the knower of the meaning of the Vedas.</p>
 
     
-    <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
 </div>
 <h2 class="center">Bhagavad Gita Slokam</h2>
         <section id="slokam"></section>
@@ -395,7 +398,7 @@
         <h1 class="center">Translation</h3>
         <p class="center"> I am the generating seed of all living beings, O Arjun. No creature moving or non-moving can exist without Me.</p>
 
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
+        
     </div>
     <h2 class="center">Bhagavad Gita Slokam</h2>
     <section id="slokam"></section>

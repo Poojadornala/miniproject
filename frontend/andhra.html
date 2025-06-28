@@ -6,14 +6,14 @@
   <title>ANDHRA PRADESH</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <script type="module" src="scripts.js"></script>
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-
-
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</head>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
   <style>
     #map {
       height: 400px;
@@ -59,7 +59,6 @@
   </style>
 </head>
 <body>
-
   <h4 align="center">ANDHRA PRADESH</h4>
 
   <header>
@@ -77,7 +76,39 @@
     </header>
 
  <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
+<div id="openChatbot" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #3d4b4a;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;">
+  <img src="https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-chatbot-icon-chat-bot-robot-png-image_4841963.png" alt="Chat" width="70" height="50" />
+</div>
 
+<!-- Chatbot Iframe (Initially Hidden) -->
+<div id="chatbotWidget" style="
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 360px;
+  height: 500px;
+  border: none;
+  z-index: 9998;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+">
+  <iframe src="chatbot.html" style="width:100%; height:100%; border:0; border-radius: 16px;"></iframe>
+</div>
   <div class="container">
 
  
@@ -141,7 +172,14 @@
   </div>
   <div id="review-list"></div>
 </section>
-
+<div id="chatbot-window" style="position: fixed; bottom: 80px; right: 20px; width: 300px; max-height: 400px; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 1000;">
+  <div style="background: #6b4fbb; color: white; padding: 10px; border-radius: 10px 10px 0 0;">Ask KrishnaBot</div>
+  <div id="chatlog" style="padding: 10px; overflow-y: auto; flex-grow: 1; max-height: 300px;"></div>
+  <div style="display: flex; border-top: 1px solid #ccc;">
+    <input id="chat-input" type="text" placeholder="Ask about this site..." style="flex: 1; border: none; padding: 10px;">
+    <button onclick="sendChat()" style="background: #6b4fbb; color: white; border: none; padding: 10px;">Send</button>
+  </div>
+</div>
   </div>
 
   <!-- Leaflet JS & Routing plugin -->
