@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Swayambu Krishna Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 900px;
+            max-width: 90vw;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .order-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fafafa;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+        }
+        .order-details p {
+            margin: 5px 0;
+        }
+        .order-details .status {
+            font-weight: 700;
+            color: #3498db; /* Default status color */
+        }
+        .order-details .status.Pending { color: #f39c12; } /* Yellow for Pending */
+        .order-details .status.Shipped { color: #2ecc71; } /* Green for Shipped */
+        .order-details .status.Delivered { color: #27ae60; } /* Darker green for Delivered */
+        .order-details .status.Cancelled { color: #e74c3c; } /* Red for Cancelled */
+
+        .order-items-list {
+            margin-top: 15px;
+            border-top: 1px dashed #eee;
+            padding-top: 15px;
+        }
+        .order-items-list h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .order-item-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        .order-item-detail span:first-child {
+            font-weight: 500;
+        }
+        .empty-orders {
+            text-align: center;
+            padding: 50px;
+            color: #777;
+            font-style: italic;
+        }
+        .back-to-shop {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .back-to-shop a {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-shop a:hover {
+            background-color: #2980b9;
+        }
+        /* Loading spinner */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Orders</h1>
+        <div id="ordersContainer" class="order-list">
+            <p class="loading">Loading your orders...</p>
+        </div>
+        <div class="back-to-shop">
+            <a href="homepage2.html">Back to Shopping</a>
+        </div>
+    </div>
+
+    <script src="my-orders.js"></script>
+</body>
+</html>

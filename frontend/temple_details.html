@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title id="page-title">Loading...</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            background-color: #f0f0f0;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .center {
+            text-align: center;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+        }
+        /* New styles for loading and error */
+        #loading-message, #error-message {
+            text-align: center;
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin-top: 50px;
+        }
+        #content-container {
+            display: none; /* Hide content until data is loaded */
+        }
+        .review-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 5px;
+        }
+        .review-item strong {
+            color: #6c4b94;
+        }
+        .review-item button {
+            background-color: #6c4b94;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .review-item button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
+
+    <div id="loading-message">Loading temple information...</div>
+    <div id="error-message" style="display: none;"></div>
+
+    <div id="content-container">
+        <h4 align="center" id="temple-heading"></h4>
+
+        <header>
+            <div class="menu-btn"></div>
+            <div class="navigation">
+                <div class="navigation-items">
+                    <a href="#about">About</a>
+                    <a href="#image-section">Image</a>
+                    <a href="#location">Location</a>
+                    <a href="#accommodation">Accommodation</a>
+                    <a href="#slokam">Bhagavad Gita</a>
+                    <a href="krishna1.html">Back</a>
+                </div>
+            </div>
+        </header>
+        
+        <div id="openChatbot" style="
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #3d4b4a;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;">
+            <img src="https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-chatbot-icon-chat-bot-robot-png-image_4841963.png" alt="Chat" width="70" height="50" />
+        </div>
+        <div id="chatbotWidget" style="
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 360px;
+            height: 500px;
+            border: none;
+            z-index: 9998;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border-radius: 16px;
+            overflow: hidden;">
+            <iframe src="chatbot.html" style="width:100%; height:100%; border:0; border-radius: 16px;"></iframe>
+        </div>
+        
+        <div class="container">
+            <section id="about">
+                <h1 align="center" id="temple-name-main"></h1>
+                <p id="temple-description"></p>
+            </section>
+
+            <h1 align="center">Temple</h1>
+            <center><section id="image-section"><img id="temple-image" src="" alt="Temple Image" /></section></center>
+
+            <h2 align="center">History</h2>
+            <section id="History">
+                <p id="temple-history"></p>
+            </section>
+
+            <h2 align="center">Festivals</h2>
+            <section id="festivals">
+                <p id="temple-festivals"></p>
+            </section>
+
+            <h2 align="center">Location</h2>
+            <section id="location">
+                <table>
+                    <tr><th>Location</th><td id="location-name"></td></tr>
+                    <tr><th>State</th><td id="location-state"></td></tr>
+                    <tr><th>Country</th><td id="location-country"></td></tr>
+                    <tr><th>Deity</th><td id="location-deity"></td></tr>
+                </table>
+            </section>
+
+            <h2 align="center">Accommodation</h2>
+            <section id="accommodation">
+                <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+            </section>
+
+            <h2 class="center">Bhagavad Gita Slokam</h2>
+            <section id="slokam">
+                <h2 class="center" id="slokam-verse"></h2>
+                <p class="center" id="slokam-text"></p>
+                <p class="center" id="slokam-transliteration"></p>
+                <center>
+                    <audio controls id="slokam-audio">
+                        <source src="" type="audio/mpeg" />
+                        Your browser does not support the audio element.
+                    </audio>
+                </center>
+                <h3 class="center">Translation</h3>
+                <p class="center" id="slokam-translation"></p>
+            </section>
+
+            <h2 align="center">Route to <span id="route-temple-name"></span></h2>
+            <div id="map"></div>
+
+            <section id="reviews" class="center">
+                <h2>Reviews</h2>
+                <div id="review-form">
+                    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+                    <button id="submit-review">Submit Review</button>
+                </div>
+                <div id="review-list"></div>
+            </section>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Set the original language of your page
+                includedLanguages: 'en,hi,ta,te,kn,ml,gu,bn,mr,pa', // Languages you want to offer translation to
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const templeId = urlParams.get('id');
+
+            const contentContainer = document.getElementById('content-container');
+            const loadingMessage = document.getElementById('loading-message');
+            const errorMessage = document.getElementById('error-message');
+
+            console.log('URL parameters:', urlParams.toString());
+            console.log('Extracted templeId:', templeId);
+
+            if (!templeId) {
+                errorMessage.textContent = 'Error: No temple ID provided in the URL. Please use a URL like `temple_details.html?id=AP`.';
+                errorMessage.style.display = 'block';
+                loadingMessage.style.display = 'none';
+                return; // Stop execution
+            }
+
+            let authToken = localStorage.getItem('authToken');
+            let currentUserId = null;
+            let currentUserName = null; // This will hold the username from the logged-in user
+
+            // --- Fetch temple data and populate the page ---
+            try {
+                const apiUrl = `http://localhost:3000/api/temples/${templeId}`;
+                console.log('Fetching data from URL:', apiUrl);
+
+                const templeRes = await fetch(apiUrl);
+
+                if (!templeRes.ok) {
+                    const errorText = await templeRes.text();
+                    throw new Error(`Failed to fetch temple data. Status: ${templeRes.status}. Message: ${errorText || 'Unknown error'}`);
+                }
+
+                const templeData = await templeRes.json();
+                
+                console.log('Successfully fetched temple data:', templeData);
+
+                if (!templeData || Object.keys(templeData).length === 0) {
+                    throw new Error('Temple data is empty. Please check the database for the provided ID.');
+                }
+
+                // Populate static content
+                document.getElementById('page-title').textContent = templeData.name;
+                document.getElementById('temple-heading').textContent = templeData.name;
+                document.getElementById('temple-name-main').textContent = templeData.name;
+                document.getElementById('temple-description').textContent = templeData.description;
+                
+                // IMPORTANT: Verify this path for images
+                // If your `imageUrl` from the database is just "temple.jpg" and the images are in a folder named `image`
+                // in the same directory as this HTML file, then this path is correct.
+                // If `imageUrl` includes "image/temple.jpg", then just use `templeData.imageUrl`.
+                document.getElementById('temple-image').src = `./image/${templeData.imageUrl}`; 
+
+                document.getElementById('temple-history').textContent = templeData.history;
+                document.getElementById('temple-festivals').textContent = templeData.festivals;
+                document.getElementById('route-temple-name').textContent = templeData.name;
+                document.getElementById('slokam-text').textContent = templeData.slokam.text || 'N/A';
+                document.getElementById('slokam-transliteration').textContent = templeData.slokam.transliteration || 'N/A';
+
+                if (templeData.locationDetails) {
+                    document.getElementById('location-name').textContent = templeData.locationDetails.location || 'N/A';
+                    document.getElementById('location-state').textContent = templeData.locationDetails.state || 'N/A';
+                    document.getElementById('location-country').textContent = templeData.locationDetails.country || 'N/A';
+                    document.getElementById('location-deity').textContent = templeData.locationDetails.deity || 'N/A';
+                } else {
+                    console.warn('locationDetails object is missing in the data.');
+                    document.getElementById('location-name').textContent = 'N/A';
+                    document.getElementById('location-state').textContent = 'N/A';
+                    document.getElementById('location-country').textContent = 'N/A';
+                    document.getElementById('location-deity').textContent = 'N/A';
+                }
+                
+                if (templeData.slokam) {
+                    document.getElementById('slokam-verse').innerHTML = templeData.slokam.verse || 'N/A';
+                    document.getElementById('slokam-translation').innerHTML = templeData.slokam.translation || 'N/A';
+                    
+                    // IMPORTANT: Verify this path for audio
+                    // If your `audioUrl` from the database is just "slokam.mp3" and the audio files are in a folder named `audio`
+                    // in the same directory as this HTML file, then this path needs adjustment:
+                    // document.getElementById('slokam-audio').src = `./audio/${templeData.slokam.audioUrl}`;
+                    // If your `audioUrl` already includes the full path like "audio/slokam.mp3" or "http://example.com/audio/slokam.mp3",
+                    // then `document.getElementById('slokam-audio').src = templeData.slokam.audioUrl;` is correct.
+                    if (templeData.slokam.audioUrl) {
+                        document.getElementById('slokam-audio').src = `./audio/${templeData.slokam.audioUrl}`;
+                        document.getElementById('slokam-audio').style.display = 'block';
+                    } else {
+                        document.getElementById('slokam-audio').style.display = 'none';
+                    }
+                } else {
+                    console.warn('slokam object is missing in the data.');
+                    document.getElementById('slokam-verse').innerHTML = 'N/A';
+                    document.getElementById('slokam-translation').innerHTML = 'N/A';
+                    document.getElementById('slokam-audio').style.display = 'none';
+                }
+
+                loadingMessage.style.display = 'none';
+                contentContainer.style.display = 'block';
+
+                if (templeData.mapCoords && templeData.mapCoords.latitude && templeData.mapCoords.longitude) {
+                    const mapCoords = [templeData.mapCoords.latitude, templeData.mapCoords.longitude];
+                    const map = L.map('map').setView(mapCoords, 13);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(map);
+
+                    L.marker(mapCoords).addTo(map).bindPopup(templeData.name).openPopup();
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            const userCoords = [position.coords.latitude, position.coords.longitude];
+                            L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+                            
+                            const control = L.Routing.control({
+                                waypoints: [L.latLng(userCoords), L.latLng(mapCoords)],
+                                routeWhileDragging: false,
+                                createMarker: function() { return null; },
+                                show: false,
+                                addWaypoints: false,
+                                draggableWaypoints: false,
+                                fitSelectedRoutes: true,
+                                showAlternatives: false,
+                            }).addTo(map);
+
+                            control.on('routesfound', function(e) {
+                                const summary = e.routes[0].summary;
+                                const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+                                const timeInMin = Math.round(summary.totalTime / 60);
+                                L.popup().setLatLng(mapCoords).setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`).openOn(map);
+                            });
+                        });
+                    }
+                } else {
+                    console.error('Map coordinates are missing or invalid in the data.');
+                    document.getElementById('map').innerHTML = '<p style="text-align: center;">Map data not available.</p>';
+                }
+
+            } catch (error) {
+                console.error('Error loading temple data:', error);
+                loadingMessage.style.display = 'none';
+                errorMessage.textContent = `Failed to load temple data. Please check the URL and the server. Error: ${error.message}`;
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            const reviewList = document.getElementById('review-list');
+            const reviewInput = document.getElementById('review-text');
+            const submitBtn = document.getElementById('submit-review');
+
+            if (authToken) {
+                try {
+                    const userRes = await fetch('http://localhost:3000/api/user/me', {
+                        headers: { 'Authorization': `Bearer ${authToken}` }
+                    });
+                    if (userRes.ok) {
+                        const userData = await userRes.json();
+                        currentUserId = userData._id;
+                        // --- IMPORTANT FIX: Use userData.username instead of userData.name ---
+                        // Your backend expects 'userName' in the Review schema, which is populated
+                        // from `req.user.username` (from the JWT). The JWT gets it from the
+                        // `user.username` field in the database. Ensure your user in DB has 'username'.
+                        currentUserName = userData.username; 
+                        console.log("✅ Logged in as:", userData.email, "(Username:", currentUserName, ")"); // Added username to console log
+                        await loadReviews();
+                    } else {
+                        console.log("⚠️ Token invalid or expired. Please log in again.");
+                        localStorage.removeItem('authToken');
+                        alert("Your session has expired. Please log in to post reviews.");
+                        // Disable review submission if token is invalid
+                        reviewInput.placeholder = "Please log in to write a review.";
+                        submitBtn.disabled = true;
+                    }
+                } catch (err) {
+                    console.error("Error fetching user info:", err);
+                    alert("Could not verify your login status. Please log in to post reviews.");
+                    // Disable review submission on error
+                    reviewInput.placeholder = "Please log in to write a review.";
+                    submitBtn.disabled = true;
+                }
+            } else {
+                console.log("⚠️ User is not logged in.");
+                reviewInput.placeholder = "Please log in to write a review.";
+                submitBtn.disabled = true;
+            }
+
+            async function loadReviews() {
+                try {
+                    const res = await fetch(`http://localhost:3000/api/reviews/${templeId}`);
+                    if (!res.ok) throw new Error('Failed to load reviews.');
+                    const reviews = await res.json();
+                    reviewList.innerHTML = "";
+                    if (reviews.length === 0) {
+                        reviewList.innerHTML = '<p>No reviews yet. Be the first to add one!</p>';
+                    } else {
+                        reviews.forEach(r => {
+                            const reviewHTML = `
+                                <div class="review-item">
+                                    <strong>${r.userName || 'Anonymous'}</strong><br> <p>${r.review}</p>
+                                    ${r.userId === currentUserId ? `
+                                        <button onclick="editReview('${r._id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
+                                        <button onclick="deleteReview('${r._id}')">Delete</button>
+                                    ` : ''}
+                                </div>
+                            `;
+                            reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error fetching reviews:', error);
+                    reviewList.innerHTML = '<p>Could not load reviews.</p>';
+                }
+            }
+
+            submitBtn.addEventListener('click', async () => {
+                const text = reviewInput.value.trim();
+                // Ensure currentUserId and currentUserName are available before submission
+                if (!text || !authToken || !currentUserId || !currentUserName) { 
+                    return alert("Please write a review and ensure you are logged in with a valid user profile.");
+                }
+                
+                try {
+                    const res = await fetch('http://localhost:3000/api/reviews', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${authToken}`
+                        },
+                        body: JSON.stringify({ 
+                            templeId, 
+                            review: text,
+                            // These are sent, but backend primarily relies on JWT for userId/userName
+                            // Still good practice to send for clarity/redundancy if needed in future
+                            userId: currentUserId, 
+                            userName: currentUserName 
+                        })
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.message || 'Failed to submit review.');
+                    }
+                    
+                    reviewInput.value = '';
+                    await loadReviews();
+                } catch (error) {
+                    console.error('Error submitting review:', error);
+                    alert(`Failed to submit review: ${error.message}. Please check your login status.`);
+                }
+            });
+
+            window.editReview = async (id, oldText) => {
+                const newText = prompt("Edit your review:", oldText);
+                if (!newText || !authToken || !currentUserId) return; // Ensure user is logged in
+                try {
+                    const res = await fetch(`http://localhost:3000/api/reviews/${id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${authToken}`
+                        },
+                        body: JSON.stringify({ review: newText })
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.message || 'Failed to update review.');
+                    }
+                    await loadReviews();
+                } catch (error) {
+                    console.error('Error updating review:', error);
+                    alert(`Failed to update review: ${error.message}. You may not be authorized or the review does not exist.`);
+                }
+            };
+
+            window.deleteReview = async (id) => {
+                if (!confirm("Delete this review?")) return;
+                if (!authToken || !currentUserId) return alert("You must be logged in to delete reviews.");
+                try {
+                    const res = await fetch(`http://localhost:3000/api/reviews/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.message || 'Failed to delete review.');
+                    }
+                    await loadReviews();
+                } catch (error) {
+                    console.error('Error deleting review:', error);
+                    alert(`Failed to delete review: ${error.message}. You may not be authorized.`);
+                }
+            };
+        });
+    </script>
+    <script>
+        // Chatbot toggle logic
+        document.getElementById('openChatbot').addEventListener('click', function() {
+            const chatbotWidget = document.getElementById('chatbotWidget');
+            if (chatbotWidget.style.display === 'none' || chatbotWidget.style.display === '') {
+                chatbotWidget.style.display = 'block';
+            } else {
+                chatbotWidget.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

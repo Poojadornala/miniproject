@@ -31,3 +31,6 @@ export const auth = getAuth(app);
 export const db = getFirestore(app); // ✅ Add Firestore instance
 export const googleProvider = new GoogleAuthProvider();
 export const githubProvider = new GithubAuthProvider();
+
+
+export { auth, db, doc, getDoc, setDoc, updateDoc, addDoc, deleteDoc, collection, onAuthStateChanged };

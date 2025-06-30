@@ -1,203 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #1b0918;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1b0918;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    form {
-      background: #2c1530;
-      padding: 2rem;
-      border-radius: 8px;
-      width: 320px;
-    }
+        form {
+            background: #2c1530;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 320px;
+        }
 
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin: 0.5rem 0;
-      border-radius: 4px;
-      border: none;
-    }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border: none;
+        }
 
-    input {
-      font-size: 1rem;
-    }
+        input {
+            font-size: 1rem;
+        }
 
-    button {
-      background: #6c4b94;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
+        button {
+            background: #6c4b94;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-    button:hover {
-      background: #444;
-    }
+        button:hover {
+            background: #444;
+        }
 
-    button:disabled {
-      background: #999;
-      cursor: not-allowed;
-    }
+        button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
 
-    .error {
-      color: #ff6b6b;
-    }
+        .error {
+            color: #ff6b6b;
+        }
 
-    .link {
-      margin-top: 1rem;
-      text-align: center;
-    }
+        .link {
+            margin-top: 1rem;
+            text-align: center;
+        }
 
-    .link a {
-      color: #6c4b94;
-      text-decoration: none;
-    }
+        .link a {
+            color: #6c4b94;
+            text-decoration: none;
+        }
 
-    .link a:hover {
-      text-decoration: underline;
-    }
+        .link a:hover {
+            text-decoration: underline;
+        }
 
-    .success {
-      color: #4caf50;
-      margin-top: 0.5rem;
-      font-weight: bold;
-      text-align: center;
-    }
+        .success {
+            color: #4caf50;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
 
-    .social-login {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
 
-    .social-login button {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: #6c4b94;
-      color: white;
-      border-radius: 4px;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
+        .social-login button {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: #6c4b94;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
 
-    .social-login button:hover {
-      background: #444;
-    }
+        .social-login button:hover {
+            background: #444;
+        }
 
-    @media (max-width: 400px) {
-      .social-login {
-        flex-direction: column;
-      }
-    }
-  </style>
+        @media (max-width: 400px) {
+            .social-login {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <form id="signup-form">
-    <h2 style="text-align: center;">Sign Up</h2>
-    <input type="text" id="name" placeholder="Full Name" required />
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required minlength="6" />
-    <input type="password" id="confirm-password" placeholder="Confirm Password" required minlength="6" />
-    <button type="submit">Create Account</button>
-    <p class="error" id="error-msg"></p>
-    <p style="text-align: center">------------or-----------</p>
-    <div class="social-login">
-      <button id="google-login" aria-label="Login with Google">
-        <i class="fab fa-google"></i> Google
-      </button>
-      
-    </div>
-    <p class="link">Already have an account? <a href="login.html">Login</a></p>
-    <p class="success" id="success-msg"></p>
-  </form>
+    <form id="signup-form">
+        <h2 style="text-align: center;">Sign Up</h2>
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="username" placeholder="Username" required /> <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required minlength="6" />
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required minlength="6" />
+        <button type="submit">Create Account</button>
+        <p class="error" id="error-msg"></p>
+        <p style="text-align: center">------------or-----------</p>
+        <div class="social-login">
+            <button id="google-login" aria-label="Login with Google">
+                <i class="fab fa-google"></i> Google
+            </button>
+        </div>
+        <p class="link">Already have an account? <a href="login.html">Login</a></p>
+        <p class="success" id="success-msg"></p>
+    </form>
 
-  <script type="module">
-    import { auth, googleProvider, githubProvider } from './firebase.js';
-    import {
-      createUserWithEmailAndPassword,
-      updateProfile,
-      signInWithPopup
-    } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js';
+    <script>
+        const form = document.getElementById('signup-form');
+        const errorMsg = document.getElementById('error-msg');
+        const successMsg = document.getElementById('success-msg');
+        const googleLoginBtn = document.getElementById('google-login');
+        const socialLoginDivider = document.querySelector('p:nth-of-type(2)'); // This selector might be fragile
 
-    const form = document.getElementById('signup-form');
-    const errorMsg = document.getElementById('error-msg');
-    const successMsg = document.getElementById('success-msg');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.textContent = '';
+            successMsg.textContent = '';
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      errorMsg.textContent = '';
-      successMsg.textContent = '';
+            const fullName = document.getElementById('name').value.trim(); // Get Full Name
+            const username = document.getElementById('username').value.trim(); // Get Username from its dedicated input
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const signupBtn = form.querySelector('button[type="submit"]');
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
+            // Add frontend check for all fields being filled
+            if (!fullName || !username || !email || !password || !confirmPassword) {
+                errorMsg.textContent = "All fields are required.";
+                signupBtn.disabled = false; // Ensure button is re-enabled if validation fails
+                return;
+            }
 
-      if (password !== confirmPassword) {
-        errorMsg.textContent = "Passwords do not match.";
-        return;
-      }
+            if (password !== confirmPassword) {
+                errorMsg.textContent = "Passwords do not match.";
+                return;
+            }
 
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await updateProfile(auth.currentUser, { displayName: name });
-        console.log("User created:", userCredential.user);
+            try {
+                // Disable the button while the request is in progress
+                signupBtn.disabled = true;
 
-        successMsg.textContent = "Account created successfully! Please login.";
+                // Make sure your backend's /api/signup route expects 'name', 'username', 'email', 'password'
+                const res = await fetch('http://localhost:3000/api/signup', { // Assuming /api/signup is your route
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: fullName, username, email, password }), // Send all required fields
+                });
 
-        await auth.signOut();
-        setTimeout(() => {
-          window.location.href = 'login.html';
-        }, 2000);
+                const data = await res.json();
 
-      } catch (error) {
-        if (error.code === 'auth/email-already-in-use') {
-          errorMsg.textContent = "User already exists with this email.";
-        } else {
-          errorMsg.textContent = error.message;
+                if (!res.ok) {
+                    console.log(data); // Log the actual error response from the server
+                    throw new Error(data.message || 'Signup failed');
+                }
+
+                successMsg.textContent = data.message || 'Account created successfully!';
+                // Redirect to the login page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+
+            } catch (error) {
+                // This will catch network errors or JSON parsing errors
+                errorMsg.textContent = `Error: ${error.message}. Please check server status and console.`;
+                console.error('Signup error:', error);
+            } finally {
+                // Re-enable the button after the request is complete
+                signupBtn.disabled = false;
+            }
+        });
+
+        // Hide the social login buttons and the divider as they are not implemented in the backend
+        // This targets the first <p> after the form fields for the "------------or-----------" text.
+        // You might want to give this <p> an ID for more robust selection.
+        const orDivider = document.getElementById('signup-form').querySelector('p:nth-of-type(2)'); // Adjust if its position changes
+        if (googleLoginBtn && orDivider) {
+            googleLoginBtn.parentElement.style.display = 'none'; // Hide the social-login div
+            orDivider.style.display = 'none'; // Hide the "or" divider
         }
-      }
-    });
-
-    const googleLoginBtn = document.getElementById('google-login');
-    googleLoginBtn.addEventListener('click', async (e) => {
-      e.preventDefault();
-      errorMsg.textContent = '';
-      try {
-        const result = await signInWithPopup(auth, googleProvider);
-        const user = result.user;
-        successMsg.textContent = `Welcome, ${user.displayName || user.email}! Redirecting...`;
-        setTimeout(() => {
-          window.location.href = 'homepage2.html';
-        }, 2000);
-      } catch (error) {
-        errorMsg.textContent = error.message;
-      }
-    });
-
-   
-  </script>
+    </script>
 
 </body>
 </html>

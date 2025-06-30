@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swayambu Krishna Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #c6c3d2;
+            color: #e7e3e3;
+        }
+        .container{
+            width: 900px;
+            margin: auto;
+            max-width: 90vw;
+            text-align: center;
+            padding-top: 10px;
+            gap: 20px;
+            transition: transform .5s;
+        }
+        svg{
+            width: 30px;
+            fill: currentColor;
+        }
+        
+        /* Product Detail Popup Styles */
+        .product-detail-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001; /* Higher than cartTab */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .product-detail-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .product-detail-popup-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            color: #333; /* Ensure text is visible on white background */
+        }
+
+        .product-detail-popup-overlay.active .product-detail-popup-content {
+            transform: translateY(0);
+        }
+
+        .close-popup-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s ease;
+        }
+
+        .close-popup-btn:hover {
+            color: #333;
+        }
+
+        .popup-image {
+            max-width: 80%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .popup-name {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .popup-price {
+            font-size: 1.5em;
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .popup-description {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+            max-height: 150px; /* Limit description height */
+            overflow-y: auto; /* Add scroll if description is long */
+        }
+        
+        /* Styles for popup action buttons */
+        .popup-actions {
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            gap: 15px; /* Space between the two buttons */
+            margin-top: 20px; /* Space above the buttons from the description */
+        }
+
+        .addCart-popup {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .addCart-popup:hover {
+            background-color: #2980b9;
+        }
+
+        /* Styles for the new "Back to Shop" button in popup */
+        .back-to-shop-popup {
+            background-color: #1a0354; /* A distinct color (e.g., yellow/orange) */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-shop-popup:hover {
+            background-color: #e67e22; /* Darker shade on hover */
+        }
+
+        /* Optional: Blur background when popup is active */
+        body.show-popup .container,
+        body.show-popup .cartTab {
+            filter: blur(3px);
+            pointer-events: none; /* Prevent interaction with blurred elements */
+        }
+
+        /* --- UPDATED HEADER STYLES --- */
+        header {
+            width: 100%; /* Make header span full viewport width */
+            background-color: #4f4d51f8; /* Give it a background color */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+            position: sticky; /* Make it stick to the top when scrolling */
+            top: 0;
+            z-index: 100; /* Ensure it stays above other content */
+            padding: 0; /* Remove padding from here, it's now on the wrapper */
+            box-sizing: border-box; /* Include padding in width calculation */
+            display: flex; /* Make header a flex container to center its content */
+            justify-content: center; /* Center the header-content-wrapper */
+            align-items: center; /* Align wrapper vertically */
+            color: #fff;
+        }
+
+        /* Styles for the content wrapper inside header - KEY CHANGE HERE for centering */
+        .header-content-wrapper {
+            display: flex;
+            justify-content: center; /* Changed from space-between to center */
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        /* New wrapper for left-side elements */
+        .header-left-group {
+            display: flex;
+            align-items: center;
+            flex-grow: 1; /* Allows this group to grow and push center content */
+            justify-content: flex-start; /* Aligns its own content to the start */
+        }
+
+        /* Styles for the new "Back to Main Page" button in the header */
+        .back-to-main-btn {
+            text-decoration: none;
+            color: #f7fbfe; /* Blue color */
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-right: 25px; /* Space between back button and username */
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Space between arrow and text */
+        }
+
+        .back-to-main-btn:hover {
+            color: #b7c5c5;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Styles for the clickable main title link */
+        .header-main-title-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-shrink: 0; /* Prevent title from shrinking */
+            /* No flex-grow here, it should stay fixed in size */
+            color: #fff;
+        }
+
+        /* Optional: Add a subtle hover effect to the title */
+        .header-main-title-link:hover .title {
+            opacity: 0.8;
+        }
+
+        /* My Orders link and Cart Icon container */
+        .header-right-controls {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            gap: 35px; /* Slightly increased gap for more space on the right */
+            flex-grow: 1; /* Allows this group to grow and push center content */
+            justify-content: flex-end; /* Aligns its own content to the end */
+        }
+
+        #myOrdersLink {
+            text-decoration: none;
+            color: #f7fbfe;
+            font-size: 1.35em;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        #myOrdersLink:hover {
+            color: #2980b9;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        /* --- END UPDATED HEADER STYLES --- */
+
+        .icon-cart{
+            position: relative;
+            cursor: pointer;
+        }
+        .icon-cart span{
+            position: absolute;
+            background-color: #e74c3c;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 0.9em;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+        }
+        .title{
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #d5dde3;
+            /* The text-align: center here only centers text within this div,
+               not the div itself within its flex container */
+        }
+        #usernameDisplay { /* Added style for username display */
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #5baacc;
+            /* Ensure it is inline-flex or inline-block if it doesn't align well */
+            display: inline-flex; /* Changed from none to inline-flex for layout purposes */
+            align-items: center;
+            /* display: none; /* Hidden by default, shown by JS if logged in */
+        }
+        .listProduct .item img{
+            width: 90%;
+            height: 200px;
+            object-fit: cover;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+            border-radius: 10px;
+        }
+        /* --- PRODUCT GRID SPACING --- */
+        .listProduct {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px; /* Increased gap between product items */
+            padding: 40px 0; /* Increased vertical padding for the whole grid */
+        }
+
+        .listProduct .item{
+            background-color: #948484;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .listProduct .item h2{
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #34495e;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .listProduct .item .price{
+            letter-spacing: 1px;
+            font-size: 1em;
+            color: #eeecf1;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        .listProduct .item button{
+            background-color: #4a4d4d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .listProduct .item button:hover{
+            background-color: #370e43;
+        }
+
+        /* cart */
+        .cartTab{
+            width: 400px;
+            background-color: #2c3e50;
+            color: #eee;
+            position: fixed;
+            top: 0;
+            right: -400px;
+            bottom: 0;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            transition: .5s;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        body.showCart .cartTab{
+            right: 0;
+        }
+        body.showCart .container{
+            transform: translateX(0); 
+            filter: blur(2px);
+        }
+        .cartTab h1{
+            padding: 20px;
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.8em;
+            color: #bebbb3;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .cartTab .btn{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .cartTab button{
+            background-color: #646363;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            color: #fff;
+            padding: 15px 0;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .cartTab .close{
+            background-color: #464444;
+        }
+        .cartTab .close:hover{
+            background-color: #c0392b;
+        }
+        .cartTab .checkOut:hover{
+            background-color: #e67e22;
+        }
+
+        .listCart .item img{
+            width: 80%;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .listCart .item{
+            display: grid;
+            grid-template-columns: 80px 1fr 60px 80px;
+            gap: 10px;
+            text-align: center;
+            align-items: center;
+            padding: 15px 10px;
+        }
+        .listCart .item > div:not(.quantity) {
+            text-align: left;
+            padding-left: 5px;
+        }
+        .listCart .item .name{
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+        .listCart .item .totalPrice{
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .listCart .quantity span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #4a6c8e;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .listCart .quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        .listCart .quantity span:nth-child(2){
+            background-color: transparent;
+            color: #eee;
+            cursor: auto;
+            font-size: 1.2em;
+        }
+        .listCart .item:nth-child(even){
+            background-color: rgba(255,255,255,0.05);
+        }
+        .listCart{
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .listCart::-webkit-scrollbar{
+            width: 8px;
+        }
+        .listCart::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .listCart::-webkit-scrollbar-thumb {
+            background: #251905;
+            border-radius: 10px;
+        }
+        .emptyCartMessage {
+            text-align: center;
+            padding: 20px;
+            color: #bbb;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 992px) {
+            .listProduct{
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .header-content-wrapper {
+                padding: 20px 30px; /* Slightly less padding on medium screens */
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .listProduct{
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cartTab {
+                width: 100vw;
+                right: -100vw;
+            }
+            body.showCart .cartTab{
+                right: 0;
+            }
+            .header-content-wrapper {
+                padding: 15px 20px; /* More horizontal padding for smaller screens */
+            }
+            .title {
+                font-size: 1.8em; /* Make title slightly smaller to fit */
+            }
+            .header-right-controls {
+                gap: 20px; /* Adjust gap for smaller screens */
+            }
+            #myOrdersLink {
+                font-size: 1.1em;
+                padding: 8px 12px;
+            }
+            .icon-cart span {
+                width: 25px;
+                height: 25px;
+                font-size: 0.8em;
+                right: -15px;
+            }
+            /* Back to Main Page Button in header */
+            .back-to-main-btn {
+                font-size: 1em;
+                margin-right: 15px;
+            }
+            /* Adjust left/right groups for responsive */
+            .header-left-group, .header-right-controls {
+                min-width: unset; /* Allow them to shrink more */
+            }
+        }
+        @media only screen and (max-width: 480px) {
+            .listProduct{
+                grid-template-columns: 1fr;
+            }
+            .listCart .item {
+                grid-template-columns: 70px 1fr 100px;
+            }
+            .listCart .item .quantity {
+                grid-column: span 2;
+                justify-content: flex-end;
+            }
+            .listCart .item .totalPrice {
+                text-align: right;
+            }
+            /* Critical adjustments for very small screens */
+            .header-content-wrapper {
+                padding: 10px; /* Reduced to 10px on all sides for max space */
+            }
+            .title {
+                font-size: 1.3em; /* Even smaller title */
+            }
+            .header-right-controls {
+                gap: 8px; /* Further reduce gap between My Orders and cart */
+            }
+            #myOrdersLink {
+                font-size: 0.85em; /* Smaller My Orders text */
+                padding: 4px 8px; /* Smaller padding */
+            }
+            #usernameDisplay {
+                font-size: 0.85em; /* Smaller username text */
+            }
+            .back-to-main-btn {
+                font-size: 0.8em; /* Smaller back button text */
+                margin-right: 8px; /* Reduced margin to save space */
+                padding: 4px 8px; /* Smaller padding */
+            }
+            .icon-cart svg { /* Target the SVG directly */
+                width: 22px; /* Slightly smaller cart icon */
+                height: 22px;
+            }
+            .icon-cart span {
+                width: 18px; /* Smaller cart count circle */
+                height: 18px;
+                font-size: 0.65em;
+                right: -8px; /* Adjust number position closer */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content-wrapper">
+            <div class="header-left-group">
+                <a href="homepage2.html" class="back-to-main-btn">
+                    &#8592; Back
+                </a>
+                <span id="usernameDisplay"></span>
+            </div>
+
+            
+                <div class="title">Swayambu Krishna Store</div>
+            </a>
+
+            <div class="header-right-controls">
+                <a href="my-orders.html" id="myOrdersLink">My Orders</a>
+                <div class="icon-cart">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                    </svg>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="listProduct">
+        </div>
+    </div>
+
+    <div class="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart">
+            <p class="emptyCartMessage">Your cart is empty.</p>
+        </div>
+        <div class="btn">
+            <button class="close">CLOSE</button>
+            <button class="checkOut">Check Out</button>
+        </div>
+        <div class="cart-summary">
+            <p>Total Price: <span class="total">₹0</span></p>
+        </div>
+    </div>
+    
+    <div class="product-detail-popup-overlay">
+        <div class="product-detail-popup-content">
+            <span class="close-popup-btn">&times;</span>
+            <img src="" alt="Product Image" class="popup-image">
+            <h2 class="popup-name"></h2>
+            <div class="popup-price"></div>
+            <p class="popup-description"></p>
+            <div class="popup-actions">
+                <button class="addCart-popup">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

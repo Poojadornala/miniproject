@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Swayambu Krishna Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .checkout-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 700px;
+            position: relative; /* Needed for absolute positioning of back button if desired */
+        }
+        /* New style for the "Back to Shop" button */
+        .back-to-shop-btn {
+            display: inline-flex; /* Use flex to align arrow and text */
+            align-items: center;
+            gap: 5px; /* Space between arrow and text */
+            text-decoration: none;
+            color: #3498db; /* Blue color */
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 8px 15px; /* Slightly more padding for a button feel */
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-bottom: 25px; /* Space below the button */
+            border: 1px solid #3498db; /* Add a subtle border */
+            background-color: #fff; /* Ensure white background */
+        }
+
+        .back-to-shop-btn:hover {
+            color: #fff; /* White text on hover */
+            background-color: #2980b9; /* Darker blue background on hover */
+            border-color: #2980b9; /* Darker border on hover */
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+        .section-title {
+            font-size: 1.4em;
+            color: #3498db;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        .payment-methods label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .payment-methods input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Slightly larger radio buttons */
+            vertical-align: middle;
+        }
+        #onlinePaymentDetails { /* Style for the new online payment input */
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            display: none; /* Hidden by default, shown by JS */
+        }
+        #onlinePaymentDetails input {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        #payNowBtn {
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        #payNowBtn:hover {
+            background-color: #229954;
+        }
+
+        .order-summary {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            margin-bottom: 25px; /* Added margin */
+        }
+        .order-summary h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95em;
+        }
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2em;
+            font-weight: 700;
+            padding-top: 15px;
+            color: #27ae60;
+        }
+        .place-order-btn {
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .place-order-btn:hover {
+            background-color: #229954;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none; /* Hidden by default */
+        }
+
+        /* --- Modal Styles --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+        .modal-content h2 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .modal-content p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .modal-content .close-modal-btn, .modal-content .continue-shopping-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .modal-content .close-modal-btn:hover, .modal-content .continue-shopping-btn:hover {
+            background-color: #2980b9;
+        }
+        .modal-content #paymentSimulationBtn { /* Specific style for "Pay Now" in simulation */
+            background-color: #f39c12;
+            margin-top: 15px;
+        }
+        .modal-content #paymentSimulationBtn:hover {
+            background-color: #e67e22;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 1.2em;
+            }
+            .form-group input {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            .place-order-btn {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            .modal-content {
+                padding: 20px;
+            }
+            .modal-content h2 {
+                font-size: 1.5em;
+            }
+            .modal-content p {
+                font-size: 1em;
+            }
+            /* Adjust back button for smaller screens */
+            .back-to-shop-btn {
+                font-size: 0.9em;
+                padding: 6px 12px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <a href="index.html" class="back-to-shop-btn">
+            &#8592; Back to Shop
+        </a>
+
+        <h1>Checkout</h1>
+
+        <div class="order-summary">
+            <h3>Your Order Summary</h3>
+            <div id="summaryItems">
+                </div>
+            <div class="order-total">
+                <span>Total:</span>
+                <span id="summaryTotal">₹0</span>
+            </div>
+        </div>
+
+        <form id="checkoutForm">
+            <div class="section-title">Shipping Information</div>
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error-message" id="fullNameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+                <div class="error-message" id="phoneError"></div>
+            </div>
+            <div class="form-group">
+                <label for="street">Street Address:</label>
+                <input type="text" id="street" name="street" required>
+                <div class="error-message" id="streetError"></div>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+                <div class="error-message" id="cityError"></div>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+                <div class="error-message" id="stateError"></div>
+            </div>
+            <div class="form-group">
+                <label for="zipCode">Zip/Postal Code:</label>
+                <input type="text" id="zipCode" name="zipCode" required pattern="[0-9]{6}">
+                <div class="error-message" id="zipCodeError"></div>
+            </div>
+
+            <div class="section-title">Payment Method</div>
+            <div class="form-group payment-methods">
+                <label>
+                    <input type="radio" name="paymentMethod" value="Cash On Delivery" id="radioCod" checked> Cash on Delivery (COD)
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Online Payment" id="radioOnline"> Online Payment (Simulated)
+                </label>
+            </div>
+
+            <div id="onlinePaymentDetails">
+                <p style="font-size: 0.9em; color: #777;">This is a simulated payment gateway.</p>
+                <input type="text" id="upiId" placeholder="Enter UPI ID or Card Number" required>
+                <button type="button" id="payNowBtn">Pay Now</button>
+            </div>
+            <button type="submit" class="place-order-btn">Place Order</button>
+            
+        </form>
+    </div>
+
+    <div class="modal-overlay" id="orderConfirmationModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Order Placed!</h2>
+            <p id="modalMessage">Your order has been successfully placed.</p>
+            <p>Order ID: <strong id="modalOrderId"></strong></p>
+            <p>Payment Method: <span id="modalPaymentMethod"></span></p>
+            <button class="continue-shopping-btn" id="continueShoppingBtn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

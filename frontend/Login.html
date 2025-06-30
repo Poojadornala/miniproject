@@ -1,148 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    body { font-family: Arial, sans-serif; background:#1b0918; color:white; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
-    form { background:#2c1530; padding: 2rem; border-radius: 8px; width: 320px; }
-    input, button { width: 100%; padding: 10px; margin: 0.5rem 0; border-radius:4px; border:none; }
-    input { font-size: 1rem; }
-    button { background: #6c4b94; color: white; cursor: pointer; font-weight: bold; }
-    button:disabled { background: #999; cursor: not-allowed; }
-    .error { color: #ff6b6b; }
-    .link { margin-top: 1rem; text-align: center; }
-    .link a { color: #6c4b94; text-decoration:none; }
-    .link a:hover { text-decoration: underline; }
-    .social-login {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .social-login button {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: #444;
-      color: white;
-      border-radius: 4px;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-    .social-login button:hover {
-      background: #6c4b94;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+body { font-family: Arial, sans-serif; background:#1b0918; color:white; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+form { background:#2c1530; padding: 2rem; border-radius: 8px; width: 320px; }
+input, button { width: 100%; padding: 10px; margin: 0.5rem 0; border-radius:4px; border:none; }
+ input { font-size: 1rem; }
+button { background: #6c4b94; color: white; cursor: pointer; font-weight: bold; }
+button:disabled { background: #999; cursor: not-allowed; }
+.error { color: #ff6b6b; }
+.link { margin-top: 1rem; text-align: center; }
+ .link a { color: #6c4b94; text-decoration:none; }
+ .link a:hover { text-decoration: underline; }
+.social-login {
+display: flex;
+ justify-content: space-between;
+ gap: 0.5rem;
+ margin-top: 1rem;
+}
+ .social-login button {
+ flex: 1;
+display: flex;
+align-items: center;
+ justify-content: center;
+gap: 0.5rem;
+background: #444;
+color: white;
+ border-radius: 4px;
+border: none;
+padding: 10px;
+cursor: pointer;
+ font-weight: bold;
+font-size: 0.9rem;
+}
+.social-login button:hover {
+background: #6c4b94;
+}
+</style>
 </head>
 <body>
 
-  <form id="login-form">
-    <h2 style="text-align: center">Login</h2>
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required minlength="6" />
-    <button type="submit">Login</button>
-    <p class="error" id="error-msg"></p>
-    <p class="link"><a href="forgot-password.html">Forgot Password?</a></p>
-    <p style="text-align: center">------------or-----------</p>
+ <form id="login-form">
+ <h2 style="text-align: center">Login</h2>
+ <input type="email" id="email" placeholder="Email" required />
+ <input type="password" id="password" placeholder="Password" required minlength="6" />
+ <button type="submit">Login</button>
+ <p class="error" id="error-msg"></p>
+ <p class="link"><a href="forgot-password.html">Forgot Password?</a></p>
+ <p style="text-align: center">------------or-----------</p>
 
-    <div class="social-login">
-      <button id="google-login"><i class="fab fa-google"></i> Google</button>
-      
-    </div>
+ <div class="social-login">
+ <button id="google-login"><i class="fab fa-google"></i> Google</button>
+</div>
+ <p class="link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+ </form>
 
-    <p class="link">Don't have an account? <a href="signup.html">Sign Up</a></p>
-  </form>
+<script>
+ const form = document.getElementById('login-form');
+ const errorMsg = document.getElementById('error-msg');
+ const googleLoginBtn = document.getElementById('google-login');
+ const socialLoginDivider = document.querySelector('p:nth-of-type(2)');
 
-  <!-- your existing login code remains the same above -->
-<!-- Replace only the script block below -->
-<script type="module">
-  import { auth, googleProvider, githubProvider } from './firebase.js';
-  import {
-    signInWithEmailAndPassword,
-    signInWithPopup
-  } from 'https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js';
+ form.addEventListener('submit', async (e) => {
+ e.preventDefault();
+errorMsg.textContent = '';
+ const email = document.getElementById('email').value.trim();
+const password = document.getElementById('password').value;
+ const loginBtn = form.querySelector('button[type="submit"]');
+try {
+ // Disable the button while the request is in progress
+ loginBtn.disabled = true;
 
-  const form = document.getElementById('login-form');
-  const errorMsg = document.getElementById('error-msg');
+const res = await fetch('http://localhost:3000/api/login', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({ email, password }),
+});
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    errorMsg.textContent = '';
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
+const data = await res.json();
 
-    try {
-      const result = await signInWithEmailAndPassword(auth, email, password);
-      const token = await result.user.getIdToken();
+if (!res.ok) {
+ // The backend will send a 'message' field with the error description
+throw new Error(data.message || 'Login failed. Please check your credentials.');
+}
 
-      // Example review submission
-      await submitReview(token, "Guruvayur", "Amazing temple!");
+// Store the JWT token in local storage for future authenticated requests
+localStorage.setItem('authToken', data.token);
+localStorage.setItem('userId', data.userId); // Good practice to store userId too
+localStorage.setItem('email', data.email); // Good practice to store email too
+localStorage.setItem('username', data.username); // <--- ADD THIS LINE!
 
-      window.location.href = 'homepage2.html';
-    } catch (error) {
-      errorMsg.textContent = error.message;
-    }
-  });
+ // Log the token and username to the console for verification
+ console.log('Login successful! JWT Token:', data.token);
+ console.log('Logged in username:', data.username); // Add this for verification
+// Redirect to the homepage
+window.location.href = 'homepage2.html';
 
-  document.getElementById('google-login').addEventListener('click', async (e) => {
-    e.preventDefault();
-    errorMsg.textContent = '';
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const token = await result.user.getIdToken();
+} catch (error) {
+errorMsg.textContent = error.message;
+} finally {
+ // Re-enable the button after the request is complete
+ loginBtn.disabled = false;
+}
+});
 
-      // Example review submission
-      await submitReview(token, "Guruvayur", "Amazing temple via Google!");
-
-      window.location.href = 'homepage2.html';
-    } catch (error) {
-      errorMsg.textContent = error.message;
-    }
-  });
-
-  // Optional: GitHub login if you enable it
-  document.getElementById('github-login')?.addEventListener('click', async (e) => {
-    e.preventDefault();
-    errorMsg.textContent = '';
-    try {
-      const result = await signInWithPopup(auth, githubProvider);
-      const token = await result.user.getIdToken();
-
-      // Example review submission
-      await submitReview(token, "Guruvayur", "GitHub login review!");
-
-      window.location.href = 'homepage2.html';
-    } catch (error) {
-      errorMsg.textContent = error.message;
-    }
-  });
-
-  // 💡 Reusable review submission function
-  async function submitReview(token, temple, review) {
-    try {
-      const res = await fetch('http://localhost:3000/api/reviews', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ temple, review })
-      });
-      if (!res.ok) throw new Error("Review submission failed");
-    } catch (err) {
-      console.error(err.message);
-    }
-  }
+  // Hide the social login buttons and the divider as they are not implemented in the backend
+  if (googleLoginBtn) {
+    googleLoginBtn.parentElement.style.display = 'none';
+    socialLoginDivider.style.display = 'none';
+  }
 </script>
-
 
 </body>
 </html>
