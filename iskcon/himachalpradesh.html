@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HP</title>
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HIMACHAL PRADESH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">HIMACHAL PRADESH</h4>
-    <header>
+
+  <h4 align="center">HIMACHAL PRADESH</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -16,88 +70,207 @@
     <a href="#image">Image</a>
     <a href="#location">Location</a>
     <a href="#accomodation">Accommodation</a>
-    <a href="#slokam">Bhagavad Gita</a>
     <a href="krishna1.html">Back</a>
     </div>
     </div>
     </header>
-  
-    
-    <div class="container">
-        <h1 align="center">Sri Sri Radha Krishna Temple- Chaddha Colony,Kangra</h1>
-        <section id="about">
-        <p> Yalla Kunda is the highest lord krishna temple in the world situated at an altitude of 3,895 meters above sea level in the rora valley of kinnaur, himachal pradesh.</p>
-        <section id="temple">
-            <section id="Image">
-        <h1 align="center">Temple</h1>
-        <center>
-            <section id="temple">
-        <img src  ="himachalpradesh1.jpg" style="width:500px; height: 100;" >
-        </section></center>
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            Yulla kanda is located inside a holy lake which is believed to have been made by pandavas(from mahabharata- Hindu mythology) during their exite. This holy lake is said to have healing properties ; so a dip in this holy lake is believed to remove all the negativity from the mind and body. It is believed that when a traditional cap of the kinnaur region is inverted and put in the holy lake and if the cap floats across the river to the other side without getting immersed, you will be blessed with peace, joy and harmony in your life. Whereas if the cap doesn't make to the other side, it means destiny won't be on your side.
-        <h2 align="center">Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>Yulla kanda</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Himachal Pradesh</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
-       
-       
 
-        
-        <h2 align="center">Official Website</h2>
-        <section id="website">
-        <p class="center"><a class="button" href=https://kinnaurtrek.com/>click here to open official website</a></p><br>
-        <p></p>
-        
-        <h2 align="center">Accommadation</h2>
-        <section id="accommodation"></section>
-        <p class="center">for hotel booking<br<a class="button" href=https://www.agoda.com/?ds=zVSmTPmQjPLO6dBc>click here to book a room</a></p><br>.
-        <p></p>
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam"></section>
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
-        <h3 class="center">Chapter 10, Verse 42</h3>
-        <p class="center">अथवा बहुनैतेन किं ज्ञातेन तवार्जुन | <br>विष्टभ्याहमिदं कृत्स्नमेकांशेन स्थितो जगत् || 42||<br><br>atha vā bahunaitena kiṁ jñātena tavārjuna<br>viṣhṭabhyāham idaṁ kṛitsnam ekānśhena sthito jagat
+  <div class="container">
 
-        </p>
-        <center>
-
-        <audio controls>
-            
-            <source src="chapter10verse42.mp3">
-            Your browser does not support the audio element.
-        
-        </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">What need is there for all this detailed knowledge, O Arjun? Simply know that by one fraction of My being, I pervade and support this entire creation.</p>
-        <div class="info">
-            <h2>Extra Information</h2>
-            <section id="more info">
-            <p>
-                A journey to the Yulla kunda offers the best trekking experience with an enchanting view of the kinnaur mountains.
-            </p>
-            </section>
-        </div>
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
  
-                    
-      
+
+    <section id="about">
+      <h1 align="center">Radha Krishna Temple- Chaddha Colony,Kangra</h1>
+      <p>ISKCON Kangra, located in Chaddha Colony near Tehsil Chowk, is a peaceful temple dedicated to Sri Sri Radha Krishna. It serves as a spiritual hub for devotees in Himachal Pradesh, offering daily kirtans, satsangs, and Gita discourses. The temple promotes Krishna consciousness through bhakti-yoga and regularly hosts festivals like Janmashtami and Ratha Yatra. Its serene atmosphere makes it a perfect place for meditation and devotion.</p>
+    </section>
+
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"><img src="https://i.pinimg.com/originals/50/42/3a/50423aae793abea96ca71eb3401971ea.jpg" alt="Radha Krishna Temple" /></section></center>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>Established to bring ISKCON’s Krishna-consciousness to Himachal Pradesh, ISKCON Kangra began operations at Chaddha Colony near Tehsil Chowk, Kangra town. Over the years it has grown into a vibrant spiritual center, hosting daily darshans, kirtans, and Bhagavad-gita classes. The temple celebrates major festivals like Janmashtami with great fanfare, drawing devoted crowds and maintaining a serene, uplifting atmosphere.</p>
+    </section>
+
+    <h2 align="center">Festivals</h2>
+    <section id="festivals">
+      <p>Krishna Janmashtami </p>
+      <p>Radhashtami</p>
+      <p>Jhulan Purnima</p>
+      <p>Shobha Yatra/Ratha Yatra</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Chaddha Colony, Kangra</td></tr>
+        <tr><th>State</th><td>Himachal Pradesh/td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Sri Sri Radha Krishna Temple (ISKCON Kangra)</td></tr>
+      </table>
+    </section>
+
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
+
+
+    <h2 align="center">Route to Radha Krishna Temple- Chaddha Colony,Kangra</h2>
+    <div id="map"></div>
+
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
+</section>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [32.09980, 76.26910];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Radha Krishna Temple-Chaddha Colony,Kangra').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "Radha Krishna Temple Chaddha Colony,Kangra";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \${r.review.replace(//g, "\\")}\)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>haryana</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HARYANA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">HARYANA</h4>
-   <header>
+
+  <h4 align="center">HARYANA</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -16,78 +70,208 @@
     <a href="#image">Image</a>
     <a href="#location">Location</a>
     <a href="#accomodation">Accommodation</a>
-    <a href="#slokam">Bhagavad Gita</a>
     <a href="krishna1.html">Back</a>
     </div>
     </div>
     </header>
-    
-    <div class="container">
-        <h1 align="center">Sri Krishna Arjuna Mandir- Kurukshetra</h1>
-        <section id="about">
-        <p>Baba Thakur is a temple dedicated to Krishna in Karoli village of Kosli tehsil of Rewari district in Haryana state of India. "Thakur" is another name of Krishna.</p>
-</section>
-        <center>
-            <h2>Temple</h2>
-            <section id="temple">
-        <img src  ="harayana1.jpg" style="width:500px; height: auto;" >
-         </section></center>
-         
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            The temple is said to be 150 years old. In 1997, the villagers renovated the temple, the renovation took two years.</p>
-        </section>
 
-        <h2>Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>Rewari</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Haryana</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-        </table>
-        </section>
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
-        
+  <div class="container">
 
-        <h2 class="center">Accommodation</h2>
-        <section id="accommodation">
-        <p class="center">Here are the hotels available near baba takur temple. <a class="button" href=https://www.trivago.in/en-IN/srl/hotels-kudan-india?search=200-426404;addr-Baba+Thakur+Ji%2C+Temple+Rd%2C+Karoli%2C+Rewari%2C+Haryana%2C+India;coord-28.38535499572754,76.3381118774414;dr-20240304-20240305;ds-20000;so-5>Book a room</a></p>
-</section>
-        <h2 align="center">Darshan Booking</h2>
-        <section id="booking">
-        <p class="center"><a class="button" href="https://www.darshanbooking.com/?s.html">Book DARSHAN ticket</a></p><br>
-</section>
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam">
-        <h2 class="center">Chapter 9, Verse 4</h3>
-        <p class="center">मया ततमिदं सर्वं जगदव्यक्तमूर्तिना |<br>मत्स्थानि सर्वभूतानि न चाहं तेष्ववस्थित: || 4||<p1><br><br>mayā tatam idaṁ sarvaṁ jagad avyakta-mūrtinā<br>mat-sthāni sarva-bhūtāni na chāhaṁ teṣhvavasthitaḥ</p1></p>
-        <center>
-
-        <audio controls>
-            
-            <source src="chapter9verse4.mp3">
-            Your browser does not support the audio element.
-        
-        </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">This entire cosmic manifestation is pervaded by Me in My unmanifest form. All living beings dwell in Me, but I do not dwell in them.</p>
-</section>
-       
-<p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>       
-        </div>
-    </div>
  
+
+    <section id="about">
+      <h1 align="center">Sri Krishna Arjuna Mandir- Kurukshetra</h1>
+      <p> Sri Krishna Arjuna Mandir, located in Jyotisar, Kurukshetra, Haryana, is an ISKCON temple commemorating the sacred site where Lord Krishna delivered the Bhagavad Gita to Arjuna.
+Developed in a grand chariot-shaped design, the temple hosts daily worship, kirtans, and spiritual teachings, and is a prominent center for devotees and pilgrims.</p>
+    </section>
+
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"><img src="https://lh5.googleusercontent.com/p/AF1QipNP5XPDHqdGk9Lu2_y4AEUkWWCvrUhhV0X0kCo1=w1080-k-no" alt="Sri Krishna Arjuna Mandir- Kurukshetra" /></section></center>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>Sri Krishna–Arjuna Mandir in Jyotisar, Kurukshetra is an ISKCON temple built at the sacred site where Lord Krishna is believed to have spoken the Bhagavad Gita to Arjuna. Inspired by Srila Prabhupada’s 1975 visit, ISKCON acquired the land in 1996, and the temple’s foundation was laid in 2015. The temple is designed in the shape of a grand chariot and is becoming a major spiritual center.</p>
+    </section>
+
+    <h2 align="center">Festivals</h2>
+    <section id="festivals">
+      <p>Krishna Janmashtami </p>
+       <p>Gita Jayanti</p>
+       <p>Jagannath Rath Yatra</p>
+       <p>Sayana Ekadashi</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Jyotisar (Josar), Kurukshetra</td></tr>
+        <tr><th>State</th><td>Haryana</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>ISKCON Sri Krishna Arjuna Mandir</td></tr>
+      </table>
+    </section>
+
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
+
+
+    <h2 align="center">Route to Sri Krishna Arjuna Mandir- Kurukshetra </h2>
+    <div id="map"></div>
+
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
+</section>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [29.9600, 76.7694];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Sri Krishna Arjuna Mandir- Kurukshetra').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "Sri Krishna Arjuna Mandir1";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \${r.review.replace(//g, "\\")}\)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
 
 </body>
 </html>

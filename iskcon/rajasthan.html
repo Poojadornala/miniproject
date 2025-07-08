@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VRINDAVAN CHANDRODAYA TEMPLE</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAJASTHAN</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script type="module" src="scripts.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #f0f0f0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .center {
+      text-align: center;
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-    <h4 align="center">RAJASTHAN</h4>
-   <header>
+
+  <h4 align="center">RAJASTHAN</h4>
+
+  <header>
   <div class="menu-btn"></div>
     <div class="navigation">
       <div class="navigation-items">
@@ -16,124 +70,206 @@
     <a href="#image">Image</a>
     <a href="#location">Location</a>
     <a href="#accomodation">Accommodation</a>
-    <a href="#slokam">Bhagavad Gita</a>
     <a href="krishna1.html">Back</a>
     </div>
     </div>
     </header>
-    
-    <div class="container">
-        <h1 align="center">Sri Sri Giridhari Dauji Mandir- Mansarovar,Jaipur</h1>
-        <section id="about">
-        <p>The historic Govind Dev Ji temple of Gaudiya Vaishnavism tradition is situated in City Palace of Jaipur in Rajasthan, India. The temple is dedicated to Govind Dev (Krishna) and his consort Radha. The deities of the temple were brought from Vrindavan by Raja Sawai Jai Singh II, the founder of Jaipur. This Vaishnav temple is considered to be one of the most sacred and significant temple for devotees.</p>
-        </section>
-       <h1 align="center">Temple</h1>
-        <center>
-             <section id="temple">
-              <section id=""Image">
-        <img src  ="rajasthan1.jpg" style="width:500px; height: auto;">
-         </section></center>
-        <h2 align="center">History</h2>
-        <section id="History">
-        <p>
-            According to the popular legend, the image of Govind Devji is also called "Bajrakrit" because it was created by Bajranabh – The great-grandson of Krishna. Around 5,000 years ago when Bajranabh was around 13 years old, he asked his Grand mother (daughter-in-law of Krishna) as to how Krishna looked like. Then based on her description, he made three images. In first image, the feet show the resemblance with the Krishna's feet. In second image, chest area looked like Krishna's. In third image, the face showed complete resemblance with Krishna's face when he was incarnated on Earth.
 
+ <div id="google_translate_element" style="text-align: center; margin: 20px;"></div>
 
-For Vaishnavites, Sri Radha Govind Dev ji temple is one of the most important temple outside Vrindavan.
+  <div class="container">
 
-In this temple, "Aartis" and "Bhog" are offered seven times a day when the deity is unveiled for "Darshan". Thousands of devotees visit the temple daily and an even larger number visit during Janmashtami.
-        <h2 align="center">Location</h2>
-        <section id="location">
-        <table>
-            <tr>
-                <th>Location</th>
-                <td>jaipur</td>
-            </tr>
-            <tr>
-                <th>State</th>
-                <td>Rajasthan</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>India</td>
-            </tr>
-            <tr>
-                <th>deity</th>
-                <td>radha govind dev ji</td>
-            </tr>
-        </table>
-
-        
-        <h2 align="center">Timings</h2>
-        <table><section id="timing"></section> <tr>
-            <th>ARATI</th>
-            <td>TIME</td>
-        </tr>
-        <tr>
-            <th>Mangla		</th>
-            <td>4:45 to 5:15 AM</td>
-        </tr>
-        <tr>
-            <th>Dhoop</th>
-            <td>7:45 to 9:00 AM</td>
-        </tr>
-        <tr>
-            <th>Shringar		</th>
-            <td>9:30 to 10:15 AM</td>
-        </tr><tr>
-            <th>Rajbhog		</th>
-            <td>	11:00 to 11:30 AM</td>
-        </tr>
-        <tr>
-            <th>GwaL	</th>
-            <td>17:00 to 17:30 PM</td>
-        </tr>
-        <tr>
-            <th>Sandhya		</th>
-            <td>17:45 to 19:00 PM</td>
-        </tr>
-        <tr>
-            <th>Shringar		</th>
-            <td>20:00 to 20:30 PM
-            </td>
-        </tr>
-    <p align="center">
-        In Govind Devji temple, aartis are performed seven times a day. At that time devotees can have a darshan of deities Radha Govind ji.
-    </p></table>
-
-        
-        <h2 align="center">Official Website</h2>
-        <section id="website">
-        <p class="center"><a class="button" href=https://govinddevji.net/>click here to open official website</a></p><br>
-        <p></p>
-        
-        <h2 align="center">Accommadation</h2>
-        <section id="accommodation"></section>
-        <p class="center"><a class="button" href=https://www.booking.com>click here to book a room</a></p><br>
-        <p></p>
-        
-        
-        <h2 class="center">Bhagavad Gita Slokam</h2>
-        <section id="slokam"></section>
-
-        <h2 class="center">Chapter 9, Verse 29</h3>
-        <p class="center">समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रिय: |<br>ये भजन्ति तु मां भक्त्या मयि ते तेषु चाप्यहम् || 29||<br><br>samo ’haṁ sarva-bhūteṣhu na me dveṣhyo ’sti na priyaḥ<br>ye bhajanti tu māṁ bhaktyā mayi te teṣhu chāpyaham
-
-        </p>
-        <center>
-
-        <audio controls>
-            
-            <source src="chapter9verse29.mp3">
-            Your browser does not support the audio element.
-        
-        </audio>
-        </center>
-        <h2 class="center">Translation</h3>
-        <p class="center">  I am equally disposed to all living beings; I am neither inimical nor partial to anyone. But the devotees who worship Me with love reside in Me and I reside in them.</p>
-
-        <p class="center"><a class="button" href=C:\Users\hp\OneDrive\Desktop\gdsc_session\miniproject\krishna1.html>GO HOME</a></p><br>
-    </div>
  
+
+    <section id="about">
+      <h1 align="center">Sri Sri Giridhari Dauji Mandir- Manasarovar, Jaipur</h1>
+      <p>Sri Sri Giridhari Dauji Mandir, located in Mansarovar, Jaipur, is a prominent ISKCON temple inaugurated in 2019. Inspired by Srila Prabhupada’s vision, the temple features exquisite pink sandstone architecture and 52 stained-glass windows depicting Krishna’s pastimes. It is dedicated to the beautiful deities of Sri Sri Giridhari Dauji (Krishna and Balaram). The temple serves as a vibrant center for devotion, education, and cultural celebration in Rajasthan.</p>
+    </section>
+
+    <h1 align="center">Temple</h1>
+    <center><section id="Image"img src="https://www.trodly.com/pictures/attraction/5928.jpg" alt="Sri Sri Giridhari Dauji Mandir- Manasarovar, Jaipur" /></section></center>
+
+    <h2 align="center">History</h2>
+    <section id="History">
+      <p>Sri Sri Giridhari Dauji Mandir in Jaipur was envisioned by Srila Prabhupada in 1975 to establish a Krishna-Balaram temple similar to the one in Vrindavan. Construction began in the 1990s under the guidance of senior ISKCON leaders. The grand pink sandstone temple was officially inaugurated in 2018. It now stands as a major spiritual and cultural landmark in Rajasthan, attracting thousands of devotees.</p>
+    </section>
+
+    <h2 align="center">Festivals</h2>
+    <section id="festivals">
+      <p>Krishna Janmashtami</p>
+      <p>Ratha Yatra</p>
+      <p>Radhashtami</p>
+      <p>Rama Navami</p>
+    </section>
+
+    <h2 align="center">Location</h2>
+    <section id="location">
+      <table>
+        <tr><th>Location</th><td>Village Dholai, Mansarovar Extension, Jaipur</td></tr>
+        <tr><th>State</th><td>Rajasthan</td></tr>
+        <tr><th>Country</th><td>India</td></tr>
+        <tr><th>Deity</th><td>Sri Sri Giridhari Dauji (also Sri Sri Radha Madanmohan and Sri Sri Gaur Nitai)</td></tr>
+      </table>
+    </section>
+
+    <h2 align="center">Accommodation</h2>
+    <section id="accommodation">
+      <p class="center"><a class="button" href="https://www.booking.com" target="_blank" rel="noopener">Click here to book a room</a></p>
+    </section>
+
+    <h2 align="center">Route to Giridhari Dauji Mandir- Manasarovar, Jaipur </h2>
+    <div id="map"></div>
+
+    <section id="reviews" class="center">
+  <h2>Reviews</h2>
+  <div id="review-form">
+    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
+    <button id="submit-review">Submit Review</button>
+  </div>
+  <div id="review-list"></div>
+</section>
+
+  </div>
+
+  <!-- Leaflet JS & Routing plugin -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
+
+  <script>
+    const templeCoords = [26.8622934, 75.7064120];
+
+    const map = L.map('map').setView(templeCoords, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(templeCoords).addTo(map).bindPopup('Giridhari Dauji Mandir').openPopup();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const userCoords = [position.coords.latitude, position.coords.longitude];
+
+        L.marker(userCoords).addTo(map).bindPopup("You are here").openPopup();
+
+        const control = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(templeCoords)
+          ],
+          routeWhileDragging: false,
+          createMarker: function() { return null; },
+          show: false,
+          addWaypoints: false,
+          draggableWaypoints: false,
+          fitSelectedRoutes: true,
+          showAlternatives: false,
+        }).addTo(map);
+
+        control.on('routesfound', function(e) {
+          const summary = e.routes[0].summary;
+          const distanceInKm = (summary.totalDistance / 1000).toFixed(2);
+          const timeInMin = Math.round(summary.totalTime / 60);
+
+          L.popup()
+            .setLatLng(templeCoords)
+             .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+            .openOn(map);
+
+          if (control._routes?.[0]?.line) {
+            control._routes[0].line.setStyle({
+              color: 'blue',
+              weight: 5,
+              opacity: 0.8
+            });
+          }
+        });
+
+      }, function () {
+        alert("Location permission denied.");
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+  <script type="module">
+import { auth, db } from './firebase.js';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const templeId = "rajasthan563";
+const reviewList = document.getElementById('review-list');
+const reviewInput = document.getElementById('review-text');
+const submitBtn = document.getElementById('submit-review');
+let currentUser;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("✅ Logged in as:", user.email);
+    loadReviews();
+  } else {
+    alert("⚠️ Please log in to view/post reviews.");
+  }
+});
+
+async function loadReviews() {
+  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
+  const snapshot = await getDocs(q);
+  reviewList.innerHTML = "";
+  snapshot.forEach(docSnap => {
+    const r = docSnap.data();
+    const reviewHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <strong>${r.name}</strong><br>
+        <p>${r.review}</p>
+        ${r.uid === currentUser?.uid ? `
+          <button onclick="editReview('${docSnap.id}', \${r.review.replace(//g, "\\")}\)">Edit</button>
+          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
+        ` : ''}
+      </div>
+    `;
+    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
+  });
+}
+
+submitBtn.addEventListener('click', async () => {
+  const text = reviewInput.value.trim();
+  if (!text || !currentUser) return alert("Please write a review and log in.");
+  await addDoc(collection(db, "reviews"), {
+    temple: templeId,
+    uid: currentUser.uid,
+    name: currentUser.displayName || currentUser.email,
+    review: text,
+    createdAt: Date.now()
+  });
+  reviewInput.value = '';
+  loadReviews();
+});
+
+window.editReview = async (id, oldText) => {
+  const newText = prompt("Edit your review:", oldText);
+  if (!newText) return;
+  await updateDoc(doc(db, "reviews", id), {
+    review: newText
+  });
+  loadReviews();
+};
+
+window.deleteReview = async (id) => {
+  if (!confirm("Delete this review?")) return;
+  await deleteDoc(doc(db, "reviews", id));
+  loadReviews();
+};
+</script>
+
 </body>
 </html>

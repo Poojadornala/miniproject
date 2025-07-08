@@ -6,14 +6,13 @@
   <title>ANDHRA PRADESH</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <script type="module" src="scripts.js"></script>
+  
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
-
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</head>
+<script src="scripts.js" defer></script> main
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></head>
   <style>
     #map {
       height: 400px;
@@ -70,8 +69,7 @@
     <a href="#image">Image</a>
     <a href="#location">Location</a>
     <a href="#accomodation">Accommodation</a>
-    <a href="#slokam">Bhagavad Gita</a>
-    <a href="krishna1.html">Back</a>
+    <a href="andhra.html">Back</a>
     </div>
     </div>
     </header>
@@ -90,6 +88,9 @@
     <h1 align="center">Temple</h1>
 
     <center><section id="Image"><img src="https://centers.iskcondesiretree.com/wp-content/uploads/2011/06/Iskcon-Rajahmundry-Sri-Sri-Radha-Gopinath.jpg" alt="Gopinath Dasavathara Temple" /></section></center>
+=======
+
+>>>>>>> 23d814382307a87228d85a166c813f4e9d4060dd
 
     <h2 align="center">History</h2>
     <section id="History">
@@ -121,14 +122,7 @@
 
     <h2 align="center">Route to Radha Gopinath Dasavatara Mandir -Rajahmundry</h2>
     <div id="map"></div>
-<section id="reviews" class="center">
-  <h2>Reviews</h2>
-  <div id="review-form">
-    <textarea id="review-text" rows="4" cols="50" placeholder="Write your review..." required></textarea><br>
-    <button id="submit-review">Submit Review</button>
-  </div>
-  <div id="review-list"></div>
-</section>
+
     
 
   </div>
@@ -140,14 +134,13 @@
   <script>
     const templeCoords = [16.9903, 81.7753];
 
-
     const map = L.map('map').setView(templeCoords, 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker(templeCoords).addTo(map).bindPopup('Panduranga Swamy Temple').openPopup();
+    L.marker(templeCoords).addTo(map).bindPopup('Radha Gopinath Dasavatara Mandir').openPopup();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -195,84 +188,5 @@
       alert("Geolocation is not supported by your browser.");
     }
   </script>
-  <script type="module">
-import { auth, db } from './firebase.js';
-import {
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  where,
-  deleteDoc,
-  updateDoc,
-  doc
-} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
-
-const templeId = "panduranga swamy";
-const reviewList = document.getElementById('review-list');
-const reviewInput = document.getElementById('review-text');
-const submitBtn = document.getElementById('submit-review');
-let currentUser;
-
-auth.onAuthStateChanged(user => {
-  currentUser = user;
-  if (user) {
-    console.log("✅ Logged in as:", user.email);
-    loadReviews();
-  } else {
-    alert("⚠️ Please log in to view/post reviews.");
-  }
-});
-
-async function loadReviews() {
-  const q = query(collection(db, "reviews"), where("temple", "==", templeId));
-  const snapshot = await getDocs(q);
-  reviewList.innerHTML = "";
-  snapshot.forEach(docSnap => {
-    const r = docSnap.data();
-    const reviewHTML = `
-      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
-        <strong>${r.name}</strong><br>
-        <p>${r.review}</p>
-        ${r.uid === currentUser?.uid ? `
-          <button onclick="editReview('${docSnap.id}', \`${r.review.replace(/`/g, "\\`")}\`)">Edit</button>
-          <button onclick="deleteReview('${docSnap.id}')">Delete</button>
-        ` : ''}
-      </div>
-    `;
-    reviewList.insertAdjacentHTML('beforeend', reviewHTML);
-  });
-}
-
-submitBtn.addEventListener('click', async () => {
-  const text = reviewInput.value.trim();
-  if (!text || !currentUser) return alert("Please write a review and log in.");
-  await addDoc(collection(db, "reviews"), {
-    temple: templeId,
-    uid: currentUser.uid,
-    name: currentUser.displayName || currentUser.email,
-    review: text,
-    createdAt: Date.now()
-  });
-  reviewInput.value = '';
-  loadReviews();
-});
-
-window.editReview = async (id, oldText) => {
-  const newText = prompt("Edit your review:", oldText);
-  if (!newText) return;
-  await updateDoc(doc(db, "reviews", id), {
-    review: newText
-  });
-  loadReviews();
-};
-
-window.deleteReview = async (id) => {
-  if (!confirm("Delete this review?")) return;
-  await deleteDoc(doc(db, "reviews", id));
-  loadReviews();
-};
-</script>
-
 </body>
 </html>

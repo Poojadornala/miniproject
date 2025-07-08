@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ANDHRA PRADESH</title>
+  <title>DELHI</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <script type="module" src="scripts.js"></script>
@@ -70,7 +70,6 @@
     <a href="#image">Image</a>
     <a href="#location">Location</a>
     <a href="#accomodation">Accommodation</a>
-    <a href="#slokam">Bhagavad Gita</a>
     <a href="krishna1.html">Back</a>
     </div>
     </div>
@@ -106,10 +105,10 @@
     <h2 align="center">Location</h2>
     <section id="location">
       <table>
-        <tr><th>Location</th><td>Chilakalapudi, Machilipatnam</td></tr>
-        <tr><th>State</th><td>Andhra Pradesh</td></tr>
+        <tr><th>Location</th><td>Hare Krishna Hills, East of Kailash, New Delhi</td></tr>
+        <tr><th>State</th><td>Delhi</td></tr>
         <tr><th>Country</th><td>India</td></tr>
-        <tr><th>Deity</th><td>Panduranga Swamy</td></tr>
+        <tr><th>Deity</th><td>Radha Parthasarathi</td></tr>
       </table>
     </section>
 
@@ -136,7 +135,7 @@
   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.min.js"></script>
 
   <script>
-    const templeCoords = [28.55615,77.25383];
+    const templeCoords = [28.55616,77.25383];
 
     const map = L.map('map').setView(templeCoords, 13);
 
@@ -173,7 +172,7 @@
 
           L.popup()
             .setLatLng(templeCoords)
-            .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
+             .setContent(`Distance: ${distanceInKm} km<br>Estimated time: ${timeInMin} minutes`)
 
             .openOn(map);
 
@@ -206,7 +205,7 @@ import {
   doc
 } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
-const templeId = "panduranga swamy";
+const templeId = "Radha Parthasarathi Mandir";
 const reviewList = document.getElementById('review-list');
 const reviewInput = document.getElementById('review-text');
 const submitBtn = document.getElementById('submit-review');
