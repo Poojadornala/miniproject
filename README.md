@@ -48,6 +48,21 @@ A geospatial, AI-powered full-stack web platform for discovering and connecting 
 - MongoDB (NoSQL)
 
 ---
+🚀 How to Run Locally
+# 1. Clone the repository
+git clone https://github.com/your-username/krishna-temples.git
+
+# 2. Navigate into the directory
+cd krishna-temples
+
+# 3. Install backend dependencies
+cd backend
+npm install
+
+# 4. Run the backend
+node server.js
+
+# 5. Open frontend/index.html in your browser
 
 ## 📂 Folder Structure
 
